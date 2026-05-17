@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" href="images/favicon.png">
 
@@ -14,16 +10,16 @@
 
 <style>
 :root {
-    --bg: #1F0B09;
-    --bg-deep: #120504;
-    --bg-warm: #31110D;
+    --bg: #2B0906;
+    --bg-deep: #1f0503;
+    --bg-warm: #3a0d09;
 
-    --text: #E8D7C5;
-    --text-soft: rgba(232, 215, 197, 0.72);
+    --text: #F4E6D7;
+    --text-soft: rgba(244, 230, 215, 0.76);
 
-    --accent: #CDAA92;
+    --accent: #D6B39F;
 
-    --line: rgba(232, 215, 197, 0.14);
+    --line: rgba(244, 230, 215, 0.16);
 }
 
 * {
@@ -36,14 +32,11 @@ body {
     min-height: 100%;
 }
 
-/* BODY */
-
 body {
     font-family: "Baskerville", "Times New Roman", serif;
     color: var(--text);
 
     min-height: 100vh;
-    min-height: 100dvh;
 
     display: flex;
     flex-direction: column;
@@ -59,9 +52,6 @@ body {
     overflow-x: hidden;
 
     position: relative;
-
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* SUBTLE PAPER GRAIN */
@@ -74,7 +64,7 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.03;
+    opacity: 0.045;
 
     background-image:
         url("https://www.transparenttextures.com/patterns/asfalt-light.png");
@@ -85,7 +75,7 @@ body::before {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 
     padding: 28px 64px 22px;
 
@@ -118,9 +108,9 @@ body::before {
 }
 
 .title {
-    font-size: 1.72rem;
+    font-size: 2rem;
 
-    letter-spacing: 0.25px;
+    letter-spacing: 0.3px;
 
     color: var(--text);
 
@@ -143,8 +133,6 @@ body::before {
     flex-shrink: 1;
 
     white-space: nowrap;
-
-    padding-bottom: 4px;
 }
 
 .nav a {
@@ -212,7 +200,7 @@ main {
 
     text-align: center;
 
-    letter-spacing: 0.1px;
+    letter-spacing: 0.15px;
 
     color: var(--text);
 
@@ -265,7 +253,7 @@ main {
     position: fixed;
     inset: 0;
 
-    background-color: #E6D4C7;
+    background-color: #F3E2D6;
 
     z-index: 1000;
 
@@ -282,9 +270,6 @@ main {
     transition:
         opacity 0.35s ease,
         visibility 0.35s ease;
-
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
 }
 
 .mobile-menu.show {
@@ -296,7 +281,7 @@ main {
 .mobile-menu-header {
     position: absolute;
 
-    top: calc(32px + env(safe-area-inset-top));
+    top: 32px;
     right: 22px;
 }
 
@@ -374,7 +359,7 @@ a:focus-visible {
     }
 
     .title {
-        font-size: 1.4rem;
+        font-size: 1.55rem;
     }
 
     .nav {
@@ -399,10 +384,7 @@ a:focus-visible {
 @media (max-width: 760px) {
 
     .header {
-        padding:
-            calc(18px + env(safe-area-inset-top))
-            22px
-            18px;
+        padding: 18px 22px 18px;
 
         align-items: center;
     }
@@ -420,7 +402,7 @@ a:focus-visible {
     }
 
     .title {
-        font-size: 1.15rem;
+        font-size: 1.3rem;
     }
 
     .title-wrapper img {
@@ -443,7 +425,7 @@ a:focus-visible {
         padding:
             60px
             20px
-            calc(100px + env(safe-area-inset-bottom));
+            100px;
     }
 }
 </style>

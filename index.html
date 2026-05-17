@@ -33,13 +33,18 @@ body {
 }
 
 body {
-    font-family: "Baskerville", "Times New Roman", serif;
-    color: var(--text);
-
     min-height: 100vh;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+
+    grid-template-rows:
+        auto
+        auto
+        1fr;
+
+    font-family: "Baskerville", "Times New Roman", serif;
+
+    color: var(--text);
 
     background:
         radial-gradient(
@@ -176,13 +181,12 @@ body::before {
 /* MAIN */
 
 main {
-    flex: 1;
-
     display: flex;
+
     align-items: center;
     justify-content: center;
 
-    padding: 40px 24px;
+    padding: 24px;
 
     position: relative;
     z-index: 2;
@@ -421,7 +425,7 @@ a:focus-visible {
     }
 
     main {
-        padding: 40px 20px;
+        padding: 24px 20px;
     }
 }
 </style>

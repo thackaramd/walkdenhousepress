@@ -27,29 +27,43 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 34px 60px 18px 60px;
     gap: 20px;
 }
 
-/* TITLE + LOGO */
-.title-wrapper {
+/* BRAND */
+.brand {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    width: 100%;
 }
 
-.title-wrapper img {
+/* LOGO */
+.brand img {
     width: 64px;
     height: auto;
+    margin-bottom: 14px;
 }
 
+/* TITLE + NAV */
+.title-row {
+    display: flex;
+    align-items: baseline;
+    gap: 42px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* TITLE */
 .title {
     font-size: 28px;
     letter-spacing: 0.2px;
+    white-space: nowrap;
 }
 
+/* NAV */
 .nav {
     display: flex;
     gap: 25px;
@@ -157,8 +171,13 @@ main {
     background-color: var(--bg);
 }
 
-.close-icon::before { transform: rotate(45deg); }
-.close-icon::after { transform: rotate(-45deg); }
+.close-icon::before {
+    transform: rotate(45deg);
+}
+
+.close-icon::after {
+    transform: rotate(-45deg);
+}
 
 .mobile-menu nav {
     display: flex;
@@ -181,8 +200,15 @@ a:focus-visible {
 
 /* RESPONSIVE */
 @media (max-width: 850px) {
+
     .header {
         padding: 28px 20px 16px 20px;
+        align-items: center;
+    }
+
+    .title-row {
+        flex-direction: column;
+        gap: 10px;
     }
 
     .nav {
@@ -195,9 +221,10 @@ a:focus-visible {
 
     .title {
         font-size: 20px;
+        text-align: center;
     }
 
-    .title-wrapper img {
+    .brand img {
         width: 52px;
     }
 
@@ -213,17 +240,34 @@ a:focus-visible {
 
 <header class="header">
 
-    <div class="title-wrapper">
-        <img src="images/colophon.png" alt="Walkden House Press logo">
-        <div class="title">Walkden House Press</div>
-    </div>
+    <div class="brand">
 
-    <nav class="nav">
-        <a href="#">About</a>
-        <a href="https://theparlour.org.uk" class="italic" target="_blank" rel="noopener">The Parlour</a>
-        <a href="#">Common Room</a>
-        <a href="#">Contact</a>
-    </nav>
+        <img src="images/colophon.png" alt="Walkden House Press logo">
+
+        <div class="title-row">
+
+            <div class="title">
+                Walkden House Press
+            </div>
+
+            <nav class="nav">
+                <a href="#">About</a>
+
+                <a href="https://theparlour.org.uk"
+                   class="italic"
+                   target="_blank"
+                   rel="noopener">
+                   The Parlour
+                </a>
+
+                <a href="#">Common Room</a>
+
+                <a href="#">Contact</a>
+            </nav>
+
+        </div>
+
+    </div>
 
     <div class="hamburger" onclick="toggleMenu()">
         <div></div>
@@ -236,12 +280,18 @@ a:focus-visible {
 <div class="line"></div>
 
 <main>
+
     <div class="quote">
-        Walkden House Press is the publishing house behind The Parlour and Common Room, developing literary and educational projects grounded in attention, voice, and lived writing.
+        Walkden House Press is the publishing house behind
+        The Parlour and Common Room, developing literary and
+        educational projects grounded in attention, voice,
+        and lived writing.
     </div>
+
 </main>
 
 <!-- MOBILE MENU -->
+
 <div class="mobile-menu" id="mobileMenu">
 
     <div class="mobile-menu-header">
@@ -250,8 +300,16 @@ a:focus-visible {
 
     <nav>
         <a href="#">About</a>
-        <a href="https://theparlour.org.uk" class="italic" target="_blank" rel="noopener">The Parlour</a>
+
+        <a href="https://theparlour.org.uk"
+           class="italic"
+           target="_blank"
+           rel="noopener">
+           The Parlour
+        </a>
+
         <a href="#">Common Room</a>
+
         <a href="#">Contact</a>
     </nav>
 

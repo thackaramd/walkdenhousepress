@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 
-<!-- UPDATED VIEWPORT -->
+<!-- IMPORTANT -->
 <meta
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -31,24 +32,12 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    margin: 0;
+/* KEY FIX */
+
+html {
     min-height: 100%;
-}
 
-/* BODY */
-
-body {
-    font-family: "Baskerville", "Times New Roman", serif;
-    color: var(--text);
-
-    /* MODERN FULL HEIGHT FIX */
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    display: flex;
-    flex-direction: column;
+    color-scheme: dark;
 
     background:
         radial-gradient(
@@ -58,11 +47,28 @@ body {
             var(--bg-deep) 100%
         );
 
+    background-attachment: fixed;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    font-family: "Baskerville", "Times New Roman", serif;
+
+    color: var(--text);
+
+    display: flex;
+    flex-direction: column;
+
     overflow-x: hidden;
 
     position: relative;
 
-    /* SAFE AREAS FOR iPHONE */
+    background: transparent;
+
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
 }
@@ -286,7 +292,6 @@ main {
         opacity 0.35s ease,
         visibility 0.35s ease;
 
-    /* SAFE AREAS */
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
 }

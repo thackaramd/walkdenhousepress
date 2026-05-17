@@ -28,7 +28,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 34px 60px 18px 60px;
+
+    /* REDUCED TOP PADDING */
+    padding: 12px 60px 18px 60px;
+
     gap: 20px;
 }
 
@@ -43,6 +46,9 @@ body {
 .title-wrapper img {
     width: 64px;
     height: auto;
+
+    /* REMOVES EXTRA INLINE IMAGE SPACE */
+    display: block;
 }
 
 .title {
@@ -190,7 +196,10 @@ a:focus-visible {
 @media (max-width: 850px) {
 
     .header {
-        padding: 28px 20px 16px 20px;
+
+        /* REDUCED MOBILE TOP PADDING */
+        padding: 10px 20px 16px 20px;
+
         align-items: center;
     }
 

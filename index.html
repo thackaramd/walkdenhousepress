@@ -17,16 +17,14 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center; /* FIX: was baseline */
+    align-items: center;
     padding: 35px 60px 20px 60px;
 }
 
-/* Title */
 .title {
     font-size: 28px;
 }
 
-/* Desktop nav */
 .nav {
     display: flex;
     gap: 25px;
@@ -87,35 +85,43 @@ body {
     background-color: #FBE8D6;
 }
 
-/* Mobile menu */
+/* =========================
+   MOBILE MENU (FIXED)
+   ========================= */
+
+/* Base state (hidden but animatable) */
 .mobile-menu {
-    display: none;
     position: fixed;
     inset: 0;
     background-color: #FBE8D6;
+    z-index: 1000;
+
+    display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 1000;
+    justify-content: center;
+
     opacity: 0;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.35s ease, visibility 0.35s ease;
 }
 
+/* Visible state */
 .mobile-menu.show {
-    display: flex;
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
-/* NEW: mobile menu top bar */
+/* Top-right close button (aligned like hamburger) */
 .mobile-menu-header {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 35px 20px 20px 20px; /* mirrors main header spacing */
-    box-sizing: border-box;
+    position: absolute;
+    top: 35px;
+    right: 20px;
 }
 
-/* FIX: X now behaves like a flex item, not absolute */
 .close-icon {
     width: 22px;
     height: 22px;
@@ -134,20 +140,21 @@ body {
     background-color: #2B0906;
 }
 
-.close-icon::before {
-    transform: rotate(45deg);
+.close-icon::before { transform: rotate(45deg); }
+.close-icon::after { transform: rotate(-45deg); }
+
+/* MENU LINKS (now perfectly centered block) */
+.mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
 }
 
-.close-icon::after {
-    transform: rotate(-45deg);
-}
-
-/* Mobile links */
 .mobile-menu a {
     color: #2B0906;
     text-decoration: none;
     font-size: 20px;
-    margin: 16px 0;
 }
 
 /* Responsive */
@@ -203,17 +210,20 @@ body {
     </div>
 </div>
 
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
 
-    <!-- NEW aligned header row -->
     <div class="mobile-menu-header">
         <div class="close-icon" onclick="toggleMenu()"></div>
     </div>
 
-    <a href="#">About</a>
-    <a href="https://theparlour.org.uk" class="italic" target="_blank" rel="noopener">The Parlour</a>
-    <a href="#">Common Room</a>
-    <a href="#">Contact</a>
+    <nav>
+        <a href="#">About</a>
+        <a href="https://theparlour.org.uk" class="italic" target="_blank" rel="noopener">The Parlour</a>
+        <a href="#">Common Room</a>
+        <a href="#">Contact</a>
+    </nav>
+
 </div>
 
 <script>

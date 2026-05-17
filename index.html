@@ -10,9 +10,9 @@
 
 <style>
 :root {
-    --bg: #2B0906;
-    --bg-deep: #1f0503;
-    --bg-warm: #3a0d09;
+    --bg: #220705;
+    --bg-deep: #140302;
+    --bg-warm: #300906;
 
     --text: #F4E6D7;
     --text-soft: rgba(244, 230, 215, 0.76);
@@ -45,7 +45,8 @@ body {
         radial-gradient(
             circle at top,
             var(--bg-warm) 0%,
-            var(--bg) 42%,
+            #1c0604 32%,
+            var(--bg) 55%,
             var(--bg-deep) 100%
         );
 
@@ -75,14 +76,24 @@ body::before {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 
     padding: 28px 64px 22px;
 
-    gap: 32px;
+    gap: 40px;
 
     position: relative;
     z-index: 2;
+}
+
+/* BRAND + NAV ROW */
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+
+    min-width: 0;
 }
 
 /* BRAND */
@@ -114,8 +125,6 @@ body::before {
 
     color: var(--text);
 
-    transform: translateY(1px);
-
     white-space: nowrap;
 }
 
@@ -123,18 +132,15 @@ body::before {
 
 .nav {
     display: flex;
+    align-items: center;
 
     gap: 32px;
 
-    font-size: 1.15rem;
+    font-size: 1.08rem;
 
-    letter-spacing: 0.35px;
-
-    flex-shrink: 1;
+    letter-spacing: 0.3px;
 
     white-space: nowrap;
-
-    padding-bottom: 4px;
 }
 
 .nav a {
@@ -352,6 +358,10 @@ a:focus-visible {
         gap: 20px;
     }
 
+    .header-left {
+        gap: 28px;
+    }
+
     .title-wrapper {
         gap: 14px;
     }
@@ -367,7 +377,7 @@ a:focus-visible {
     .nav {
         gap: 22px;
 
-        font-size: 1rem;
+        font-size: 0.98rem;
 
         letter-spacing: 0.2px;
     }
@@ -389,6 +399,11 @@ a:focus-visible {
         padding: 18px 22px 18px;
 
         align-items: center;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .nav {
@@ -437,42 +452,46 @@ a:focus-visible {
 
 <header class="header">
 
-    <div class="title-wrapper" aria-label="Walkden House Press">
+    <div class="header-left">
 
-        <img
-            src="images/colophon.png"
-            alt="Walkden House Press logo"
-        >
+        <div class="title-wrapper" aria-label="Walkden House Press">
 
-        <div class="title">
-            Walkden House Press
+            <img
+                src="images/colophon.png"
+                alt="Walkden House Press logo"
+            >
+
+            <div class="title">
+                Walkden House Press
+            </div>
+
         </div>
 
+        <nav class="nav">
+
+            <a href="#">
+                About
+            </a>
+
+            <a
+                href="https://theparlour.org.uk"
+                target="_blank"
+                rel="noopener"
+            >
+                The Parlour
+            </a>
+
+            <a href="#">
+                Common Room
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </nav>
+
     </div>
-
-    <nav class="nav">
-
-        <a href="#">
-            About
-        </a>
-
-        <a
-            href="https://theparlour.org.uk"
-            target="_blank"
-            rel="noopener"
-        >
-            The Parlour
-        </a>
-
-        <a href="#">
-            Common Room
-        </a>
-
-        <a href="#">
-            Contact
-        </a>
-
-    </nav>
 
     <div
         class="hamburger"

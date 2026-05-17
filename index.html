@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 
-<!-- IMPORTANT -->
 <meta
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
@@ -16,28 +14,39 @@
 
 <style>
 :root {
-    --bg: #2B0906;
-    --bg-deep: #1f0503;
-    --bg-warm: #3a0d09;
+    --bg: #1F0B09;
+    --bg-deep: #120504;
+    --bg-warm: #31110D;
 
-    --text: #F4E6D7;
-    --text-soft: rgba(244, 230, 215, 0.76);
+    --text: #E8D7C5;
+    --text-soft: rgba(232, 215, 197, 0.72);
 
-    --accent: #D6B39F;
+    --accent: #CDAA92;
 
-    --line: rgba(244, 230, 215, 0.16);
+    --line: rgba(232, 215, 197, 0.14);
 }
 
 * {
     box-sizing: border-box;
 }
 
-/* KEY FIX */
-
-html {
+html,
+body {
+    margin: 0;
     min-height: 100%;
+}
 
-    color-scheme: dark;
+/* BODY */
+
+body {
+    font-family: "Baskerville", "Times New Roman", serif;
+    color: var(--text);
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
 
     background:
         radial-gradient(
@@ -47,27 +56,9 @@ html {
             var(--bg-deep) 100%
         );
 
-    background-attachment: fixed;
-}
-
-body {
-    margin: 0;
-
-    min-height: 100vh;
-    min-height: 100dvh;
-
-    font-family: "Baskerville", "Times New Roman", serif;
-
-    color: var(--text);
-
-    display: flex;
-    flex-direction: column;
-
     overflow-x: hidden;
 
     position: relative;
-
-    background: transparent;
 
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
@@ -83,7 +74,7 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.045;
+    opacity: 0.03;
 
     background-image:
         url("https://www.transparenttextures.com/patterns/asfalt-light.png");
@@ -221,7 +212,7 @@ main {
 
     text-align: center;
 
-    letter-spacing: 0.15px;
+    letter-spacing: 0.1px;
 
     color: var(--text);
 
@@ -274,7 +265,7 @@ main {
     position: fixed;
     inset: 0;
 
-    background-color: #F3E2D6;
+    background-color: #E6D4C7;
 
     z-index: 1000;
 

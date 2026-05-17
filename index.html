@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Walkden House Press</title>
+
+<!-- Prata Font -->
+<link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background-color: #601611;
+    font-family: 'Prata', serif;
+    color: #FFF0E1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline; /* align nav and title on same line */
+    padding: 35px 60px 20px 60px;
+    transition: padding 0.3s ease;
+}
+
+.title {
+    font-size: 28px;
+    transition: font-size 0.3s ease;
+}
+
+/* Desktop navigation */
+.nav {
+    display: flex;
+    gap: 25px;
+    font-size: 16px;
+    margin-top: 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #43554F;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #000;
+}
+
+.nav a.italic {
+    font-style: italic;
+}
+
+/* Line under header */
+.line {
+    height: 1px;
+    background-color: #43554F;
+    width: 100%;
+}
+
+/* Centered quote */
+.quote-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* mostly centered */
+    height: calc(100vh - 76px);
+    padding: 0 20px;
+    text-align: center;
+    margin-top: -30px; /* slight nudge upward */
+}
+
+.quote {
+    font-size: 14px;
+    font-style: italic;
+    max-width: 600px;
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 20px; 
+    height: 16px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 100%;
+    height: 1.5px;
+    background-color: #43554F;
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1B1B2F;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.mobile-menu.show {
+    display: flex;
+    opacity: 1;
+}
+
+.mobile-menu a {
+    color: #F7E4D3;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 16px 0;
+}
+
+.mobile-menu a.italic {
+    font-style: italic;
+}
+
+/* Close icon (top-right) */
+.close-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 32px;
+    color: #F7E4D3;
+    cursor: pointer;
+}
+
+/* Responsive adjustments: trigger hamburger sooner */
+@media (max-width: 850px) {
+    .header {
+        padding: 35px 20px 20px 20px;
+        align-items: center; /* revert to center on mobile */
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .quote {
+        font-size: 12px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="title">Walkden House Press</div>
+
+    <!-- Desktop nav -->
+    <div class="nav">
+        <a href="#">About</a>
+        <a href="#" class="italic">The Parlour</a>
+        <a href="#" class="italic">Common Room</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <!-- Hamburger -->
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+
+<div class="line"></div>
+
+<div class="quote-container">
+    <div class="quote">
+        Walkden House Press is the publishing house behind The Parlour and Common Room, developing literary and educational projects grounded in attention, voice, and lived writing.
+    </div>
+</div>
+
+<!-- Mobile overlay menu -->
+<div class="mobile-menu" id="mobileMenu">
+    <div class="close-icon" onclick="toggleMenu()">×</div>
+    <a href="#">About</a>
+    <a href="#" class="italic">The Parlour</a>
+    <a href="#" class="italic">Common Room</a>
+    <a href="mailto:contact@maxthackara.uk">Contact</a>
+</div>
+
+<script>
+function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('show');
+}
+</script>
+
+</body>
+</html>

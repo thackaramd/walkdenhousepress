@@ -27,26 +27,14 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 35px 60px 18px 60px;
+    align-items: center;
+    padding: 34px 60px 18px 60px;
     gap: 20px;
-}
-
-.brand {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
 }
 
 .title {
     font-size: 28px;
     letter-spacing: 0.2px;
-}
-
-.subtitle {
-    font-size: 13px;
-    color: var(--text-soft);
-    letter-spacing: 0.3px;
 }
 
 .nav {
@@ -69,14 +57,14 @@ body {
     font-style: italic;
 }
 
-/* LINE */
+/* DIVIDER */
 .line {
     height: 1px;
     background-color: rgba(251, 232, 214, 0.35);
     width: 100%;
 }
 
-/* MAIN CONTENT */
+/* MAIN */
 main {
     flex: 1;
     display: flex;
@@ -86,11 +74,10 @@ main {
 }
 
 .quote {
-    max-width: 620px;
+    max-width: 640px;
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.65;
     text-align: center;
-    color: var(--text);
 }
 
 /* HAMBURGER */
@@ -173,7 +160,7 @@ main {
     font-size: 20px;
 }
 
-/* FOCUS STATES */
+/* ACCESSIBILITY */
 a:focus-visible {
     outline: 1px solid var(--accent);
     outline-offset: 4px;
@@ -183,7 +170,6 @@ a:focus-visible {
 @media (max-width: 850px) {
     .header {
         padding: 28px 20px 16px 20px;
-        align-items: center;
     }
 
     .nav {
@@ -210,10 +196,7 @@ a:focus-visible {
 
 <header class="header">
 
-    <div class="brand">
-        <div class="title">Walkden House Press</div>
-        <div class="subtitle">Literary & educational publishing</div>
-    </div>
+    <div class="title">Walkden House Press</div>
 
     <nav class="nav">
         <a href="#">About</a>

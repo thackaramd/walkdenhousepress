@@ -10,16 +10,17 @@
 
 <style>
 :root {
-    --bg: #220705;
+    /* DARKENED PALETTE */
+    --bg: #210705;
     --bg-deep: #140302;
-    --bg-warm: #300906;
+    --bg-warm: #2d0906;
 
     --text: #F4E6D7;
-    --text-soft: rgba(244, 230, 215, 0.76);
+    --text-soft: rgba(244, 230, 215, 0.74);
 
     --accent: #D6B39F;
 
-    --line: rgba(244, 230, 215, 0.16);
+    --line: rgba(244, 230, 215, 0.14);
 }
 
 * {
@@ -45,8 +46,7 @@ body {
         radial-gradient(
             circle at top,
             var(--bg-warm) 0%,
-            #1c0604 32%,
-            var(--bg) 55%,
+            var(--bg) 42%,
             var(--bg-deep) 100%
         );
 
@@ -65,7 +65,7 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.045;
+    opacity: 0.04;
 
     background-image:
         url("https://www.transparenttextures.com/patterns/asfalt-light.png");
@@ -78,22 +78,12 @@ body::before {
     justify-content: space-between;
     align-items: center;
 
-    padding: 28px 64px 22px;
+    padding: 26px 64px 20px;
 
-    gap: 40px;
+    gap: 32px;
 
     position: relative;
     z-index: 2;
-}
-
-/* BRAND + NAV ROW */
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 48px;
-
-    min-width: 0;
 }
 
 /* BRAND */
@@ -113,7 +103,7 @@ body::before {
 
     display: block;
 
-    opacity: 0.88;
+    opacity: 0.86;
 
     flex-shrink: 0;
 }
@@ -134,11 +124,13 @@ body::before {
     display: flex;
     align-items: center;
 
+    margin-left: auto;
+
     gap: 32px;
 
     font-size: 1.08rem;
 
-    letter-spacing: 0.3px;
+    letter-spacing: 0.35px;
 
     white-space: nowrap;
 }
@@ -261,7 +253,7 @@ main {
     position: fixed;
     inset: 0;
 
-    background-color: #F3E2D6;
+    background-color: #E9D7CA;
 
     z-index: 1000;
 
@@ -358,10 +350,6 @@ a:focus-visible {
         gap: 20px;
     }
 
-    .header-left {
-        gap: 28px;
-    }
-
     .title-wrapper {
         gap: 14px;
     }
@@ -399,11 +387,6 @@ a:focus-visible {
         padding: 18px 22px 18px;
 
         align-items: center;
-    }
-
-    .header-left {
-        width: 100%;
-        justify-content: space-between;
     }
 
     .nav {
@@ -452,46 +435,42 @@ a:focus-visible {
 
 <header class="header">
 
-    <div class="header-left">
+    <div class="title-wrapper" aria-label="Walkden House Press">
 
-        <div class="title-wrapper" aria-label="Walkden House Press">
+        <img
+            src="images/colophon.png"
+            alt="Walkden House Press logo"
+        >
 
-            <img
-                src="images/colophon.png"
-                alt="Walkden House Press logo"
-            >
-
-            <div class="title">
-                Walkden House Press
-            </div>
-
+        <div class="title">
+            Walkden House Press
         </div>
 
-        <nav class="nav">
-
-            <a href="#">
-                About
-            </a>
-
-            <a
-                href="https://theparlour.org.uk"
-                target="_blank"
-                rel="noopener"
-            >
-                The Parlour
-            </a>
-
-            <a href="#">
-                Common Room
-            </a>
-
-            <a href="#">
-                Contact
-            </a>
-
-        </nav>
-
     </div>
+
+    <nav class="nav">
+
+        <a href="#">
+            About
+        </a>
+
+        <a
+            href="https://theparlour.org.uk"
+            target="_blank"
+            rel="noopener"
+        >
+            The Parlour
+        </a>
+
+        <a href="#">
+            Common Room
+        </a>
+
+        <a href="#">
+            Contact
+        </a>
+
+    </nav>
 
     <div
         class="hamburger"

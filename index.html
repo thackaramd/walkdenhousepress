@@ -10,7 +10,6 @@
 
 <style>
 :root {
-    /* DARKENED PALETTE */
     --bg: #210705;
     --bg-deep: #140302;
     --bg-warm: #2d0906;
@@ -98,14 +97,16 @@ body::before {
 }
 
 .title-wrapper img {
-    width: 62px;
+    width: 56px;
     height: auto;
 
     display: block;
 
-    opacity: 0.86;
+    opacity: 0.72;
 
     flex-shrink: 0;
+
+    filter: saturate(0.9);
 }
 
 .title-group {
@@ -373,7 +374,7 @@ a:focus-visible {
     }
 
     .title-wrapper img {
-        width: 54px;
+        width: 50px;
     }
 
     .title {
@@ -429,7 +430,8 @@ a:focus-visible {
     }
 
     .title-wrapper img {
-        width: 48px;
+        width: 44px;
+        opacity: 0.68;
     }
 
     .quote {

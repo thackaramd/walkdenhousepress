@@ -108,6 +108,11 @@ body::before {
     flex-shrink: 0;
 }
 
+.title-group {
+    display: flex;
+    flex-direction: column;
+}
+
 .title {
     font-size: 1.72rem;
 
@@ -116,6 +121,19 @@ body::before {
     color: var(--text);
 
     white-space: nowrap;
+}
+
+.subtitle {
+    margin-top: 3px;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.92;
 }
 
 /* NAVIGATION */
@@ -405,6 +423,11 @@ a:focus-visible {
         font-size: 1.15rem;
     }
 
+    .subtitle {
+        font-size: 0.58rem;
+        letter-spacing: 1px;
+    }
+
     .title-wrapper img {
         width: 48px;
     }
@@ -442,8 +465,16 @@ a:focus-visible {
             alt="Walkden House Press logo"
         >
 
-        <div class="title">
-            Walkden House Press
+        <div class="title-group">
+
+            <div class="title">
+                Walkden House Press
+            </div>
+
+            <div class="subtitle">
+                Independent Publishers · Est. 2026
+            </div>
+
         </div>
 
     </div>

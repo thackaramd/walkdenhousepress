@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Walkden House Press</title>
 
+<!-- CORMORANT GARAMOND -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 :root {
     --bg: #2B0906;
@@ -16,11 +22,17 @@
 body {
     margin: 0;
     background-color: var(--bg);
-    font-family: "Baskerville", "Times New Roman", serif;
+
+    /* NEW FONT */
+    font-family: "Cormorant Garamond", serif;
+
     color: var(--text);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    /* LIGHTER OVERALL FEEL */
+    font-weight: 300;
 }
 
 /* HEADER */
@@ -47,20 +59,21 @@ body {
     width: 64px;
     height: auto;
 
-    /* REMOVES EXTRA INLINE IMAGE SPACE */
+    /* REMOVES INLINE IMAGE GAP */
     display: block;
 }
 
 .title {
-    font-size: 24px;
-    letter-spacing: 0.2px;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0.3px;
 }
 
 /* NAV */
 .nav {
     display: flex;
     gap: 25px;
-    font-size: 20px;
+    font-size: 28px;
     padding-bottom: 6px;
 }
 
@@ -68,6 +81,7 @@ body {
     text-decoration: none;
     color: var(--text);
     transition: color 0.2s ease;
+    font-weight: 300;
 }
 
 .nav a:hover {
@@ -80,7 +94,7 @@ body {
 
 /* DIVIDER */
 .line {
-    height: 2px;
+    height: 1px;
     background-color: rgba(251, 232, 214, 0.35);
     width: 100%;
 }
@@ -95,10 +109,11 @@ main {
 }
 
 .quote {
-    max-width: 640px;
-    font-size: 18px;
-    line-height: 1.65;
+    max-width: 680px;
+    font-size: 28px;
+    line-height: 1.55;
     text-align: center;
+    font-weight: 300;
 }
 
 /* HAMBURGER */
@@ -183,7 +198,8 @@ main {
 .mobile-menu a {
     color: var(--bg);
     text-decoration: none;
-    font-size: 20px;
+    font-size: 28px;
+    font-weight: 300;
 }
 
 /* ACCESSIBILITY */
@@ -196,10 +212,7 @@ a:focus-visible {
 @media (max-width: 850px) {
 
     .header {
-
-        /* REDUCED MOBILE TOP PADDING */
         padding: 10px 20px 16px 20px;
-
         align-items: center;
     }
 
@@ -212,7 +225,7 @@ a:focus-visible {
     }
 
     .title {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .title-wrapper img {
@@ -220,7 +233,7 @@ a:focus-visible {
     }
 
     .quote {
-        font-size: 17px;
+        font-size: 22px;
         max-width: 92%;
     }
 }

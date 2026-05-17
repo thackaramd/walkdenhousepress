@@ -68,8 +68,10 @@ body {
 }
 
 .quote {
-    font-size: 20px;
+    font-size: clamp(16px, 2.2vw, 20px);
     max-width: 600px;
+    text-align: justify;
+    text-align-last: center;
 }
 
 /* Hamburger menu */
@@ -124,9 +126,10 @@ body {
 /* Close icon (top-right) */
 .close-icon {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    font-size: 32px;
+    top: 20px;
+    right: 22px;
+    font-size: 20px;
+    line-height: 1;
     color: #2B0906;
     cursor: pointer;
 }
@@ -149,13 +152,10 @@ body {
     .title {
         font-size: 20px;
     }
-
-    .quote {
-        font-size: 12px;
-    }
 }
 </style>
 </head>
+
 <body>
 
 <div class="header">

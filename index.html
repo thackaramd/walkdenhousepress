@@ -201,7 +201,8 @@ a:focus-visible {
         /* REDUCED MOBILE TOP PADDING */
         padding: 6px 20px 16px 20px;
 
-        align-items: center;
+        /* CHANGED FROM CENTER TO FLEX-END */
+        align-items: flex-end;
     }
 
     .nav {
@@ -210,6 +211,9 @@ a:focus-visible {
 
     .hamburger {
         display: flex;
+
+        /* SMALL VISUAL ALIGNMENT TWEAK */
+        margin-bottom: 2px;
     }
 
     .title {

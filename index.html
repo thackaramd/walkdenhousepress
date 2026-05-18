@@ -14,16 +14,16 @@
 
     /* BACKGROUND */
 
-    --bg: #F3EEE7;
+    --bg: #F2E9DF;
 
     /* TEXT */
 
     --text: #241A18;
-    --text-soft: rgba(36, 26, 24, 0.62);
+    --text-soft: rgba(36, 26, 24, 0.68);
 
     /* ACCENT */
 
-    --accent: #6A4B42;
+    --accent: #7A564A;
 
     /* LINES */
 
@@ -89,7 +89,7 @@ body::before {
     justify-content: space-between;
     align-items: center;
 
-    padding: 28px 64px 22px;
+    padding: 26px 64px 20px;
 
     gap: 32px;
 
@@ -114,12 +114,10 @@ body::before {
 
 .title-wrapper img {
 
-    width: 46px;
+    width: 48px;
     height: auto;
 
     display: block;
-
-    opacity: 0.28;
 
     flex-shrink: 0;
 
@@ -133,9 +131,9 @@ body::before {
 
 .title {
 
-    font-size: 1.64rem;
+    font-size: 1.72rem;
 
-    letter-spacing: 0.12px;
+    letter-spacing: 0.15px;
 
     color: var(--text);
 
@@ -146,12 +144,14 @@ body::before {
 
     margin-top: 2px;
 
-    font-size: 0.62rem;
+    font-size: 0.66rem;
 
     letter-spacing: 1px;
     text-transform: uppercase;
 
     color: var(--text-soft);
+
+    opacity: 0.82;
 }
 
 /* NAVIGATION */
@@ -163,11 +163,11 @@ body::before {
 
     margin-left: auto;
 
-    gap: 28px;
+    gap: 30px;
 
-    font-size: 0.94rem;
+    font-size: 1.02rem;
 
-    letter-spacing: 0.1px;
+    letter-spacing: 0.18px;
 
     white-space: nowrap;
 }
@@ -179,12 +179,12 @@ body::before {
     color: var(--text-soft);
 
     transition:
-        color 0.2s ease,
-        opacity 0.2s ease;
+        color 0.25s ease,
+        opacity 0.25s ease;
 }
 
 .nav a:hover {
-    color: var(--text);
+    color: var(--accent);
 }
 
 .nav a.italic {
@@ -200,6 +200,8 @@ body::before {
     width: calc(100% - 72px);
 
     margin: 0 auto;
+
+    opacity: 0.55;
 
     background:
         linear-gradient(
@@ -221,7 +223,7 @@ main {
     justify-content: center;
 
     padding:
-        90px
+        72px
         24px
         140px;
 
@@ -233,23 +235,41 @@ main {
 
 .quote {
 
-    max-width: 620px;
+    max-width: 540px;
 
-    font-size: 1.42rem;
+    font-size: 1.5rem;
 
-    line-height: 1.92;
+    line-height: 1.95;
 
     text-align: center;
 
-    letter-spacing: 0.08px;
+    letter-spacing: 0.1px;
 
     color: var(--text);
 
     text-wrap: balance;
 }
 
-.quote em {
-    font-style: italic;
+/* SUBTLE FADE */
+
+.quote,
+.header,
+.line {
+
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* HAMBURGER */
@@ -296,8 +316,8 @@ main {
     pointer-events: none;
 
     transition:
-        opacity 0.28s ease,
-        visibility 0.28s ease;
+        opacity 0.35s ease,
+        visibility 0.35s ease;
 }
 
 .mobile-menu.show {
@@ -365,14 +385,14 @@ main {
 
     text-decoration: none;
 
-    font-size: 1.3rem;
+    font-size: 1.45rem;
 }
 
 /* ACCESSIBILITY */
 
 a:focus-visible {
 
-    outline: 1px solid rgba(36,26,24,0.32);
+    outline: 1px solid var(--accent);
     outline-offset: 4px;
 }
 
@@ -390,17 +410,17 @@ a:focus-visible {
     }
 
     .title-wrapper img {
-        width: 42px;
+        width: 44px;
     }
 
     .title {
-        font-size: 1.38rem;
+        font-size: 1.42rem;
     }
 
     .nav {
         gap: 22px;
 
-        font-size: 0.9rem;
+        font-size: 0.96rem;
     }
 
     .line {
@@ -408,7 +428,7 @@ a:focus-visible {
     }
 
     .quote {
-        font-size: 1.28rem;
+        font-size: 1.35rem;
     }
 }
 
@@ -437,26 +457,24 @@ a:focus-visible {
 
     .title {
 
-        font-size: 1.08rem;
+        font-size: 1.12rem;
     }
 
     .subtitle {
 
-        font-size: 0.52rem;
+        font-size: 0.54rem;
 
         letter-spacing: 0.8px;
     }
 
     .title-wrapper img {
 
-        width: 38px;
-
-        opacity: 0.26;
+        width: 40px;
     }
 
     .quote {
 
-        font-size: 1.08rem;
+        font-size: 1.16rem;
 
         line-height: 1.82;
 
@@ -501,7 +519,7 @@ a:focus-visible {
             </div>
 
             <div class="subtitle">
-                Publications and printed works
+                Independent Publishers · Est. 2026
             </div>
 
         </div>

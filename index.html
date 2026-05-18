@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="icon" type="image/png" href="images/favicon.png" />
 
 <title>Walkden House Press</title>
 
 <style>
+
 :root {
-    --bg: #1A0C0D;
-    --bg-deep: #100303;
-    --bg-warm: #2A1113;
 
-    --text: #F4E6D7;
-    --text-soft: rgba(244, 230, 215, 0.74);
+    /* BACKGROUND */
 
-    --accent: #D6B39F;
+    --bg: #1B1111;
+    --bg-deep: #140B0B;
+    --bg-warm: #241515;
 
-    --line: rgba(244, 230, 215, 0.12);
+    /* TEXT */
+
+    --text: #E7D8C8;
+    --text-soft: rgba(231, 216, 200, 0.68);
+
+    /* ACCENT */
+
+    --accent: #D2AE98;
+
+    /* LINES */
+
+    --line: rgba(231, 216, 200, 0.08);
 }
 
 * {
@@ -33,7 +43,12 @@ body {
 }
 
 body {
-    font-family: "Baskerville", "Times New Roman", serif;
+
+    font-family:
+        "Baskerville",
+        "Times New Roman",
+        serif;
+
     color: var(--text);
 
     min-height: 100vh;
@@ -45,18 +60,22 @@ body {
         linear-gradient(
             to bottom,
             var(--bg-warm) 0%,
-            var(--bg) 52%,
+            var(--bg) 58%,
             var(--bg-deep) 100%
         );
 
     overflow-x: hidden;
 
     position: relative;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
 }
 
 /* SUBTLE PAPER GRAIN */
 
 body::before {
+
     content: "";
 
     position: fixed;
@@ -64,7 +83,7 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.025;
+    opacity: 0.022;
 
     background-image:
         url("https://www.transparenttextures.com/patterns/asfalt-light.png");
@@ -73,6 +92,7 @@ body::before {
 /* HEADER */
 
 .header {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,10 +108,11 @@ body::before {
 /* BRAND */
 
 .title-wrapper {
+
     display: flex;
     align-items: center;
 
-    gap: 18px;
+    gap: 14px;
 
     min-width: 0;
 
@@ -100,16 +121,21 @@ body::before {
 }
 
 .title-wrapper img {
-    width: 56px;
+
+    width: 48px;
     height: auto;
 
     display: block;
 
-    opacity: 0.72;
+    opacity: 0.42;
 
     flex-shrink: 0;
 
-    filter: saturate(0.9);
+    filter:
+        saturate(0.75)
+        brightness(0.92);
+
+    transform: translateY(1px);
 }
 
 .title-group {
@@ -118,9 +144,10 @@ body::before {
 }
 
 .title {
+
     font-size: 1.72rem;
 
-    letter-spacing: 0.25px;
+    letter-spacing: 0.15px;
 
     color: var(--text);
 
@@ -128,36 +155,39 @@ body::before {
 }
 
 .subtitle {
-    margin-top: 1px;
 
-    font-size: 0.68rem;
+    margin-top: 2px;
 
-    letter-spacing: 1.1px;
+    font-size: 0.66rem;
+
+    letter-spacing: 1px;
     text-transform: uppercase;
 
     color: var(--text-soft);
 
-    opacity: 0.78;
+    opacity: 0.75;
 }
 
 /* NAVIGATION */
 
 .nav {
+
     display: flex;
     align-items: center;
 
     margin-left: auto;
 
-    gap: 32px;
+    gap: 30px;
 
-    font-size: 1.08rem;
+    font-size: 1.02rem;
 
-    letter-spacing: 0.35px;
+    letter-spacing: 0.2px;
 
     white-space: nowrap;
 }
 
 .nav a {
+
     text-decoration: none;
 
     color: var(--text-soft);
@@ -178,11 +208,14 @@ body::before {
 /* DIVIDER */
 
 .line {
+
     height: 1px;
 
     width: calc(100% - 72px);
 
     margin: 0 auto;
+
+    opacity: 0.55;
 
     background:
         linear-gradient(
@@ -196,6 +229,7 @@ body::before {
 /* MAIN */
 
 main {
+
     flex: 1;
 
     display: flex;
@@ -203,7 +237,7 @@ main {
     justify-content: center;
 
     padding:
-        70px
+        72px
         24px
         140px;
 
@@ -214,15 +248,16 @@ main {
 /* HERO TEXT */
 
 .quote {
-    max-width: 560px;
 
-    font-size: 1.55rem;
+    max-width: 540px;
 
-    line-height: 1.9;
+    font-size: 1.5rem;
+
+    line-height: 1.95;
 
     text-align: center;
 
-    letter-spacing: 0.15px;
+    letter-spacing: 0.1px;
 
     color: var(--text);
 
@@ -234,10 +269,12 @@ main {
 .quote,
 .header,
 .line {
+
     animation: fadeIn 1.2s ease;
 }
 
 @keyframes fadeIn {
+
     from {
         opacity: 0;
         transform: translateY(6px);
@@ -252,6 +289,7 @@ main {
 /* HAMBURGER */
 
 .hamburger {
+
     display: none;
 
     flex-direction: column;
@@ -264,6 +302,7 @@ main {
 }
 
 .hamburger div {
+
     height: 1px;
 
     background-color: var(--text);
@@ -272,10 +311,11 @@ main {
 /* MOBILE MENU */
 
 .mobile-menu {
+
     position: fixed;
     inset: 0;
 
-    background-color: #E9D7CA;
+    background-color: #E4D3C6;
 
     z-index: 1000;
 
@@ -295,12 +335,14 @@ main {
 }
 
 .mobile-menu.show {
+
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
 }
 
 .mobile-menu-header {
+
     position: absolute;
 
     top: 32px;
@@ -308,6 +350,7 @@ main {
 }
 
 .close-icon {
+
     width: 22px;
     height: 22px;
 
@@ -318,6 +361,7 @@ main {
 
 .close-icon::before,
 .close-icon::after {
+
     content: "";
 
     position: absolute;
@@ -340,6 +384,7 @@ main {
 }
 
 .mobile-menu nav {
+
     display: flex;
     flex-direction: column;
 
@@ -349,16 +394,18 @@ main {
 }
 
 .mobile-menu a {
+
     color: var(--bg);
 
     text-decoration: none;
 
-    font-size: 1.5rem;
+    font-size: 1.45rem;
 }
 
 /* ACCESSIBILITY */
 
 a:focus-visible {
+
     outline: 1px solid var(--accent);
     outline-offset: 4px;
 }
@@ -373,23 +420,21 @@ a:focus-visible {
     }
 
     .title-wrapper {
-        gap: 14px;
+        gap: 12px;
     }
 
     .title-wrapper img {
-        width: 50px;
+        width: 44px;
     }
 
     .title {
-        font-size: 1.4rem;
+        font-size: 1.42rem;
     }
 
     .nav {
         gap: 22px;
 
-        font-size: 0.98rem;
-
-        letter-spacing: 0.2px;
+        font-size: 0.96rem;
     }
 
     .line {
@@ -397,7 +442,7 @@ a:focus-visible {
     }
 
     .quote {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
     }
 }
 
@@ -406,6 +451,7 @@ a:focus-visible {
 @media (max-width: 760px) {
 
     .header {
+
         padding: 18px 22px 18px;
 
         align-items: center;
@@ -420,27 +466,33 @@ a:focus-visible {
     }
 
     .title-wrapper {
-        gap: 12px;
+        gap: 10px;
     }
 
     .title {
-        font-size: 1.15rem;
+
+        font-size: 1.12rem;
     }
 
     .subtitle {
-        font-size: 0.56rem;
-        letter-spacing: 0.9px;
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.8px;
     }
 
     .title-wrapper img {
-        width: 44px;
-        opacity: 0.68;
+
+        width: 40px;
+
+        opacity: 0.38;
     }
 
     .quote {
-        font-size: 1.2rem;
 
-        line-height: 1.75;
+        font-size: 1.16rem;
+
+        line-height: 1.82;
 
         max-width: 92%;
     }
@@ -450,12 +502,14 @@ a:focus-visible {
     }
 
     main {
+
         padding:
             50px
             20px
             100px;
     }
 }
+
 </style>
 </head>
 
@@ -582,12 +636,15 @@ a:focus-visible {
 </div>
 
 <script>
+
 function toggleMenu() {
+
     document
         .getElementById('mobileMenu')
         .classList
         .toggle('show');
 }
+
 </script>
 
 </body>

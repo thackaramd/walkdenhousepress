@@ -10,16 +10,16 @@
 
 <style>
 :root {
-    --bg: #210705;
-    --bg-deep: #140302;
-    --bg-warm: #2d0906;
+    --bg: #18100F;
+    --bg-deep: #0E0706;
+    --bg-warm: #241715;
 
     --text: #F4E6D7;
     --text-soft: rgba(244, 230, 215, 0.74);
 
     --accent: #D6B39F;
 
-    --line: rgba(244, 230, 215, 0.14);
+    --line: rgba(244, 230, 215, 0.12);
 }
 
 * {
@@ -42,8 +42,8 @@ body {
     flex-direction: column;
 
     background:
-        radial-gradient(
-            circle at top,
+        linear-gradient(
+            to bottom,
             var(--bg-warm) 0%,
             var(--bg) 42%,
             var(--bg-deep) 100%
@@ -64,7 +64,7 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.04;
+    opacity: 0.025;
 
     background-image:
         url("https://www.transparenttextures.com/patterns/asfalt-light.png");

@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/png" href="images/favicon.png" />
+
+<title>Common Room — Walkden House Press</title>
+
+<style>
+
+:root {
+
+    --bg: #F2E9DF;
+
+    --text: #241A18;
+
+    --text-soft: rgba(36, 26, 24, 0.74);
+
+    --accent: #7A564A;
+
+    --line: rgba(36, 26, 24, 0.055);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+
+    font-family:
+        "Baskerville",
+        "Times New Roman",
+        serif;
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg);
+
+    overflow-x: hidden;
+
+    position: relative;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* SUBTLE PAPER GRAIN */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.016;
+
+    background-image:
+        url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+}
+
+/* HEADER */
+
+.header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 26px 64px 20px;
+
+    gap: 32px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* BRAND */
+
+.title-wrapper {
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    min-width: 0;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform 0.28s ease,
+        opacity 0.28s ease;
+}
+
+.title-wrapper:hover {
+
+    transform: translateY(-1px);
+
+    opacity: 0.96;
+}
+
+.title-wrapper img {
+
+    width: 48px;
+    height: auto;
+
+    display: block;
+
+    flex-shrink: 0;
+
+    transform: translateY(1px);
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+
+    font-size: 1.72rem;
+
+    letter-spacing: 0.15px;
+
+    color: var(--text);
+
+    white-space: nowrap;
+}
+
+.subtitle {
+
+    margin-top: 2px;
+
+    font-size: 0.66rem;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.82;
+}
+
+/* NAVIGATION */
+
+.nav {
+
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+
+    gap: 32px;
+
+    font-size: 1.02rem;
+
+    letter-spacing: 0.18px;
+
+    white-space: nowrap;
+}
+
+.nav a {
+
+    text-decoration: none;
+
+    color: var(--text-soft);
+
+    position: relative;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--accent);
+
+    opacity: 0;
+    transform: scaleX(0.7);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav a:hover {
+
+    color: var(--text);
+}
+
+.nav a:hover::after {
+
+    opacity: 0.42;
+    transform: scaleX(1);
+}
+
+.nav a.active {
+
+    color: var(--text);
+}
+
+.nav a.active::after {
+
+    opacity: 0.34;
+    transform: scaleX(1);
+}
+
+.nav a.italic {
+    font-style: italic;
+}
+
+/* DIVIDER */
+
+.line {
+
+    height: 1px;
+
+    width: calc(100% - 120px);
+
+    margin: 0 auto;
+
+    opacity: 0.34;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--line),
+            transparent
+        );
+}
+
+/* MAIN */
+
+main {
+
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    padding:
+        92px
+        24px
+        120px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* CONTENT */
+
+.content {
+
+    width: 100%;
+    max-width: 760px;
+
+    animation: fadeIn 1.6s ease;
+}
+
+.kicker {
+
+    margin-bottom: 26px;
+
+    text-align: center;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.68;
+}
+
+.page-title {
+
+    margin: 0 0 54px;
+
+    text-align: center;
+
+    font-size: 2.4rem;
+
+    font-weight: normal;
+
+    letter-spacing: 0.2px;
+}
+
+.body-text {
+
+    font-size: 1.18rem;
+
+    line-height: 2;
+
+    color: var(--text);
+
+    text-wrap: balance;
+}
+
+.body-text p {
+
+    margin: 0 0 34px;
+}
+
+.body-text em {
+
+    font-style: italic;
+}
+
+/* SUBTLE FADE */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HAMBURGER */
+
+.hamburger {
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 22px;
+    height: 15px;
+
+    cursor: pointer;
+}
+
+.hamburger div {
+
+    height: 1px;
+
+    background-color: var(--text);
+}
+
+/* MOBILE MENU */
+
+.mobile-menu {
+
+    position: fixed;
+    inset: 0;
+
+    background-color: var(--bg);
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.mobile-menu.show {
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-menu-header {
+
+    position: absolute;
+
+    top: 32px;
+    right: 22px;
+}
+
+.close-icon {
+
+    width: 22px;
+    height: 22px;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+.close-icon::before,
+.close-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: var(--text);
+}
+
+.close-icon::before {
+    transform: rotate(45deg);
+}
+
+.close-icon::after {
+    transform: rotate(-45deg);
+}
+
+.mobile-menu-inner {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-kicker {
+
+    margin-bottom: 42px;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.68;
+}
+
+.mobile-menu nav {
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+.mobile-menu a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 1.18rem;
+
+    letter-spacing: 0.18px;
+
+    opacity: 0;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        color 0.25s ease;
+}
+
+.mobile-menu.show a {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu.show a:nth-child(1) {
+    transition-delay: 0.08s;
+}
+
+.mobile-menu.show a:nth-child(2) {
+    transition-delay: 0.14s;
+}
+
+.mobile-menu.show a:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.mobile-menu.show a:nth-child(4) {
+    transition-delay: 0.26s;
+}
+
+.mobile-menu a:hover {
+
+    color: var(--accent);
+}
+
+/* ACCESSIBILITY */
+
+a:focus-visible {
+
+    outline: 1px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* TABLET */
+
+@media (max-width: 1100px) {
+
+    .header {
+        padding: 24px 36px 20px;
+        gap: 20px;
+    }
+
+    .title-wrapper {
+        gap: 14px;
+    }
+
+    .title-wrapper img {
+        width: 44px;
+    }
+
+    .title {
+        font-size: 1.42rem;
+    }
+
+    .nav {
+        gap: 22px;
+        font-size: 0.96rem;
+    }
+
+    .line {
+        width: calc(100% - 64px);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+    .header {
+
+        padding: 18px 22px 18px;
+
+        align-items: center;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .title-wrapper {
+        gap: 10px;
+    }
+
+    .title {
+
+        font-size: 1.12rem;
+    }
+
+    .subtitle {
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.8px;
+    }
+
+    .title-wrapper img {
+
+        width: 40px;
+    }
+
+    .line {
+        width: calc(100% - 44px);
+    }
+
+    main {
+
+        padding:
+            56px
+            20px
+            90px;
+    }
+
+    .page-title {
+
+        font-size: 1.84rem;
+
+        margin-bottom: 40px;
+    }
+
+    .body-text {
+
+        font-size: 1.02rem;
+
+        line-height: 1.92;
+    }
+
+    .body-text p {
+
+        margin-bottom: 28px;
+    }
+
+    .mobile-menu nav {
+        gap: 26px;
+    }
+
+    .mobile-menu a {
+        font-size: 1.08rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <a
+        href="index.html"
+        class="title-wrapper"
+        aria-label="Walkden House Press Home"
+    >
+
+        <img
+            src="images/colophon.png"
+            alt="Walkden House Press logo"
+        >
+
+        <div class="title-group">
+
+            <div class="title">
+                Walkden House Press
+            </div>
+
+            <div class="subtitle">
+                Independent Publishers · Est. 2026
+            </div>
+
+        </div>
+
+    </a>
+
+    <nav class="nav">
+
+        <a href="#">
+            About
+        </a>
+
+        <a
+            href="https://theparlour.org.uk"
+            target="_blank"
+            rel="noopener"
+        >
+            The Parlour
+        </a>
+
+        <a
+            href="#"
+            class="active"
+        >
+            Common Room
+        </a>
+
+        <a href="#">
+            Contact
+        </a>
+
+    </nav>
+
+    <div
+        class="hamburger"
+        onclick="toggleMenu()"
+        aria-label="Open menu"
+    >
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</header>
+
+<div class="line"></div>
+
+<main>
+
+    <section class="content">
+
+        <div class="kicker">
+            Collaborative Literary Projects
+        </div>
+
+        <h1 class="page-title">
+            Common Room
+        </h1>
+
+        <div class="body-text">
+
+            <p>
+                <em>Common Room</em> is a publication project from
+                Walkden House Press developed in collaboration with
+                schools and young writers.
+            </p>
+
+            <p>
+                Working through workshops, editorial sessions,
+                and shared reading, each edition gathers writing
+                emerging from a particular school community and
+                shapes it into a finished anthology or zine.
+            </p>
+
+            <p>
+                We’re interested in writing that feels lived,
+                attentive, and present — work grounded in
+                observation, feeling, memory, conversation,
+                and the textures of everyday life.
+            </p>
+
+            <p>
+                <em>Common Room</em> approaches young writers not
+                simply as students, but as authors developing
+                a voice and a relationship to language.
+            </p>
+
+            <p>
+                Alongside publication itself, the project aims
+                to cultivate local literary culture: writing as
+                something communal, reflective, and shared.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- MOBILE MENU -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <div class="mobile-menu-header">
+
+        <div
+            class="close-icon"
+            onclick="toggleMenu()"
+            aria-label="Close menu"
+        ></div>
+
+    </div>
+
+    <div class="mobile-menu-inner">
+
+        <div class="mobile-kicker">
+            Walkden House Press
+        </div>
+
+        <nav>
+
+            <a href="#">
+                About
+            </a>
+
+            <a
+                href="https://theparlour.org.uk"
+                class="italic"
+                target="_blank"
+                rel="noopener"
+            >
+                The Parlour
+            </a>
+
+            <a href="#">
+                Common Room
+            </a>
+
+            <a href="#">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</div>
+
+<script>
+
+function toggleMenu() {
+
+    document
+        .getElementById('mobileMenu')
+        .classList
+        .toggle('show');
+}
+
+</script>
+
+</body>
+</html>

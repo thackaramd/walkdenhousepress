@@ -12,20 +12,12 @@
 
 :root {
 
-    /* BACKGROUND */
-
     --bg: #F2E9DF;
-
-    /* TEXT */
 
     --text: #241A18;
     --text-soft: rgba(36, 26, 24, 0.68);
 
-    /* ACCENT */
-
     --accent: #7A564A;
-
-    /* LINES */
 
     --line: rgba(36, 26, 24, 0.08);
 }
@@ -163,7 +155,7 @@ body::before {
 
     margin-left: auto;
 
-    gap: 30px;
+    gap: 32px;
 
     font-size: 1.02rem;
 
@@ -178,13 +170,44 @@ body::before {
 
     color: var(--text-soft);
 
+    position: relative;
+
     transition:
         color 0.25s ease,
         opacity 0.25s ease;
 }
 
+.nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -3px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--accent);
+
+    opacity: 0;
+    transform: scaleX(0.7);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
 .nav a:hover {
-    color: var(--accent);
+
+    color: var(--text);
+}
+
+.nav a:hover::after {
+
+    opacity: 0.5;
+    transform: scaleX(1);
 }
 
 .nav a.italic {
@@ -223,23 +246,50 @@ main {
     justify-content: center;
 
     padding:
-        72px
+        32px
         24px
-        140px;
+        120px;
 
     position: relative;
     z-index: 2;
+}
+
+/* HERO BLOCK */
+
+.hero {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translateY(-5%);
+}
+
+/* SMALL KICKER */
+
+.kicker {
+
+    margin-bottom: 26px;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.72;
 }
 
 /* HERO TEXT */
 
 .quote {
 
-    max-width: 540px;
+    max-width: 620px;
 
-    font-size: 1.5rem;
+    font-size: 1.52rem;
 
-    line-height: 1.95;
+    line-height: 1.9;
 
     text-align: center;
 
@@ -250,20 +300,25 @@ main {
     text-wrap: balance;
 }
 
+.quote em {
+
+    font-style: italic;
+}
+
 /* SUBTLE FADE */
 
-.quote,
+.hero,
 .header,
 .line {
 
-    animation: fadeIn 1.2s ease;
+    animation: fadeIn 1.4s ease;
 }
 
 @keyframes fadeIn {
 
     from {
         opacity: 0;
-        transform: translateY(6px);
+        transform: translateY(10px);
     }
 
     to {
@@ -419,7 +474,6 @@ a:focus-visible {
 
     .nav {
         gap: 22px;
-
         font-size: 0.96rem;
     }
 
@@ -428,7 +482,7 @@ a:focus-visible {
     }
 
     .quote {
-        font-size: 1.35rem;
+        font-size: 1.34rem;
     }
 }
 
@@ -472,9 +526,16 @@ a:focus-visible {
         width: 40px;
     }
 
+    .kicker {
+
+        font-size: 0.62rem;
+
+        margin-bottom: 20px;
+    }
+
     .quote {
 
-        font-size: 1.16rem;
+        font-size: 1.14rem;
 
         line-height: 1.82;
 
@@ -488,9 +549,13 @@ a:focus-visible {
     main {
 
         padding:
-            50px
             20px
-            100px;
+            20px
+            90px;
+    }
+
+    .hero {
+        transform: translateY(-2%);
     }
 }
 
@@ -566,12 +631,20 @@ a:focus-visible {
 
 <main>
 
-    <div class="quote">
-        Walkden House Press is the publishing house behind
-        <em>The Parlour</em> and <em>Common Room</em>, developing literary
-        and educational projects grounded in attention,
-        voice, and lived writing.
-    </div>
+    <section class="hero">
+
+        <div class="kicker">
+            Literary & Educational Projects
+        </div>
+
+        <div class="quote">
+            Walkden House Press is the publishing house behind
+            <em>The Parlour</em> and <em>Common Room</em>, developing literary
+            and educational projects grounded in attention,
+            voice, and lived writing.
+        </div>
+
+    </section>
 
 </main>
 

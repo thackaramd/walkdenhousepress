@@ -4,9 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="icon" type="image/png" href="images/favicon.png" />
-
 <title>Walkden House Press</title>
+
+<link
+    rel="icon"
+    type="image/png"
+    href="images/favicon.png"
+/>
 
 <style>
 
@@ -14,22 +18,16 @@
 
     /* BACKGROUND */
 
-    --bg-warm: #221312;
-    --bg: #181110;
-    --bg-deep: #110908;
+    --bg: #15100F;
 
     /* TEXT */
 
-    --text: #E8DDD1;
-    --text-soft: rgba(232, 221, 209, 0.68);
-
-    /* ACCENT */
-
-    --accent: #D4B29B;
+    --text: #E7DDD3;
+    --text-soft: rgba(231, 221, 211, 0.62);
 
     /* LINES */
 
-    --line: rgba(232, 221, 209, 0.07);
+    --line: rgba(231, 221, 211, 0.08);
 }
 
 * {
@@ -44,32 +42,19 @@ body {
 
 body {
 
+    background: var(--bg);
+
+    color: var(--text);
+
     font-family:
         "Baskerville",
         "Times New Roman",
         serif;
 
-    color: var(--text);
-
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-
-    background:
-        linear-gradient(
-            to bottom,
-            var(--bg-warm) 0%,
-            var(--bg) 64%,
-            var(--bg-deep) 100%
-        );
-
-    overflow-x: hidden;
-
-    position: relative;
-
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+
+    overflow-x: hidden;
 }
 
 /* SUBTLE PAPER GRAIN */
@@ -83,7 +68,7 @@ body::before {
 
     pointer-events: none;
 
-    opacity: 0.018;
+    opacity: 0.014;
 
     background-image:
         url("https://www.transparenttextures.com/patterns/asfalt-light.png");
@@ -93,13 +78,16 @@ body::before {
 
 .header {
 
+    width: 100%;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
-    padding: 26px 64px 20px;
-
-    gap: 32px;
+    padding:
+        26px
+        64px
+        22px;
 
     position: relative;
     z-index: 2;
@@ -107,115 +95,85 @@ body::before {
 
 /* BRAND */
 
-.title-wrapper {
+.brand {
 
     display: flex;
     align-items: center;
 
     gap: 14px;
 
-    min-width: 0;
-
     text-decoration: none;
     color: inherit;
 }
 
-.title-wrapper img {
+.brand img {
 
-    width: 48px;
+    width: 46px;
     height: auto;
 
     display: block;
 
-    opacity: 0.38;
-
-    flex-shrink: 0;
-
-    filter:
-        saturate(0.7)
-        brightness(0.92);
-
-    transform: translateY(1px);
+    opacity: 0.34;
 }
 
-.title-group {
+.brand-text {
+
     display: flex;
     flex-direction: column;
 }
 
-.title {
+.brand-title {
 
-    font-size: 1.72rem;
+    font-size: 1.5rem;
 
     letter-spacing: 0.15px;
-
-    color: var(--text);
-
-    white-space: nowrap;
 }
 
-.subtitle {
+.brand-subtitle {
 
-    margin-top: 2px;
+    margin-top: 3px;
 
-    font-size: 0.66rem;
+    font-size: 0.62rem;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.1px;
     text-transform: uppercase;
 
     color: var(--text-soft);
-
-    opacity: 0.74;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 .nav {
 
     display: flex;
     align-items: center;
 
-    margin-left: auto;
-
-    gap: 30px;
-
-    font-size: 1.02rem;
-
-    letter-spacing: 0.18px;
-
-    white-space: nowrap;
+    gap: 28px;
 }
 
 .nav a {
 
-    text-decoration: none;
-
     color: var(--text-soft);
 
-    transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
+    text-decoration: none;
+
+    font-size: 0.92rem;
+
+    transition: opacity 0.2s ease;
 }
 
 .nav a:hover {
-    color: var(--accent);
+    opacity: 0.78;
 }
 
-.nav a.italic {
-    font-style: italic;
-}
-
-/* DIVIDER */
+/* LINE */
 
 .line {
 
+    width: calc(100% - 72px);
     height: 1px;
 
-    width: calc(100% - 72px);
-
     margin: 0 auto;
-
-    opacity: 0.45;
 
     background:
         linear-gradient(
@@ -230,219 +188,156 @@ body::before {
 
 main {
 
-    flex: 1;
+    width: 100%;
 
     display: flex;
-    align-items: center;
     justify-content: center;
 
     padding:
-        72px
-        24px
+        100px
+        32px
         140px;
-
-    position: relative;
-    z-index: 2;
 }
 
-/* HERO TEXT */
+/* PUBLICATIONS */
 
-.quote {
+.publications {
 
-    max-width: 540px;
+    width: 100%;
+    max-width: 1040px;
 
-    font-size: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
 
-    line-height: 1.95;
+    gap: 84px;
+
+    align-items: start;
+}
+
+/* ITEM */
+
+.publication {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* COVER */
+
+.cover-link {
+
+    display: block;
+
+    text-decoration: none;
+}
+
+.cover {
+
+    width: 100%;
+    max-width: 440px;
+
+    display: block;
+
+    box-shadow:
+        0 14px 40px rgba(0,0,0,0.28);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.cover:hover {
+
+    transform: translateY(-2px);
+
+    opacity: 0.96;
+}
+
+/* META */
+
+.meta {
+
+    margin-top: 28px;
+
+    text-align: center;
+}
+
+.meta-title {
+
+    font-size: 1rem;
+
+    letter-spacing: 0.4px;
+}
+
+.meta-subtitle {
+
+    margin-top: 6px;
+
+    font-size: 0.78rem;
+
+    color: var(--text-soft);
+
+    letter-spacing: 0.6px;
+}
+
+.meta-note {
+
+    margin-top: 14px;
+
+    font-size: 0.88rem;
+
+    font-style: italic;
+
+    color: var(--text-soft);
+
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+.footer {
+
+    padding:
+        0
+        24px
+        44px;
 
     text-align: center;
 
-    letter-spacing: 0.1px;
+    font-size: 0.78rem;
 
-    color: var(--text);
-
-    text-wrap: balance;
-}
-
-/* SUBTLE FADE */
-
-.quote,
-.header,
-.line {
-
-    animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* HAMBURGER */
-
-.hamburger {
-
-    display: none;
-
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 22px;
-    height: 15px;
-
-    cursor: pointer;
-}
-
-.hamburger div {
-
-    height: 1px;
-
-    background-color: var(--text);
-}
-
-/* MOBILE MENU */
-
-.mobile-menu {
-
-    position: fixed;
-    inset: 0;
-
-    background-color: #E7DDD3;
-
-    z-index: 1000;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition:
-        opacity 0.35s ease,
-        visibility 0.35s ease;
-}
-
-.mobile-menu.show {
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.mobile-menu-header {
-
-    position: absolute;
-
-    top: 32px;
-    right: 22px;
-}
-
-.close-icon {
-
-    width: 22px;
-    height: 22px;
-
-    cursor: pointer;
-
-    position: relative;
-}
-
-.close-icon::before,
-.close-icon::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-    left: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background-color: var(--bg);
-}
-
-.close-icon::before {
-    transform: rotate(45deg);
-}
-
-.close-icon::after {
-    transform: rotate(-45deg);
-}
-
-.mobile-menu nav {
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 24px;
-}
-
-.mobile-menu a {
-
-    color: var(--bg);
-
-    text-decoration: none;
-
-    font-size: 1.45rem;
+    color: var(--text-soft);
 }
 
 /* ACCESSIBILITY */
 
 a:focus-visible {
 
-    outline: 1px solid var(--accent);
+    outline: 1px solid rgba(231,221,211,0.4);
     outline-offset: 4px;
 }
 
-/* COMPRESSED DESKTOP / TABLET */
+/* TABLET */
 
-@media (max-width: 1100px) {
+@media (max-width: 980px) {
+
+    .publications {
+
+        gap: 54px;
+    }
 
     .header {
-        padding: 24px 36px 20px;
-        gap: 20px;
-    }
 
-    .title-wrapper {
-        gap: 12px;
-    }
-
-    .title-wrapper img {
-        width: 44px;
-    }
-
-    .title {
-        font-size: 1.42rem;
-    }
-
-    .nav {
-        gap: 22px;
-
-        font-size: 0.96rem;
+        padding:
+            24px
+            34px
+            20px;
     }
 
     .line {
-        width: calc(100% - 48px);
-    }
 
-    .quote {
-        font-size: 1.35rem;
+        width: calc(100% - 48px);
     }
 }
 
@@ -452,61 +347,52 @@ a:focus-visible {
 
     .header {
 
-        padding: 18px 22px 18px;
+        flex-direction: column;
+        align-items: flex-start;
 
-        align-items: center;
+        gap: 22px;
+
+        padding:
+            22px
+            22px
+            18px;
     }
 
     .nav {
-        display: none;
-    }
 
-    .hamburger {
-        display: flex;
-    }
+        gap: 18px;
 
-    .title-wrapper {
-        gap: 10px;
-    }
-
-    .title {
-
-        font-size: 1.12rem;
-    }
-
-    .subtitle {
-
-        font-size: 0.54rem;
-
-        letter-spacing: 0.8px;
-    }
-
-    .title-wrapper img {
-
-        width: 40px;
-
-        opacity: 0.34;
-    }
-
-    .quote {
-
-        font-size: 1.16rem;
-
-        line-height: 1.82;
-
-        max-width: 92%;
+        flex-wrap: wrap;
     }
 
     .line {
+
         width: calc(100% - 36px);
     }
 
     main {
 
         padding:
-            50px
-            20px
+            56px
+            22px
             100px;
+    }
+
+    .publications {
+
+        grid-template-columns: 1fr;
+
+        gap: 70px;
+    }
+
+    .brand-title {
+
+        font-size: 1.18rem;
+    }
+
+    .brand img {
+
+        width: 40px;
     }
 }
 
@@ -519,7 +405,7 @@ a:focus-visible {
 
     <a
         href="index.html"
-        class="title-wrapper"
+        class="brand"
         aria-label="Walkden House Press Home"
     >
 
@@ -528,14 +414,14 @@ a:focus-visible {
             alt="Walkden House Press logo"
         >
 
-        <div class="title-group">
+        <div class="brand-text">
 
-            <div class="title">
+            <div class="brand-title">
                 Walkden House Press
             </div>
 
-            <div class="subtitle">
-                Independent Publishers · Est. 2026
+            <div class="brand-subtitle">
+                Publications and printed works
             </div>
 
         </div>
@@ -566,86 +452,93 @@ a:focus-visible {
 
     </nav>
 
-    <div
-        class="hamburger"
-        onclick="toggleMenu()"
-        aria-label="Open menu"
-    >
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
 </header>
 
 <div class="line"></div>
 
 <main>
 
-    <div class="quote">
-        Walkden House Press is the publishing house behind
-        <em>The Parlour</em> and <em>Common Room</em>, developing literary
-        and educational projects grounded in attention,
-        voice, and lived writing.
-    </div>
+    <section class="publications">
+
+        <!-- THE PARLOUR -->
+
+        <article class="publication">
+
+            <a
+                href="theparlour.html"
+                class="cover-link"
+            >
+
+                <img
+                    src="images/theparlour-cover.jpg"
+                    alt="The Parlour publication cover"
+                    class="cover"
+                >
+
+            </a>
+
+            <div class="meta">
+
+                <div class="meta-title">
+                    <em>The Parlour</em>
+                </div>
+
+                <div class="meta-subtitle">
+                    Bedford
+                </div>
+
+                <div class="meta-note">
+                    A place to meet and be met.
+                </div>
+
+            </div>
+
+        </article>
+
+        <!-- COMMON ROOM -->
+
+        <article class="publication">
+
+            <a
+                href="commonroom.html"
+                class="cover-link"
+            >
+
+                <img
+                    src="images/commonroom-cover.jpg"
+                    alt="Common Room publication cover"
+                    class="cover"
+                >
+
+            </a>
+
+            <div class="meta">
+
+                <div class="meta-title">
+                    <em>Common Room</em>
+                </div>
+
+                <div class="meta-subtitle">
+                    Mark Rutherford School
+                </div>
+
+                <div class="meta-note">
+                    No. 1
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
 
 </main>
 
-<!-- MOBILE MENU -->
+<footer class="footer">
 
-<div
-    class="mobile-menu"
-    id="mobileMenu"
->
+    Walkden House Press
 
-    <div class="mobile-menu-header">
-
-        <div
-            class="close-icon"
-            onclick="toggleMenu()"
-            aria-label="Close menu"
-        ></div>
-
-    </div>
-
-    <nav>
-
-        <a href="#">
-            About
-        </a>
-
-        <a
-            href="https://theparlour.org.uk"
-            class="italic"
-            target="_blank"
-            rel="noopener"
-        >
-            The Parlour
-        </a>
-
-        <a href="#">
-            Common Room
-        </a>
-
-        <a href="#">
-            Contact
-        </a>
-
-    </nav>
-
-</div>
-
-<script>
-
-function toggleMenu() {
-
-    document
-        .getElementById('mobileMenu')
-        .classList
-        .toggle('show');
-}
-
-</script>
+</footer>
 
 </body>
 </html>

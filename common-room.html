@@ -338,6 +338,69 @@ main {
     font-style: italic;
 }
 
+.partnership-intro {
+
+    margin-top: 54px !important;
+
+    text-align: center;
+
+    font-size: 1.06rem;
+
+    color: var(--text-soft);
+
+    max-width: 560px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.partnership-button-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 36px;
+}
+
+.partnership-button {
+
+    display: inline-block;
+
+    padding: 14px 28px;
+
+    border: 1px solid rgba(36, 26, 24, 0.12);
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    font-size: 0.96rem;
+
+    letter-spacing: 0.25px;
+
+    background: rgba(255,255,255,0.22);
+
+    transition:
+        transform 0.28s ease,
+        background 0.28s ease,
+        border-color 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.partnership-button:hover {
+
+    transform: translateY(-2px);
+
+    background: rgba(255,255,255,0.36);
+
+    border-color: rgba(122, 86, 74, 0.22);
+
+    box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+}
+
 /* SUBTLE FADE */
 
 @keyframes fadeIn {
@@ -731,43 +794,60 @@ a:focus-visible {
         <div class="body-text">
 
             <p>
-                <em>Common Room</em> is a publication project from
-                Walkden House Press developed in collaboration with
+                <em>Common Room</em> is a collaborative literary project
+                from Walkden House Press, developed in partnership with
                 schools and young writers.
             </p>
 
             <p>
-                Working through workshops, editorial sessions,
-                and shared reading, each edition gathers writing
-                emerging from a particular school community and
-                shapes it into a finished anthology or zine.
+                Each edition emerges from a particular school community,
+                following a small group of writers through workshops,
+                editorial conversations, and shared reading towards a
+                finished anthology or zine.
             </p>
 
             <p>
-                We’re interested in writing that feels lived,
-                attentive, and present — work grounded in
-                observation, feeling, memory, conversation,
-                and the textures of everyday life.
+                We are interested in writing that feels lived,
+                attentive, and present: work grounded in memory,
+                observation, feeling, and the textures of everyday life.
             </p>
 
             <p>
-                <em>Common Room</em> approaches young writers not
-                simply as students, but as authors developing
-                a voice and a relationship to language.
+                <em>Common Room</em> approaches young people not simply as
+                students, but as authors gradually discovering a voice
+                and a relationship to language.
             </p>
 
             <p>
-                Each contribution to a <em>Common Room</em> issue is
-                also automatically considered for publication in
-                <em>The Parlour</em>, our more selective local literary
-                magazine open to writers of all ages.
+                Every contribution published in
+                <em>Common Room</em> is also automatically considered for
+                publication in <em>The Parlour</em>, our local literary
+                magazine, which brings together writers of all ages from
+                across the region.
             </p>
 
             <p>
-                Alongside publication itself, the project aims
-                to cultivate local literary culture: writing as
-                something communal, reflective, and shared.
+                Alongside publication itself, the project aims to
+                cultivate local literary culture: writing as something
+                communal, reflective, and shared.
             </p>
+
+            <p class="partnership-intro">
+                Schools interested in developing a
+                <em>Common Room</em> project with Walkden House Press can
+                learn more about our term-long partnerships below.
+            </p>
+
+            <div class="partnership-button-wrapper">
+
+                <a
+                    href="school-partnerships.html"
+                    class="partnership-button"
+                >
+                    School Partnerships
+                </a>
+
+            </div>
 
         </div>
 

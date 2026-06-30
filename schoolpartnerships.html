@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/svg" href="images/favicon.svg" />
+
+<title>School Partnerships — Walkden House Press</title>
+
+<style>
+
+:root {
+
+    --bg: #F2E9DF;
+
+    --text: #241A18;
+
+    --text-soft: rgba(36, 26, 24, 0.74);
+
+    --accent: #7A564A;
+
+    --line: rgba(36, 26, 24, 0.055);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+
+    font-family:
+        "Baskerville",
+        "Times New Roman",
+        serif;
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg);
+
+    overflow-x: hidden;
+
+    position: relative;
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* SUBTLE PAPER GRAIN */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.016;
+
+    background-image:
+        url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+}
+
+/* HEADER */
+
+.header {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 26px 64px 20px;
+
+    gap: 32px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* BRAND */
+
+.title-wrapper {
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    min-width: 0;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition:
+        transform 0.28s ease,
+        opacity 0.28s ease;
+}
+
+.title-wrapper:hover {
+
+    transform: translateY(-1px);
+
+    opacity: 0.96;
+}
+
+.title-wrapper img {
+
+    width: 48px;
+    height: auto;
+
+    display: block;
+
+    flex-shrink: 0;
+
+    transform: translateY(1px);
+}
+
+.title-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+
+    font-size: 1.72rem;
+
+    letter-spacing: 0.15px;
+
+    color: var(--text);
+
+    white-space: nowrap;
+}
+
+.subtitle {
+
+    margin-top: 2px;
+
+    font-size: 0.66rem;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.82;
+}
+
+/* NAVIGATION */
+
+.nav {
+
+    display: flex;
+    align-items: center;
+
+    margin-left: auto;
+
+    gap: 32px;
+
+    font-size: 1.02rem;
+
+    letter-spacing: 0.18px;
+
+    white-space: nowrap;
+}
+
+.nav a {
+
+    text-decoration: none;
+
+    color: var(--text-soft);
+
+    position: relative;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--accent);
+
+    opacity: 0;
+    transform: scaleX(0.7);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.nav a:hover {
+
+    color: var(--text);
+}
+
+.nav a:hover::after {
+
+    opacity: 0.42;
+    transform: scaleX(1);
+}
+
+.nav a.active {
+
+    color: var(--text);
+}
+
+.nav a.active::after {
+
+    opacity: 0.34;
+    transform: scaleX(1);
+}
+
+.nav a.italic {
+    font-style: italic;
+}
+
+/* DIVIDER */
+
+.line {
+
+    height: 1px;
+
+    width: calc(100% - 120px);
+
+    margin: 0 auto;
+
+    opacity: 0.34;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            var(--line),
+            transparent
+        );
+}
+
+/* MAIN */
+
+main {
+
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+
+    padding:
+        76px
+        24px
+        120px;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* CONTENT */
+
+.content {
+
+    width: 100%;
+    max-width: 760px;
+
+    animation: fadeIn 1.6s ease;
+}
+
+.kicker {
+
+    margin-bottom: 26px;
+
+    text-align: center;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.68;
+}
+
+.page-title {
+
+    margin: 0 0 54px;
+
+    text-align: center;
+
+    font-size: 2.4rem;
+
+    font-weight: normal;
+
+    letter-spacing: 0.2px;
+}
+
+.body-text {
+
+    font-size: 1.18rem;
+
+    line-height: 1.85;
+
+    color: var(--text);
+
+    max-width: 680px;
+
+    margin: 0 auto;
+}
+
+.body-text p {
+
+    margin: 0 0 34px;
+}
+
+.body-text em {
+
+    font-style: italic;
+}
+
+.partnership-note {
+
+    margin: 58px auto 0;
+
+    padding: 34px 0 4px;
+
+    max-width: 560px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(36, 26, 24, 0.08);
+}
+
+.partnership-label {
+
+    margin-bottom: 18px;
+
+    font-size: 0.64rem;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.72;
+}
+
+.partnership-note p {
+
+    margin-bottom: 22px;
+
+    font-size: 1.02rem;
+
+    line-height: 1.75;
+
+    color: var(--text-soft);
+}
+
+.partnership-note a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.98rem;
+
+    position: relative;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+}
+
+.partnership-note a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--accent);
+
+    opacity: 0;
+
+    transform: scaleX(0.7);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.partnership-note a:hover {
+
+    color: var(--text);
+}
+
+.partnership-note a:hover::after {
+
+    opacity: 0.42;
+
+    transform: scaleX(1);
+}
+
+.programme-summary {
+
+    margin: 10px auto 54px;
+
+    max-width: 620px;
+
+    text-align: center;
+
+    font-size: 1.08rem;
+
+    line-height: 1.78;
+
+    color: var(--text-soft);
+}
+
+.partnership-section {
+
+    margin-top: 54px;
+
+    padding-top: 42px;
+
+    border-top: 1px solid rgba(36, 26, 24, 0.08);
+}
+
+.partnership-section h2 {
+
+    margin: 0 0 24px;
+
+    text-align: center;
+
+    font-size: 1.36rem;
+
+    font-weight: normal;
+
+    letter-spacing: 0.18px;
+}
+
+.partnership-section h3 {
+
+    margin: 38px 0 14px;
+
+    font-size: 1.02rem;
+
+    font-weight: normal;
+
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.82;
+}
+
+.partnership-section ul {
+
+    list-style: none;
+
+    padding: 0;
+    margin: 24px auto 0;
+
+    max-width: 560px;
+}
+
+.partnership-section li {
+
+    margin-bottom: 12px;
+
+    color: var(--text-soft);
+}
+
+.partnership-section li::before {
+
+    content: "—";
+
+    margin-right: 10px;
+
+    color: var(--accent);
+
+    opacity: 0.62;
+}
+
+.detail-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+    margin: 46px auto 0;
+
+    max-width: 680px;
+
+    background: rgba(36, 26, 24, 0.07);
+}
+
+.detail-item {
+
+    background: var(--bg);
+
+    padding: 24px 18px;
+
+    text-align: center;
+}
+
+.detail-label {
+
+    margin-bottom: 10px;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.7;
+}
+
+.detail-value {
+
+    font-size: 1.08rem;
+
+    line-height: 1.4;
+
+    color: var(--text);
+}
+
+.phase {
+
+    margin-top: 34px;
+}
+
+.phase-title {
+
+    margin-bottom: 8px;
+
+    font-size: 1.08rem;
+
+    color: var(--text);
+}
+
+.phase-time {
+
+    margin-bottom: 14px;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.7;
+}
+
+.fee-panel {
+
+    margin: 58px auto 0;
+
+    padding: 38px 34px 40px;
+
+    max-width: 560px;
+
+    text-align: center;
+
+    border: 1px solid rgba(36, 26, 24, 0.08);
+
+    background: rgba(255,255,255,0.16);
+}
+
+.fee-label {
+
+    margin-bottom: 12px;
+
+    font-size: 0.64rem;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.72;
+}
+
+.fee-amount {
+
+    margin-bottom: 18px;
+
+    font-size: 1.72rem;
+
+    color: var(--text);
+}
+
+.contact-link {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    position: relative;
+}
+
+.contact-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -4px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--accent);
+
+    opacity: 0.34;
+
+    transform: scaleX(1);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.contact-link:hover::after {
+
+    opacity: 0.52;
+
+    transform: scaleX(1.04);
+}
+
+@media (max-width: 760px) {
+
+    .programme-summary {
+
+        font-size: 1.01rem;
+
+        margin-bottom: 44px;
+    }
+
+    .partnership-section {
+
+        margin-top: 44px;
+
+        padding-top: 34px;
+    }
+
+    .partnership-section h2 {
+
+        font-size: 1.22rem;
+    }
+
+    .detail-grid {
+
+        grid-template-columns: 1fr;
+
+        margin-top: 36px;
+    }
+
+    .fee-panel {
+
+        padding: 32px 24px 34px;
+    }
+}
+
+/* SUBTLE FADE */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HAMBURGER */
+
+.hamburger {
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 22px;
+    height: 15px;
+
+    cursor: pointer;
+}
+
+.hamburger div {
+
+    height: 1px;
+
+    background-color: var(--text);
+}
+
+/* MOBILE MENU */
+
+.mobile-menu {
+
+    position: fixed;
+    inset: 0;
+
+    background-color: var(--bg);
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.mobile-menu.show {
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-menu-header {
+
+    position: absolute;
+
+    top: 32px;
+    right: 22px;
+}
+
+.close-icon {
+
+    width: 22px;
+    height: 22px;
+
+    cursor: pointer;
+
+    position: relative;
+}
+
+.close-icon::before,
+.close-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: var(--text);
+}
+
+.close-icon::before {
+    transform: rotate(45deg);
+}
+
+.close-icon::after {
+    transform: rotate(-45deg);
+}
+
+.mobile-menu-inner {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mobile-kicker {
+
+    margin-bottom: 42px;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.68;
+}
+
+.mobile-menu nav {
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+.mobile-menu a {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 1.18rem;
+
+    letter-spacing: 0.18px;
+
+    opacity: 0;
+
+    transform: translateY(8px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        color 0.25s ease;
+}
+
+.mobile-menu.show a {
+
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-menu.show a:nth-child(1) {
+    transition-delay: 0.08s;
+}
+
+.mobile-menu.show a:nth-child(2) {
+    transition-delay: 0.14s;
+}
+
+.mobile-menu.show a:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.mobile-menu.show a:nth-child(4) {
+    transition-delay: 0.26s;
+}
+
+.mobile-menu a:hover {
+
+    color: var(--accent);
+}
+
+/* ACCESSIBILITY */
+
+a:focus-visible {
+
+    outline: 1px solid var(--accent);
+    outline-offset: 4px;
+}
+
+/* COMPRESSED DESKTOP / TABLET */
+
+@media (max-width: 1100px) {
+
+    .header {
+        padding: 24px 36px 20px;
+        gap: 20px;
+    }
+
+    .title-wrapper {
+        gap: 14px;
+    }
+
+    .title-wrapper img {
+        width: 44px;
+    }
+
+    .title {
+        font-size: 1.42rem;
+    }
+
+    .nav {
+        gap: 22px;
+        font-size: 0.96rem;
+    }
+
+    .line {
+        width: calc(100% - 64px);
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 760px) {
+
+    .header {
+
+        padding: 18px 22px 18px;
+
+        align-items: center;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .title-wrapper {
+        gap: 10px;
+    }
+
+    .title {
+
+        font-size: 1.12rem;
+    }
+
+    .subtitle {
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.8px;
+    }
+
+    .title-wrapper img {
+
+        width: 40px;
+    }
+
+    .line {
+        width: calc(100% - 44px);
+    }
+
+    main {
+
+        padding:
+            56px
+            20px
+            90px;
+    }
+
+    .page-title {
+
+        font-size: 1.84rem;
+
+        margin-bottom: 40px;
+    }
+
+    .body-text {
+
+        font-size: 1.02rem;
+
+        line-height: 1.82;
+    }
+
+    .body-text p {
+
+        margin-bottom: 28px;
+    }
+
+    .mobile-menu nav {
+        gap: 26px;
+    }
+
+    .mobile-menu a {
+        font-size: 1.08rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+    <a
+        href="index.html"
+        class="title-wrapper"
+        aria-label="Walkden House Press Home"
+    >
+
+        <img
+            src="images/colophon.svg"
+            alt="Walkden House Press logo"
+        >
+
+        <div class="title-group">
+
+            <div class="title">
+                Walkden House Press
+            </div>
+
+            <div class="subtitle">
+                Independent Publishers · Est. 2026
+            </div>
+
+        </div>
+
+    </a>
+
+    <nav class="nav">
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="the-parlour.html">
+            The Parlour
+        </a>
+
+        <a
+            href="common-room.html"
+            class="active"
+        >
+            Common Room
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+    <div
+        class="hamburger"
+        onclick="toggleMenu()"
+        aria-label="Open menu"
+    >
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+</header>
+
+<div class="line"></div>
+
+<main>
+
+    <section class="content">
+
+        <div class="kicker">
+            Common Room
+        </div>
+
+        <h1 class="page-title">
+            School Partnerships
+        </h1>
+
+        <div class="body-text">
+
+            <p class="programme-summary">
+                <em>Common Room</em> partnerships bring the work of
+                Walkden House Press into schools through a term-long
+                programme of workshops, editorial development, and
+                publication.
+            </p>
+
+            <p>
+                Working with a dedicated cohort of approximately twenty
+                young writers, each partnership follows students as they
+                develop original writing towards a finished anthology
+                representing their school community.
+            </p>
+
+            <p>
+                The programme is designed not as a series of isolated
+                workshops, but as a sustained literary process: students
+                begin with exploratory writing, move through editorial
+                conversations and redrafting, and conclude by seeing
+                their work gathered into a professionally produced
+                publication.
+            </p>
+
+            <div class="detail-grid">
+
+                <div class="detail-item">
+
+                    <div class="detail-label">
+                        Duration
+                    </div>
+
+                    <div class="detail-value">
+                        One school term
+                    </div>
+
+                </div>
+
+                <div class="detail-item">
+
+                    <div class="detail-label">
+                        Cohort
+                    </div>
+
+                    <div class="detail-value">
+                        Around 20 writers
+                    </div>
+
+                </div>
+
+                <div class="detail-item">
+
+                    <div class="detail-label">
+                        Fee
+                    </div>
+
+                    <div class="detail-value">
+                        £1,500
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="partnership-section">
+
+                <h2>
+                    The Partnership
+                </h2>
+
+                <p>
+                    Each <em>Common Room</em> partnership is developed
+                    collaboratively with the school. The exact shape of
+                    the programme may vary according to year group,
+                    timetable, and literary focus, but the central aim
+                    remains the same: to give young writers the experience
+                    of being taken seriously as authors.
+                </p>
+
+                <p>
+                    Over the course of the term, students work towards a
+                    piece for publication in
+                    <em>Common Room: [School Name]</em>, published by
+                    Walkden House Press. Each contribution is also
+                    automatically considered for publication in
+                    <em>The Parlour</em>, our local literary magazine
+                    for writers of all ages.
+                </p>
+
+            </div>
+
+            <div class="partnership-section">
+
+                <h2>
+                    Structure
+                </h2>
+
+                <div class="phase">
+
+                    <div class="phase-title">
+                        Opening Sessions
+                    </div>
+
+                    <div class="phase-time">
+                        Weeks 1–3
+                    </div>
+
+                    <p>
+                        The first stage is exploratory. Through shared
+                        reading, discussion, and writing exercises,
+                        students begin to discover the subjects, memories,
+                        and questions they might wish to pursue.
+                    </p>
+
+                    <p>
+                        Sessions may draw upon lived experience, place,
+                        family, myth, observation, conversation, and the
+                        textures of everyday life.
+                    </p>
+
+                </div>
+
+                <div class="phase">
+
+                    <div class="phase-title">
+                        Editorial Development
+                    </div>
+
+                    <div class="phase-time">
+                        Weeks 4–8
+                    </div>
+
+                    <p>
+                        The same cohort continues working together,
+                        developing pieces through discussion, redrafting,
+                        and one-to-one editorial guidance.
+                    </p>
+
+                    <p>
+                        This stage introduces students to writing as an
+                        ongoing practice of attention, revision, and
+                        discovery, rather than simply the production of
+                        finished work.
+                    </p>
+
+                </div>
+
+                <div class="phase">
+
+                    <div class="phase-title">
+                        Publication
+                    </div>
+
+                    <div class="phase-time">
+                        Weeks 9–12
+                    </div>
+
+                    <p>
+                        Walkden House Press edits, curates, designs, and
+                        produces the finished anthology, including an
+                        editorial introduction and one hundred printed
+                        copies.
+                    </p>
+
+                    <p>
+                        Each contributor receives a complimentary copy,
+                        with further copies retained by the school for
+                        libraries, displays, families, open evenings, or
+                        wider distribution.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="partnership-section">
+
+                <h2>
+                    What Is Included
+                </h2>
+
+                <ul>
+                    <li>Six two-hour workshop sessions across one school term</li>
+                    <li>Work with a dedicated cohort of approximately twenty students</li>
+                    <li>One-to-one editorial guidance and manuscript development</li>
+                    <li>Curation, editing, design, and typesetting of the anthology</li>
+                    <li>An editorial introduction by Walkden House Press</li>
+                    <li>Publication as <em>Common Room: [School Name]</em></li>
+                    <li>One hundred printed copies of the finished publication</li>
+                    <li>A concluding reading or launch event within the school</li>
+                    <li>Consideration of outstanding pieces for publication in <em>The Parlour</em></li>
+                </ul>
+
+            </div>
+
+            <div class="fee-panel">
+
+                <div class="fee-label">
+                    Partnership Fee
+                </div>
+
+                <div class="fee-amount">
+                    £1,500
+                </div>
+
+                <p>
+                    The fee covers the full term-long partnership,
+                    including workshop delivery, editorial development,
+                    publication work, and one hundred printed copies of
+                    the finished anthology.
+                </p>
+
+            </div>
+
+            <div class="partnership-section">
+
+                <h2>
+                    Working Together
+                </h2>
+
+                <p>
+                    <em>Common Room</em> partnerships are suitable for
+                    schools wishing to cultivate writing for pleasure,
+                    develop a small community of young writers, and create
+                    a lasting publication that reflects the voices of
+                    their students.
+                </p>
+
+                <p>
+                    Schools interested in developing a partnership with
+                    Walkden House Press are warmly invited to get in touch.
+                </p>
+
+                <p style="text-align: center; margin-top: 34px;">
+                    <a
+                        href="contact.html"
+                        class="contact-link"
+                    >
+                        Contact Walkden House Press
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- MOBILE MENU -->
+
+<div
+    class="mobile-menu"
+    id="mobileMenu"
+>
+
+    <div class="mobile-menu-header">
+
+        <div
+            class="close-icon"
+            onclick="toggleMenu()"
+            aria-label="Close menu"
+        ></div>
+
+    </div>
+
+    <div class="mobile-menu-inner">
+
+        <div class="mobile-kicker">
+            Walkden House Press
+        </div>
+
+        <nav>
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="the-parlour.html">
+                The Parlour
+            </a>
+
+            <a
+                href="common-room.html"
+                class="active"
+            >
+                Common Room
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </nav>
+
+    </div>
+
+</div>
+
+<script>
+
+function toggleMenu() {
+
+    document
+        .getElementById('mobileMenu')
+        .classList
+        .toggle('show');
+}
+
+</script>
+
+</body>
+</html>

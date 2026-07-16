@@ -259,34 +259,11 @@
             font-style: italic;
         }
 
-        /* Copyright */
-
-        .site-footer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            padding: 0 24px 30px;
-
-            position: relative;
-            z-index: 2;
-        }
-
-        .copyright {
-            color: var(--text-soft);
-
-            font-size: 0.62rem;
-            letter-spacing: 0.75px;
-
-            opacity: 0.62;
-        }
-
         /* Subtle fade */
 
         .hero,
         .header,
-        .line,
-        .site-footer {
+        .line {
             animation: fadeIn 1.6s ease;
         }
 
@@ -535,19 +512,6 @@
                 margin-top: -18px;
             }
 
-            .site-footer {
-                padding-bottom: 24px;
-            }
-
-            .colophon {
-                width: 36px;
-                margin-bottom: 9px;
-            }
-
-            .copyright {
-                font-size: 0.58rem;
-            }
-
             .mobile-menu nav {
                 gap: 26px;
             }
@@ -622,19 +586,6 @@
             </div>
         </section>
     </main>
-
-    <footer class="site-footer">
-        <img
-            src="images/colophon.svg"
-            alt=""
-            class="colophon"
-            aria-hidden="true"
-        />
-
-        <div class="copyright">
-            &copy; 2026 Walkden House Press
-        </div>
-    </footer>
 
     <!-- Mobile menu -->
 

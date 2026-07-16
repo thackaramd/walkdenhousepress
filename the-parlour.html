@@ -1,802 +1,540 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
 
-<link rel="icon" type="image/svg" href="images/favicon.svg" />
+    <link
+        rel="icon"
+        type="image/svg"
+        href="images/favicon.svg"
+    />
 
-<title>The Parlour — Walkden House Press</title>
+    <title>The Parlour — Walkden House Press</title>
 
-<style>
+    <style>
+        :root {
+            --bg: #f2e9df;
+            --text: #241a18;
+            --text-soft: rgba(36, 26, 24, 0.74);
+            --accent: #7a564a;
+            --line: rgba(36, 26, 24, 0.055);
+        }
 
-:root {
+        * {
+            box-sizing: border-box;
+        }
 
-    --bg: #F2E9DF;
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+        }
 
-    --text: #241A18;
+        body {
+            min-height: 100vh;
 
-    --text-soft: rgba(36, 26, 24, 0.74);
+            display: flex;
+            flex-direction: column;
 
-    --accent: #7A564A;
+            position: relative;
+            overflow-x: hidden;
 
-    --line: rgba(36, 26, 24, 0.055);
-}
+            color: var(--text);
+            background: var(--bg);
 
-* {
-    box-sizing: border-box;
-}
+            font-family:
+                "Baskerville",
+                "Times New Roman",
+                serif;
 
-html,
-body {
-    margin: 0;
-    min-height: 100%;
-}
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
 
-body {
+        /* Paper grain */
 
-    font-family:
-        "Baskerville",
-        "Times New Roman",
-        serif;
+        body::before {
+            content: "";
 
-    color: var(--text);
+            position: fixed;
+            inset: 0;
 
-    min-height: 100vh;
+            pointer-events: none;
+            opacity: 0.016;
 
-    display: flex;
-    flex-direction: column;
+            background-image:
+                url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+        }
 
-    background: var(--bg);
+        /* Header */
 
-    overflow-x: hidden;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-    position: relative;
+            padding: 26px 64px 20px;
+            gap: 32px;
 
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
+            position: relative;
+            z-index: 2;
+        }
 
-/* PAPER GRAIN */
+        /* Brand */
 
-body::before {
+        .title-wrapper {
+            display: flex;
+            align-items: center;
 
-    content: "";
+            min-width: 0;
 
-    position: fixed;
-    inset: 0;
+            color: inherit;
+            text-decoration: none;
 
-    pointer-events: none;
+            transition:
+                transform 0.28s ease,
+                opacity 0.28s ease;
+        }
 
-    opacity: 0.016;
+        .title-wrapper:hover {
+            opacity: 0.96;
+            transform: translateY(-1px);
+        }
 
-    background-image:
-        url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-}
+        .title-group {
+            display: flex;
+            flex-direction: column;
+        }
 
-/* HEADER */
+        .title {
+            color: var(--text);
 
-.header {
+            font-size: 1.72rem;
+            letter-spacing: 0.15px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+            white-space: nowrap;
+        }
 
-    padding: 26px 64px 20px;
+        .subtitle {
+            margin-top: 2px;
 
-    gap: 32px;
+            color: var(--text-soft);
+            opacity: 0.82;
 
-    position: relative;
-    z-index: 2;
-}
+            font-size: 0.66rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-/* BRAND */
+        /* Navigation */
 
-.title-wrapper {
+        .nav {
+            display: flex;
+            align-items: center;
 
-    display: flex;
-    align-items: center;
+            margin-left: auto;
+            gap: 32px;
 
-    gap: 16px;
+            font-size: 1.02rem;
+            letter-spacing: 0.18px;
 
-    min-width: 0;
+            white-space: nowrap;
+        }
 
-    text-decoration: none;
-    color: inherit;
+        .nav a {
+            position: relative;
 
-    transition:
-        transform 0.28s ease,
-        opacity 0.28s ease;
-}
+            color: var(--text-soft);
+            text-decoration: none;
 
-.title-wrapper:hover {
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease;
+        }
 
-    transform: translateY(-1px);
+        .nav a::after {
+            content: "";
 
-    opacity: 0.96;
-}
+            position: absolute;
+            left: 0;
+            bottom: -4px;
 
-.title-wrapper img {
+            width: 100%;
+            height: 1px;
 
-    width: 48px;
-    height: auto;
+            background: var(--accent);
 
-    display: block;
+            opacity: 0;
+            transform: scaleX(0.7);
 
-    flex-shrink: 0;
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
 
-    transform: translateY(1px);
-}
+        .nav a:hover {
+            color: var(--text);
+        }
 
-.title-group {
-    display: flex;
-    flex-direction: column;
-}
+        .nav a:hover::after {
+            opacity: 0.42;
+            transform: scaleX(1);
+        }
 
-.title {
+        .nav a.active {
+            color: var(--text);
+        }
 
-    font-size: 1.72rem;
+        .nav a.active::after {
+            opacity: 0.34;
+            transform: scaleX(1);
+        }
 
-    letter-spacing: 0.15px;
+        /* Divider */
 
-    color: var(--text);
+        .line {
+            width: calc(100% - 120px);
+            height: 1px;
 
-    white-space: nowrap;
-}
+            margin: 0 auto;
 
-.subtitle {
+            opacity: 0.34;
 
-    margin-top: 2px;
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--line),
+                    transparent
+                );
+        }
 
-    font-size: 0.66rem;
+        /* Main */
 
-    letter-spacing: 1px;
-    text-transform: uppercase;
+        main {
+            flex: 1;
 
-    color: var(--text-soft);
+            display: flex;
+            justify-content: center;
 
-    opacity: 0.82;
-}
+            padding: 76px 24px 120px;
 
-/* NAVIGATION */
+            position: relative;
+            z-index: 2;
+        }
 
-.nav {
+        /* Content */
 
-    display: flex;
-    align-items: center;
+        .content {
+            width: 100%;
+            max-width: 760px;
 
-    margin-left: auto;
+            animation: fadeIn 1.6s ease;
+        }
 
-    gap: 32px;
+        .kicker {
+            margin-bottom: 26px;
 
-    font-size: 1.02rem;
+            color: var(--text-soft);
+            opacity: 0.68;
 
-    letter-spacing: 0.18px;
+            font-size: 0.72rem;
+            letter-spacing: 2.2px;
+            text-align: center;
+            text-transform: uppercase;
+        }
 
-    white-space: nowrap;
-}
+        .page-title {
+            margin: 0 0 54px;
 
-.nav a {
+            font-size: 2.4rem;
+            font-weight: normal;
+            letter-spacing: 0.2px;
+            text-align: center;
+        }
 
-    text-decoration: none;
+        .body-text {
+            max-width: 680px;
+            margin: 0 auto;
 
-    color: var(--text-soft);
+            color: var(--text);
 
-    position: relative;
+            font-size: 1.18rem;
+            line-height: 1.85;
+        }
 
-    transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
-}
+        .body-text p {
+            margin: 0 0 34px;
+        }
 
-.nav a::after {
+        .body-text em {
+            font-style: italic;
+        }
 
-    content: "";
+        .body-text a {
+            color: inherit;
+            text-decoration-color: rgba(36, 26, 24, 0.3);
 
-    position: absolute;
+            transition: text-decoration-color 0.25s ease;
+        }
 
-    left: 0;
-    bottom: -4px;
+        .body-text a:hover {
+            text-decoration-color: var(--accent);
+        }
 
-    width: 100%;
-    height: 1px;
+        /* Fade */
 
-    background: var(--accent);
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
 
-    opacity: 0;
-    transform: scaleX(0.7);
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
+        /* Hamburger */
 
-.nav a:hover {
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
 
-    color: var(--text);
-}
+            width: 22px;
+            height: 15px;
 
-.nav a:hover::after {
+            cursor: pointer;
+        }
 
-    opacity: 0.42;
-    transform: scaleX(1);
-}
+        .hamburger div {
+            height: 1px;
+            background-color: var(--text);
+        }
 
-.nav a.active {
+        /* Mobile menu */
 
-    color: var(--text);
-}
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
 
-.nav a.active::after {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-    opacity: 0.34;
-    transform: scaleX(1);
-}
+            background-color: var(--bg);
 
-/* DIVIDER */
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
 
-.line {
+            transition:
+                opacity 0.4s ease,
+                visibility 0.4s ease;
+        }
 
-    height: 1px;
+        .mobile-menu.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
 
-    width: calc(100% - 120px);
+        .mobile-menu-header {
+            position: absolute;
+            top: 32px;
+            right: 22px;
+        }
 
-    margin: 0 auto;
+        .close-icon {
+            width: 22px;
+            height: 22px;
 
-    opacity: 0.34;
+            position: relative;
+            cursor: pointer;
+        }
 
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--line),
-            transparent
-        );
-}
+        .close-icon::before,
+        .close-icon::after {
+            content: "";
 
-/* MAIN */
+            position: absolute;
+            top: 50%;
+            left: 0;
 
-main {
+            width: 100%;
+            height: 1px;
 
-    flex: 1;
+            background-color: var(--text);
+        }
 
-    display: flex;
-    justify-content: center;
+        .close-icon::before {
+            transform: rotate(45deg);
+        }
 
-    padding:
-        76px
-        24px
-        120px;
+        .close-icon::after {
+            transform: rotate(-45deg);
+        }
 
-    position: relative;
-    z-index: 2;
-}
+        .mobile-menu-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-/* CONTENT */
+        .mobile-kicker {
+            margin-bottom: 42px;
 
-.content {
+            color: var(--text-soft);
+            opacity: 0.68;
 
-    width: 100%;
-    max-width: 760px;
+            font-size: 0.62rem;
+            letter-spacing: 2.6px;
+            text-transform: uppercase;
+        }
 
-    animation: fadeIn 1.6s ease;
-}
+        .mobile-menu nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-.kicker {
+            gap: 30px;
+        }
 
-    margin-bottom: 26px;
+        .mobile-menu a {
+            color: var(--text);
+            text-decoration: none;
 
-    text-align: center;
+            font-size: 1.18rem;
+            letter-spacing: 0.18px;
 
-    font-size: 0.72rem;
+            opacity: 0;
+            transform: translateY(8px);
 
-    letter-spacing: 2.2px;
-    text-transform: uppercase;
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease,
+                color 0.25s ease;
+        }
 
-    color: var(--text-soft);
+        .mobile-menu.show a {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    opacity: 0.68;
-}
+        .mobile-menu.show a:nth-child(1) {
+            transition-delay: 0.08s;
+        }
 
-.page-title {
+        .mobile-menu.show a:nth-child(2) {
+            transition-delay: 0.14s;
+        }
 
-    margin: 0 0 54px;
+        .mobile-menu.show a:nth-child(3) {
+            transition-delay: 0.2s;
+        }
 
-    text-align: center;
+        .mobile-menu.show a:nth-child(4) {
+            transition-delay: 0.26s;
+        }
 
-    font-size: 2.4rem;
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
 
-    font-weight: normal;
+        /* Compressed desktop and tablet */
 
-    letter-spacing: 0.2px;
-}
+        @media (max-width: 1100px) {
+            .header {
+                padding: 24px 36px 20px;
+                gap: 20px;
+            }
 
-.body-text {
+            .title {
+                font-size: 1.42rem;
+            }
 
-    font-size: 1.18rem;
+            .nav {
+                gap: 22px;
+                font-size: 0.96rem;
+            }
 
-    line-height: 1.85;
+            .line {
+                width: calc(100% - 64px);
+            }
+        }
 
-    color: var(--text);
+        /* Mobile */
 
-    max-width: 680px;
+        @media (max-width: 760px) {
+            .header {
+                padding: 18px 22px;
+            }
 
-    margin: 0 auto;
-}
+            .nav {
+                display: none;
+            }
 
-.body-text p {
+            .hamburger {
+                display: flex;
+            }
 
-    margin: 0 0 34px;
-}
+            .title {
+                font-size: 1.12rem;
+            }
 
-.body-text em {
+            .subtitle {
+                font-size: 0.54rem;
+                letter-spacing: 0.8px;
+            }
 
-    font-style: italic;
-}
+            .line {
+                width: calc(100% - 44px);
+            }
 
-.body-text a {
+            main {
+                padding: 56px 20px 90px;
+            }
 
-    color: inherit;
+            .page-title {
+                margin-bottom: 40px;
+                font-size: 1.84rem;
+            }
 
-    text-decoration-color: rgba(36, 26, 24, 0.3);
-
-    transition: text-decoration-color 0.25s ease;
-}
-
-.body-text a:hover {
-
-    text-decoration-color: var(--accent);
-}
-
-/* FADE */
-
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* HAMBURGER */
-
-.hamburger {
-
-    display: none;
-
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 22px;
-    height: 15px;
-
-    cursor: pointer;
-}
-
-.hamburger div {
-
-    height: 1px;
-
-    background-color: var(--text);
-}
-
-/* MOBILE MENU */
-
-.mobile-menu {
-
-    position: fixed;
-    inset: 0;
-
-    background-color: var(--bg);
-
-    z-index: 1000;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease;
-}
-
-.mobile-menu.show {
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.mobile-menu-header {
-
-    position: absolute;
-
-    top: 32px;
-    right: 22px;
-}
-
-.close-icon {
-
-    width: 22px;
-    height: 22px;
-
-    cursor: pointer;
-
-    position: relative;
-}
-
-.close-icon::before,
-.close-icon::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-    left: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background-color: var(--text);
-}
-
-.close-icon::before {
-    transform: rotate(45deg);
-}
-
-.close-icon::after {
-    transform: rotate(-45deg);
-}
-
-.mobile-menu-inner {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.mobile-kicker {
-
-    margin-bottom: 42px;
-
-    font-size: 0.62rem;
-
-    letter-spacing: 2.6px;
-    text-transform: uppercase;
-
-    color: var(--text-soft);
-
-    opacity: 0.68;
-}
-
-.mobile-menu nav {
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 30px;
-}
-
-.mobile-menu a {
-
-    color: var(--text);
-
-    text-decoration: none;
-
-    font-size: 1.18rem;
-
-    letter-spacing: 0.18px;
-
-    opacity: 0;
-
-    transform: translateY(8px);
-
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        color 0.25s ease;
-}
-
-.mobile-menu.show a {
-
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.mobile-menu.show a:nth-child(1) {
-    transition-delay: 0.08s;
-}
-
-.mobile-menu.show a:nth-child(2) {
-    transition-delay: 0.14s;
-}
-
-.mobile-menu.show a:nth-child(3) {
-    transition-delay: 0.2s;
-}
-
-.mobile-menu.show a:nth-child(4) {
-    transition-delay: 0.26s;
-}
-
-.mobile-menu a:hover {
-
-    color: var(--accent);
-}
-
-/* COMPRESSED DESKTOP / TABLET */
-
-@media (max-width: 1100px) {
-
-    .header {
-        padding: 24px 36px 20px;
-        gap: 20px;
-    }
-
-    .title-wrapper {
-        gap: 14px;
-    }
-
-    .title-wrapper img {
-        width: 44px;
-    }
-
-    .title {
-        font-size: 1.42rem;
-    }
-
-    .nav {
-        gap: 22px;
-        font-size: 0.96rem;
-    }
-
-    .line {
-        width: calc(100% - 64px);
-    }
-}
-
-/* MOBILE */
-
-@media (max-width: 760px) {
-
-    .header {
-
-        padding: 18px 22px 18px;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .title-wrapper {
-        gap: 10px;
-    }
-
-    .title {
-
-        font-size: 1.12rem;
-    }
-
-    .subtitle {
-
-        font-size: 0.54rem;
-
-        letter-spacing: 0.8px;
-    }
-
-    .title-wrapper img {
-
-        width: 40px;
-    }
-
-    .line {
-        width: calc(100% - 44px);
-    }
-
-    main {
-
-        padding:
-            56px
-            20px
-            90px;
-    }
-
-    .page-title {
-
-        font-size: 1.84rem;
-
-        margin-bottom: 40px;
-    }
-
-    .body-text {
-
-        font-size: 1.02rem;
-
-        line-height: 1.82;
-    }
-}
-
-</style>
+            .body-text {
+                font-size: 1.02rem;
+                line-height: 1.82;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-<header class="header">
-
-    <a
-        href="index.html"
-        class="title-wrapper"
-        aria-label="Walkden House Press Home"
-    >
-
-        <img
-            src="images/colophon.svg"
-            alt="Walkden House Press logo"
-        >
-
-        <div class="title-group">
-
-            <div class="title">
-                Walkden House Press
-            </div>
-
-            <div class="subtitle">
-                Independent Publishers · Est. 2026
-            </div>
-
-        </div>
-
-    </a>
-
-    <nav class="nav">
-
-        <a href="about.html">
-            About
-        </a>
-
+    <header class="header">
         <a
-            href="the-parlour.html"
-            class="active"
+            href="index.html"
+            class="title-wrapper"
+            aria-label="Walkden House Press Home"
         >
-            The Parlour
+            <div class="title-group">
+                <div class="title">
+                    Walkden House Press
+                </div>
+
+                <div class="subtitle">
+                    Independent Publishers · Est. 2026
+                </div>
+            </div>
         </a>
 
-        <a href="common-room.html">
-            Common Room
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </nav>
-
-    <div
-        class="hamburger"
-        onclick="toggleMenu()"
-        aria-label="Open menu"
-    >
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-</header>
-
-<div class="line"></div>
-
-<main>
-
-    <section class="content">
-
-        <div class="kicker">
-            Literary Magazine
-        </div>
-
-        <h1 class="page-title">
-            THE PARLOUR
-        </h1>
-
-        <div class="body-text">
-
-            <p>
-                <em>The Parlour</em> is the literary magazine published
-                by Walkden House Press, dedicated to writing that feels
-                alive, attentive, and grounded in lived experience.
-            </p>
-
-            <p>
-                The magazine is interested in work that values presence
-                as much as craft: writing attentive to thought, feeling,
-                memory, conversation, and the overlooked textures of
-                everyday life.
-            </p>
-
-            <p>
-                We publish poetry, short fiction, and creative nonfiction
-                from writers of all ages, welcoming work that is quiet or
-                bold, polished or exploratory.
-            </p>
-
-            <p>
-                Alongside publication itself, <em>The Parlour</em> aims
-                to create a literary culture rooted in attentiveness,
-                sincerity, and openness to emerging voices.
-            </p>
-
-            <p>
-                Contributors may request anonymity, though where possible
-                we present each piece with the writer’s name, age, and
-                town — placing the work within the world it comes from.
-            </p>
-
-            <p>
-                Submissions are read carefully and conversationally,
-                with attention not only to technique, but to the feeling
-                held within the writing and the space it leaves for the
-                reader to enter.
-            </p>
-
-            <p>
-                The first issue is now closed to submissions.
-            </p>
-
-            <p>
-                For enquiries, visit
-                <a href="https://theparlour.org.uk" target="_blank">
-                    theparlour.org.uk
-                </a>.
-            </p>
-
-        </div>
-
-    </section>
-
-</main>
-
-<!-- MOBILE MENU -->
-
-<div
-    class="mobile-menu"
-    id="mobileMenu"
->
-
-    <div class="mobile-menu-header">
-
-        <div
-            class="close-icon"
-            onclick="toggleMenu()"
-            aria-label="Close menu"
-        ></div>
-
-    </div>
-
-    <div class="mobile-menu-inner">
-
-        <div class="mobile-kicker">
-            Walkden House Press
-        </div>
-
-        <nav>
-
+        <nav class="nav">
             <a href="about.html">
                 About
             </a>
@@ -815,24 +553,140 @@ main {
             <a href="contact.html">
                 Contact
             </a>
-
         </nav>
 
+        <div
+            class="hamburger"
+            onclick="toggleMenu()"
+            aria-label="Open menu"
+        >
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="line"></div>
+
+    <main>
+        <section class="content">
+            <div class="kicker">
+                Literary Magazine
+            </div>
+
+            <h1 class="page-title">
+                THE PARLOUR
+            </h1>
+
+            <div class="body-text">
+                <p>
+                    <em>The Parlour</em> is the literary magazine
+                    published by Walkden House Press, dedicated to
+                    writing that feels alive, attentive, and grounded
+                    in lived experience.
+                </p>
+
+                <p>
+                    The magazine is interested in work that values
+                    presence as much as craft: writing attentive to
+                    thought, feeling, memory, conversation, and the
+                    overlooked textures of everyday life.
+                </p>
+
+                <p>
+                    We publish poetry, short fiction, and creative
+                    nonfiction from writers of all ages, welcoming
+                    work that is quiet or bold, polished or exploratory.
+                </p>
+
+                <p>
+                    Alongside publication itself, <em>The Parlour</em>
+                    aims to create a literary culture rooted in
+                    attentiveness, sincerity, and openness to emerging
+                    voices.
+                </p>
+
+                <p>
+                    Contributors may request anonymity, though where
+                    possible we present each piece with the writer’s
+                    name, age, and town — placing the work within the
+                    world it comes from.
+                </p>
+
+                <p>
+                    Submissions are read carefully and conversationally,
+                    with attention not only to technique, but to the
+                    feeling held within the writing and the space it
+                    leaves for the reader to enter.
+                </p>
+
+                <p>
+                    The first issue is now closed to submissions.
+                </p>
+
+                <p>
+                    For enquiries, visit
+                    <a
+                        href="https://theparlour.org.uk"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        theparlour.org.uk
+                    </a>.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile menu -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+        <div class="mobile-menu-header">
+            <div
+                class="close-icon"
+                onclick="toggleMenu()"
+                aria-label="Close menu"
+            ></div>
+        </div>
+
+        <div class="mobile-menu-inner">
+            <div class="mobile-kicker">
+                Walkden House Press
+            </div>
+
+            <nav>
+                <a href="about.html">
+                    About
+                </a>
+
+                <a
+                    href="the-parlour.html"
+                    class="active"
+                >
+                    The Parlour
+                </a>
+
+                <a href="common-room.html">
+                    Common Room
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+            </nav>
+        </div>
     </div>
 
-</div>
-
-<script>
-
-function toggleMenu() {
-
-    document
-        .getElementById('mobileMenu')
-        .classList
-        .toggle('show');
-}
-
-</script>
-
+    <script>
+        function toggleMenu() {
+            document
+                .getElementById("mobileMenu")
+                .classList
+                .toggle("show");
+        }
+    </script>
 </body>
 </html>

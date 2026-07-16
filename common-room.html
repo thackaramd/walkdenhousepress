@@ -1,905 +1,627 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
 
-<link rel="icon" type="image/svg" href="images/favicon.svg" />
+    <link
+        rel="icon"
+        type="image/svg"
+        href="images/favicon.svg"
+    />
 
-<title>Common Room — Walkden House Press</title>
+    <title>Common Room — Walkden House Press</title>
 
-<style>
+    <style>
+        :root {
+            --bg: #f2e9df;
+            --text: #241a18;
+            --text-soft: rgba(36, 26, 24, 0.74);
+            --accent: #7a564a;
+            --line: rgba(36, 26, 24, 0.055);
+        }
 
-:root {
+        * {
+            box-sizing: border-box;
+        }
 
-    --bg: #F2E9DF;
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+        }
 
-    --text: #241A18;
+        body {
+            min-height: 100vh;
 
-    --text-soft: rgba(36, 26, 24, 0.74);
+            display: flex;
+            flex-direction: column;
 
-    --accent: #7A564A;
+            position: relative;
+            overflow-x: hidden;
 
-    --line: rgba(36, 26, 24, 0.055);
-}
+            color: var(--text);
+            background: var(--bg);
 
-* {
-    box-sizing: border-box;
-}
+            font-family:
+                "Baskerville",
+                "Times New Roman",
+                serif;
 
-html,
-body {
-    margin: 0;
-    min-height: 100%;
-}
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
 
-body {
+        /* Paper grain */
 
-    font-family:
-        "Baskerville",
-        "Times New Roman",
-        serif;
+        body::before {
+            content: "";
 
-    color: var(--text);
+            position: fixed;
+            inset: 0;
 
-    min-height: 100vh;
+            pointer-events: none;
+            opacity: 0.016;
 
-    display: flex;
-    flex-direction: column;
+            background-image:
+                url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+        }
 
-    background: var(--bg);
+        /* Header */
 
-    overflow-x: hidden;
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-    position: relative;
+            padding: 26px 64px 20px;
+            gap: 32px;
 
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
+            position: relative;
+            z-index: 2;
+        }
 
-/* SUBTLE PAPER GRAIN */
+        /* Brand */
 
-body::before {
+        .title-wrapper {
+            display: flex;
+            align-items: center;
 
-    content: "";
+            min-width: 0;
 
-    position: fixed;
-    inset: 0;
+            color: inherit;
+            text-decoration: none;
 
-    pointer-events: none;
+            transition:
+                transform 0.28s ease,
+                opacity 0.28s ease;
+        }
 
-    opacity: 0.016;
+        .title-wrapper:hover {
+            opacity: 0.96;
+            transform: translateY(-1px);
+        }
 
-    background-image:
-        url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-}
+        .title-group {
+            display: flex;
+            flex-direction: column;
+        }
 
-/* HEADER */
+        .title {
+            color: var(--text);
 
-.header {
+            font-size: 1.72rem;
+            letter-spacing: 0.15px;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+            white-space: nowrap;
+        }
 
-    padding: 26px 64px 20px;
+        .subtitle {
+            margin-top: 2px;
 
-    gap: 32px;
+            color: var(--text-soft);
+            opacity: 0.82;
 
-    position: relative;
-    z-index: 2;
-}
+            font-size: 0.66rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-/* BRAND */
+        /* Navigation */
 
-.title-wrapper {
+        .nav {
+            display: flex;
+            align-items: center;
 
-    display: flex;
-    align-items: center;
+            margin-left: auto;
+            gap: 32px;
 
-    gap: 16px;
+            font-size: 1.02rem;
+            letter-spacing: 0.18px;
 
-    min-width: 0;
+            white-space: nowrap;
+        }
 
-    text-decoration: none;
-    color: inherit;
+        .nav a {
+            position: relative;
 
-    transition:
-        transform 0.28s ease,
-        opacity 0.28s ease;
-}
+            color: var(--text-soft);
+            text-decoration: none;
 
-.title-wrapper:hover {
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease;
+        }
 
-    transform: translateY(-1px);
+        .nav a::after {
+            content: "";
 
-    opacity: 0.96;
-}
+            position: absolute;
+            left: 0;
+            bottom: -4px;
 
-.title-wrapper img {
+            width: 100%;
+            height: 1px;
 
-    width: 48px;
-    height: auto;
+            background: var(--accent);
 
-    display: block;
+            opacity: 0;
+            transform: scaleX(0.7);
 
-    flex-shrink: 0;
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
 
-    transform: translateY(1px);
-}
+        .nav a:hover {
+            color: var(--text);
+        }
 
-.title-group {
-    display: flex;
-    flex-direction: column;
-}
+        .nav a:hover::after {
+            opacity: 0.42;
+            transform: scaleX(1);
+        }
 
-.title {
+        .nav a.active {
+            color: var(--text);
+        }
 
-    font-size: 1.72rem;
+        .nav a.active::after {
+            opacity: 0.34;
+            transform: scaleX(1);
+        }
 
-    letter-spacing: 0.15px;
+        .nav a.italic {
+            font-style: italic;
+        }
 
-    color: var(--text);
+        /* Divider */
 
-    white-space: nowrap;
-}
+        .line {
+            width: calc(100% - 120px);
+            height: 1px;
 
-.subtitle {
+            margin: 0 auto;
 
-    margin-top: 2px;
+            opacity: 0.34;
 
-    font-size: 0.66rem;
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--line),
+                    transparent
+                );
+        }
 
-    letter-spacing: 1px;
-    text-transform: uppercase;
+        /* Main */
 
-    color: var(--text-soft);
+        main {
+            flex: 1;
 
-    opacity: 0.82;
-}
+            display: flex;
+            justify-content: center;
 
-/* NAVIGATION */
+            padding: 76px 24px 120px;
 
-.nav {
+            position: relative;
+            z-index: 2;
+        }
 
-    display: flex;
-    align-items: center;
+        /* Content */
 
-    margin-left: auto;
+        .content {
+            width: 100%;
+            max-width: 760px;
 
-    gap: 32px;
+            animation: fadeIn 1.6s ease;
+        }
 
-    font-size: 1.02rem;
+        .kicker {
+            margin-bottom: 26px;
 
-    letter-spacing: 0.18px;
+            color: var(--text-soft);
+            opacity: 0.68;
 
-    white-space: nowrap;
-}
+            font-size: 0.72rem;
+            letter-spacing: 2.2px;
+            text-align: center;
+            text-transform: uppercase;
+        }
 
-.nav a {
+        .page-title {
+            margin: 0 0 54px;
 
-    text-decoration: none;
+            font-size: 2.4rem;
+            font-weight: normal;
+            letter-spacing: 0.2px;
+            text-align: center;
+        }
 
-    color: var(--text-soft);
+        .body-text {
+            max-width: 680px;
+            margin: 0 auto;
 
-    position: relative;
+            color: var(--text);
 
-    transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
-}
+            font-size: 1.18rem;
+            line-height: 1.85;
+        }
 
-.nav a::after {
+        .body-text p {
+            margin: 0 0 34px;
+        }
 
-    content: "";
+        .body-text em {
+            font-style: italic;
+        }
 
-    position: absolute;
+        /* Partnership note */
 
-    left: 0;
-    bottom: -4px;
+        .partnership-note {
+            max-width: 560px;
+            margin: 58px auto 0;
+            padding: 34px 0 4px;
 
-    width: 100%;
-    height: 1px;
+            text-align: center;
 
-    background: var(--accent);
+            border-top: 1px solid rgba(36, 26, 24, 0.08);
+        }
 
-    opacity: 0;
-    transform: scaleX(0.7);
+        .partnership-label {
+            margin-bottom: 18px;
 
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
+            color: var(--text-soft);
+            opacity: 0.72;
 
-.nav a:hover {
+            font-size: 0.64rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-    color: var(--text);
-}
+        .partnership-note p {
+            margin-bottom: 22px;
 
-.nav a:hover::after {
+            color: var(--text-soft);
 
-    opacity: 0.42;
-    transform: scaleX(1);
-}
+            font-size: 1.02rem;
+            line-height: 1.75;
+        }
 
-.nav a.active {
+        .partnership-note a {
+            position: relative;
 
-    color: var(--text);
-}
+            color: var(--text);
+            text-decoration: none;
 
-.nav a.active::after {
+            font-size: 0.98rem;
 
-    opacity: 0.34;
-    transform: scaleX(1);
-}
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease;
+        }
 
-.nav a.italic {
-    font-style: italic;
-}
+        .partnership-note a::after {
+            content: "";
 
-/* DIVIDER */
+            position: absolute;
+            left: 0;
+            bottom: -4px;
 
-.line {
+            width: 100%;
+            height: 1px;
 
-    height: 1px;
+            background: var(--accent);
 
-    width: calc(100% - 120px);
+            opacity: 0;
+            transform: scaleX(0.7);
 
-    margin: 0 auto;
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
 
-    opacity: 0.34;
+        .partnership-note a:hover {
+            color: var(--text);
+        }
 
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--line),
-            transparent
-        );
-}
+        .partnership-note a:hover::after {
+            opacity: 0.42;
+            transform: scaleX(1);
+        }
 
-/* MAIN */
+        /* Fade */
 
-main {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
 
-    flex: 1;
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    display: flex;
-    justify-content: center;
+        /* Hamburger */
 
-    padding:
-        76px
-        24px
-        120px;
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
 
-    position: relative;
-    z-index: 2;
-}
+            width: 22px;
+            height: 15px;
 
-/* CONTENT */
+            cursor: pointer;
+        }
 
-.content {
+        .hamburger div {
+            height: 1px;
+            background-color: var(--text);
+        }
 
-    width: 100%;
-    max-width: 760px;
+        /* Mobile menu */
 
-    animation: fadeIn 1.6s ease;
-}
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
 
-.kicker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
 
-    margin-bottom: 26px;
+            background-color: var(--bg);
 
-    text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
 
-    font-size: 0.72rem;
+            transition:
+                opacity 0.4s ease,
+                visibility 0.4s ease;
+        }
 
-    letter-spacing: 2.2px;
-    text-transform: uppercase;
+        .mobile-menu.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
 
-    color: var(--text-soft);
+        .mobile-menu-header {
+            position: absolute;
+            top: 32px;
+            right: 22px;
+        }
 
-    opacity: 0.68;
-}
+        .close-icon {
+            width: 22px;
+            height: 22px;
 
-.page-title {
+            position: relative;
+            cursor: pointer;
+        }
 
-    margin: 0 0 54px;
+        .close-icon::before,
+        .close-icon::after {
+            content: "";
 
-    text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 0;
 
-    font-size: 2.4rem;
+            width: 100%;
+            height: 1px;
 
-    font-weight: normal;
+            background-color: var(--text);
+        }
 
-    letter-spacing: 0.2px;
-}
+        .close-icon::before {
+            transform: rotate(45deg);
+        }
 
-.body-text {
+        .close-icon::after {
+            transform: rotate(-45deg);
+        }
 
-    font-size: 1.18rem;
+        .mobile-menu-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    line-height: 1.85;
+        .mobile-kicker {
+            margin-bottom: 42px;
 
-    color: var(--text);
+            color: var(--text-soft);
+            opacity: 0.68;
 
-    max-width: 680px;
+            font-size: 0.62rem;
+            letter-spacing: 2.6px;
+            text-transform: uppercase;
+        }
 
-    margin: 0 auto;
-}
+        .mobile-menu nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-.body-text p {
+            gap: 30px;
+        }
 
-    margin: 0 0 34px;
-}
+        .mobile-menu a {
+            color: var(--text);
+            text-decoration: none;
 
-.body-text em {
+            font-size: 1.18rem;
+            letter-spacing: 0.18px;
 
-    font-style: italic;
-}
+            opacity: 0;
+            transform: translateY(8px);
 
-.partnership-note {
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease,
+                color 0.25s ease;
+        }
 
-    margin: 58px auto 0;
+        .mobile-menu.show a {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    padding: 34px 0 4px;
+        .mobile-menu.show a:nth-child(1) {
+            transition-delay: 0.08s;
+        }
 
-    max-width: 560px;
+        .mobile-menu.show a:nth-child(2) {
+            transition-delay: 0.14s;
+        }
 
-    text-align: center;
+        .mobile-menu.show a:nth-child(3) {
+            transition-delay: 0.2s;
+        }
 
-    border-top: 1px solid rgba(36, 26, 24, 0.08);
-}
+        .mobile-menu.show a:nth-child(4) {
+            transition-delay: 0.26s;
+        }
 
-.partnership-label {
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
 
-    margin-bottom: 18px;
+        /* Accessibility */
 
-    font-size: 0.64rem;
+        a:focus-visible {
+            outline: 1px solid var(--accent);
+            outline-offset: 4px;
+        }
 
-    letter-spacing: 2px;
-    text-transform: uppercase;
+        /* Compressed desktop and tablet */
 
-    color: var(--text-soft);
+        @media (max-width: 1100px) {
+            .header {
+                padding: 24px 36px 20px;
+                gap: 20px;
+            }
 
-    opacity: 0.72;
-}
+            .title {
+                font-size: 1.42rem;
+            }
 
-.partnership-note p {
+            .nav {
+                gap: 22px;
+                font-size: 0.96rem;
+            }
 
-    margin-bottom: 22px;
+            .line {
+                width: calc(100% - 64px);
+            }
+        }
 
-    font-size: 1.02rem;
+        /* Mobile */
 
-    line-height: 1.75;
+        @media (max-width: 760px) {
+            .header {
+                padding: 18px 22px;
+                align-items: center;
+            }
 
-    color: var(--text-soft);
-}
+            .nav {
+                display: none;
+            }
 
-.partnership-note a {
+            .hamburger {
+                display: flex;
+            }
 
-    color: var(--text);
+            .title {
+                font-size: 1.12rem;
+            }
 
-    text-decoration: none;
+            .subtitle {
+                font-size: 0.54rem;
+                letter-spacing: 0.8px;
+            }
 
-    font-size: 0.98rem;
+            .line {
+                width: calc(100% - 44px);
+            }
 
-    position: relative;
+            main {
+                padding: 56px 20px 90px;
+            }
 
-    transition:
-        color 0.25s ease,
-        opacity 0.25s ease;
-}
+            .page-title {
+                margin-bottom: 40px;
+                font-size: 1.84rem;
+            }
 
-.partnership-note a::after {
+            .body-text {
+                font-size: 1.02rem;
+                line-height: 1.82;
+            }
 
-    content: "";
+            .body-text p {
+                margin-bottom: 28px;
+            }
 
-    position: absolute;
+            .mobile-menu nav {
+                gap: 26px;
+            }
 
-    left: 0;
-    bottom: -4px;
-
-    width: 100%;
-    height: 1px;
-
-    background: var(--accent);
-
-    opacity: 0;
-
-    transform: scaleX(0.7);
-
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-}
-
-.partnership-note a:hover {
-
-    color: var(--text);
-}
-
-.partnership-note a:hover::after {
-
-    opacity: 0.42;
-
-    transform: scaleX(1);
-}
-
-/* SUBTLE FADE */
-
-@keyframes fadeIn {
-
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* HAMBURGER */
-
-.hamburger {
-
-    display: none;
-
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 22px;
-    height: 15px;
-
-    cursor: pointer;
-}
-
-.hamburger div {
-
-    height: 1px;
-
-    background-color: var(--text);
-}
-
-/* MOBILE MENU */
-
-.mobile-menu {
-
-    position: fixed;
-    inset: 0;
-
-    background-color: var(--bg);
-
-    z-index: 1000;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease;
-}
-
-.mobile-menu.show {
-
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.mobile-menu-header {
-
-    position: absolute;
-
-    top: 32px;
-    right: 22px;
-}
-
-.close-icon {
-
-    width: 22px;
-    height: 22px;
-
-    cursor: pointer;
-
-    position: relative;
-}
-
-.close-icon::before,
-.close-icon::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 50%;
-    left: 0;
-
-    width: 100%;
-    height: 1px;
-
-    background-color: var(--text);
-}
-
-.close-icon::before {
-    transform: rotate(45deg);
-}
-
-.close-icon::after {
-    transform: rotate(-45deg);
-}
-
-.mobile-menu-inner {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.mobile-kicker {
-
-    margin-bottom: 42px;
-
-    font-size: 0.62rem;
-
-    letter-spacing: 2.6px;
-    text-transform: uppercase;
-
-    color: var(--text-soft);
-
-    opacity: 0.68;
-}
-
-.mobile-menu nav {
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 30px;
-}
-
-.mobile-menu a {
-
-    color: var(--text);
-
-    text-decoration: none;
-
-    font-size: 1.18rem;
-
-    letter-spacing: 0.18px;
-
-    opacity: 0;
-
-    transform: translateY(8px);
-
-    transition:
-        opacity 0.5s ease,
-        transform 0.5s ease,
-        color 0.25s ease;
-}
-
-.mobile-menu.show a {
-
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.mobile-menu.show a:nth-child(1) {
-    transition-delay: 0.08s;
-}
-
-.mobile-menu.show a:nth-child(2) {
-    transition-delay: 0.14s;
-}
-
-.mobile-menu.show a:nth-child(3) {
-    transition-delay: 0.2s;
-}
-
-.mobile-menu.show a:nth-child(4) {
-    transition-delay: 0.26s;
-}
-
-.mobile-menu a:hover {
-
-    color: var(--accent);
-}
-
-/* ACCESSIBILITY */
-
-a:focus-visible {
-
-    outline: 1px solid var(--accent);
-    outline-offset: 4px;
-}
-
-/* COMPRESSED DESKTOP / TABLET */
-
-@media (max-width: 1100px) {
-
-    .header {
-        padding: 24px 36px 20px;
-        gap: 20px;
-    }
-
-    .title-wrapper {
-        gap: 14px;
-    }
-
-    .title-wrapper img {
-        width: 44px;
-    }
-
-    .title {
-        font-size: 1.42rem;
-    }
-
-    .nav {
-        gap: 22px;
-        font-size: 0.96rem;
-    }
-
-    .line {
-        width: calc(100% - 64px);
-    }
-}
-
-/* MOBILE */
-
-@media (max-width: 760px) {
-
-    .header {
-
-        padding: 18px 22px 18px;
-
-        align-items: center;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    .title-wrapper {
-        gap: 10px;
-    }
-
-    .title {
-
-        font-size: 1.12rem;
-    }
-
-    .subtitle {
-
-        font-size: 0.54rem;
-
-        letter-spacing: 0.8px;
-    }
-
-    .title-wrapper img {
-
-        width: 40px;
-    }
-
-    .line {
-        width: calc(100% - 44px);
-    }
-
-    main {
-
-        padding:
-            56px
-            20px
-            90px;
-    }
-
-    .page-title {
-
-        font-size: 1.84rem;
-
-        margin-bottom: 40px;
-    }
-
-    .body-text {
-
-        font-size: 1.02rem;
-
-        line-height: 1.82;
-    }
-
-    .body-text p {
-
-        margin-bottom: 28px;
-    }
-
-    .mobile-menu nav {
-        gap: 26px;
-    }
-
-    .mobile-menu a {
-        font-size: 1.08rem;
-    }
-}
-
-</style>
+            .mobile-menu a {
+                font-size: 1.08rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-
-<header class="header">
-
-    <a
-        href="index.html"
-        class="title-wrapper"
-        aria-label="Walkden House Press Home"
-    >
-
-        <img
-            src="images/colophon.svg"
-            alt="Walkden House Press logo"
-        >
-
-        <div class="title-group">
-
-            <div class="title">
-                Walkden House Press
-            </div>
-
-            <div class="subtitle">
-                Independent Publishers · Est. 2026
-            </div>
-
-        </div>
-
-    </a>
-
-    <nav class="nav">
-
-        <a href="about.html">
-            About
-        </a>
-
-        <a href="the-parlour.html">
-            The Parlour
-        </a>
-
+    <header class="header">
         <a
-            href="common-room.html"
-            class="active"
+            href="index.html"
+            class="title-wrapper"
+            aria-label="Walkden House Press Home"
         >
-            Common Room
-        </a>
-
-        <a href="contact.html">
-            Contact
-        </a>
-
-    </nav>
-
-    <div
-        class="hamburger"
-        onclick="toggleMenu()"
-        aria-label="Open menu"
-    >
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-
-</header>
-
-<div class="line"></div>
-
-<main>
-
-    <section class="content">
-
-        <div class="kicker">
-            Collaborative Literary Projects
-        </div>
-
-        <h1 class="page-title">
-            Common Room
-        </h1>
-
-        <div class="body-text">
-
-            <p>
-                <em>Common Room</em> is a collaborative literary project
-                from Walkden House Press, developed in partnership with
-                schools and young writers.
-            </p>
-
-            <p>
-                Each edition emerges from a particular school community,
-                following a small group of writers through workshops,
-                editorial conversations, and shared reading towards a
-                finished anthology or zine.
-            </p>
-
-            <p>
-                <em>Common Room</em> approaches young people not simply as
-                students, but as authors gradually discovering a voice
-                and a relationship to language.
-            </p>
-
-            <p>
-                Every contribution published in
-                <em>Common Room</em> is also automatically considered for
-                publication in <em>The Parlour</em>, our local literary
-                magazine, which brings together writers of all ages from
-                across the region.
-            </p>
-
-            <p>
-                Alongside publication itself, the project aims to
-                cultivate local literary culture: writing as something
-                communal, reflective, and shared.
-            </p>
-
-            <div class="partnership-note">
-
-                <div class="partnership-label">
-                    For Schools
+            <div class="title-group">
+                <div class="title">
+                    Walkden House Press
                 </div>
 
-                <p>
-                    <em>Common Room</em> partnerships are developed with
-                    schools across a single term, combining workshops,
-                    editorial development, and publication.
-                </p>
-
-                <a href="school-partnerships.html">
-                    Learn more
-                </a>
-
+                <div class="subtitle">
+                    Independent Publishers · Est. 2026
+                </div>
             </div>
+        </a>
 
-        </div>
-
-    </section>
-
-</main>
-
-<!-- MOBILE MENU -->
-
-<div
-    class="mobile-menu"
-    id="mobileMenu"
->
-
-    <div class="mobile-menu-header">
-
-        <div
-            class="close-icon"
-            onclick="toggleMenu()"
-            aria-label="Close menu"
-        ></div>
-
-    </div>
-
-    <div class="mobile-menu-inner">
-
-        <div class="mobile-kicker">
-            Walkden House Press
-        </div>
-
-        <nav>
-
+        <nav class="nav">
             <a href="about.html">
                 About
             </a>
@@ -918,24 +640,134 @@ a:focus-visible {
             <a href="contact.html">
                 Contact
             </a>
-
         </nav>
 
+        <div
+            class="hamburger"
+            onclick="toggleMenu()"
+            aria-label="Open menu"
+        >
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <div class="line"></div>
+
+    <main>
+        <section class="content">
+            <div class="kicker">
+                Collaborative Literary Projects
+            </div>
+
+            <h1 class="page-title">
+                Common Room
+            </h1>
+
+            <div class="body-text">
+                <p>
+                    <em>Common Room</em> is a collaborative literary
+                    project from Walkden House Press, developed in
+                    partnership with schools and young writers.
+                </p>
+
+                <p>
+                    Each edition emerges from a particular school
+                    community, following a small group of writers
+                    through workshops, editorial conversations, and
+                    shared reading towards a finished anthology or zine.
+                </p>
+
+                <p>
+                    <em>Common Room</em> approaches young people not
+                    simply as students, but as authors gradually
+                    discovering a voice and a relationship to language.
+                </p>
+
+                <p>
+                    Every contribution published in
+                    <em>Common Room</em> is also automatically considered
+                    for publication in <em>The Parlour</em>, our local
+                    literary magazine, which brings together writers of
+                    all ages from across the region.
+                </p>
+
+                <p>
+                    Alongside publication itself, the project aims to
+                    cultivate local literary culture: writing as
+                    something communal, reflective, and shared.
+                </p>
+
+                <div class="partnership-note">
+                    <div class="partnership-label">
+                        For Schools
+                    </div>
+
+                    <p>
+                        <em>Common Room</em> partnerships are developed
+                        with schools across a single term, combining
+                        workshops, editorial development, and
+                        publication.
+                    </p>
+
+                    <a href="school-partnerships.html">
+                        Learn more
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Mobile menu -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
+        <div class="mobile-menu-header">
+            <div
+                class="close-icon"
+                onclick="toggleMenu()"
+                aria-label="Close menu"
+            ></div>
+        </div>
+
+        <div class="mobile-menu-inner">
+            <div class="mobile-kicker">
+                Walkden House Press
+            </div>
+
+            <nav>
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="the-parlour.html">
+                    The Parlour
+                </a>
+
+                <a
+                    href="common-room.html"
+                    class="active"
+                >
+                    Common Room
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+            </nav>
+        </div>
     </div>
 
-</div>
-
-<script>
-
-function toggleMenu() {
-
-    document
-        .getElementById('mobileMenu')
-        .classList
-        .toggle('show');
-}
-
-</script>
-
+    <script>
+        function toggleMenu() {
+            document
+                .getElementById("mobileMenu")
+                .classList
+                .toggle("show");
+        }
+    </script>
 </body>
 </html>

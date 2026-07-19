@@ -95,9 +95,9 @@ body::before {
 .title-wrapper {
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 
-    gap: 16px;
+    gap: 12px;
 
     min-width: 0;
 
@@ -118,14 +118,15 @@ body::before {
 
 .title-wrapper img {
 
-    width: 48px;
-    height: auto;
+    width: auto;
+    height: 3rem;
 
     display: block;
 
     flex-shrink: 0;
 
-    transform: translateY(1px);
+    /* Match the complete title-and-subtitle brand block. */
+    transform: translateY(0.04rem);
 }
 
 .title-group {
@@ -540,11 +541,13 @@ a:focus-visible {
     }
 
     .title-wrapper {
-        gap: 14px;
+        gap: 11px;
     }
 
     .title-wrapper img {
-        width: 44px;
+        width: auto;
+        height: 2.6rem;
+        transform: translateY(0.04rem);
     }
 
     .title {
@@ -585,7 +588,7 @@ a:focus-visible {
     }
 
     .title-wrapper {
-        gap: 10px;
+        gap: 8px;
     }
 
     .title {
@@ -602,7 +605,9 @@ a:focus-visible {
 
     .title-wrapper img {
 
-        width: 40px;
+        width: auto;
+        height: 2.1rem;
+        transform: translateY(0.03rem);
     }
 
     .kicker {

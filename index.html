@@ -16,7 +16,7 @@
 
     --text: #241A18;
 
-    --text-soft: rgba(36, 26, 24, 0.80);
+    --text-soft: rgba(36, 26, 24, 0.78);
 
     --accent: #7A564A;
 
@@ -275,8 +275,7 @@ main {
     flex-direction: column;
     align-items: center;
 
-    /* Lift the introduction into a more intentional position. */
-    margin-top: -112px;
+    margin-top: -52px;
 }
 
 /* SMALL KICKER */
@@ -292,15 +291,14 @@ main {
 
     color: var(--text-soft);
 
-    opacity: 0.82;
+    opacity: 0.68;
 }
 
 /* HERO TEXT */
 
 .quote {
 
-    /* Keeps “The Parlour” together instead of stranding “The”. */
-    max-width: 590px;
+    max-width: 640px;
 
     font-size: 1.54rem;
 
@@ -318,6 +316,9 @@ main {
 .quote em {
 
     font-style: italic;
+
+    /* Prevent either project title from breaking across lines. */
+    white-space: nowrap;
 }
 
 /* SUBTLE FADE */

@@ -16,7 +16,7 @@
 
     --text: #241A18;
 
-    --text-soft: rgba(36, 26, 24, 0.74);
+    --text-soft: rgba(36, 26, 24, 0.80);
 
     --accent: #7A564A;
 
@@ -275,7 +275,8 @@ main {
     flex-direction: column;
     align-items: center;
 
-    margin-top: -52px;
+    /* Lift the introduction into a more intentional position. */
+    margin-top: -112px;
 }
 
 /* SMALL KICKER */
@@ -291,14 +292,15 @@ main {
 
     color: var(--text-soft);
 
-    opacity: 0.68;
+    opacity: 0.82;
 }
 
 /* HERO TEXT */
 
 .quote {
 
-    max-width: 640px;
+    /* Keeps “The Parlour” together instead of stranding “The”. */
+    max-width: 590px;
 
     font-size: 1.54rem;
 
@@ -705,8 +707,6 @@ a:focus-visible {
 
 </nav>
 
-    </nav>
-
     <div
         class="hamburger"
         onclick="toggleMenu()"
@@ -765,8 +765,6 @@ a:focus-visible {
 
         <nav>
 
-          <nav>
-
     <a href="about.html">
         About
     </a>
@@ -784,10 +782,6 @@ a:focus-visible {
     </a>
 
 </nav>
-
-</nav>
-
-        </nav>
 
     </div>
 

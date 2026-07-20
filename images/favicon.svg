@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Walkden House Press door">
+  <rect x="51" width="410" height="512" rx="28" fill="#241a18"/>
+  <g transform="translate(33.28 33.28) scale(.87)" fill="none" stroke="#fffaf2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Fanlight -->
+    <path d="M158 90a99 70 0 0 1 198 0"/>
+    <path d="M168 89a88 59 0 0 1 176 0"/>
+    <path d="M238 89a18 18 0 0 1 36 0"/>
+    <path d="M256 70V35M242 73l-19-32M230 80l-31-25M224 89l-43-15M270 73l19-32M282 80l31-25M288 89l43-15"/>
+
+    <!-- Cornice -->
+    <path fill="#241a18" d="M145 89h222v8l-5 7H150l-5-7z"/>
+    <path d="M151 104v35h25v-35M336 104v35h25v-35"/>
+    <path d="M157 139v293M170 139v293M342 139v293M355 139v293"/>
+
+    <!-- Door surround -->
+    <path d="M177 104v330M335 104v330M177 104h158"/>
+    <path d="M152 432h25v22h-25zM335 432h25v22h-25z"/>
+    <path d="M146 454h36v17h-36zM330 454h36v17h-36z"/>
+    <path d="M139 471h234v18H139z"/>
+
+    <!-- Door and panels -->
+    <path d="M177 104h158v367H177z"/>
+    <path d="M193 129h50v149h-50zM269 129h51v149h-51z"/>
+    <path d="M193 311h50v132h-50zM269 311h51v132h-51z"/>
+
+    <!-- Door furniture -->
+    <path d="M256 211c-5 0-7 5-4 9-7 5-7 15 0 20-3 4-1 9 4 9s7-5 4-9c7-5 7-15 0-20 3-4 1-9-4-9z"/>
+    <path d="M256 249v9"/>
+    <circle cx="315" cy="295" r="8"/>
+  </g>
+</svg>

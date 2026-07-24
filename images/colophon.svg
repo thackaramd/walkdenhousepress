@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 879 1790" width="540" height="1145" role="img"
+  aria-labelledby="title desc">
+  <title id="title">Walkden House Press doorway colophon</title>
+  <desc id="desc">A restrained Georgian double doorway with a shallow semicircular fanlight, panelled doors and fluted pilasters, drawn as a single-colour printer's device.</desc>
+
+  <g fill="none" stroke="#443d38" stroke-linecap="square" stroke-linejoin="miter">
+    <!-- Lower fanlight; all other architecture is unchanged. -->
+    <path stroke-width="18" d="M132 419V365A307.5 220 0 0 1 747 365v54"/>
+    <path stroke-width="8" d="M159 419v-50a280.5 200 0 0 1 561 0v50"/>
+    <path stroke-width="7" d="M199 418a240.5 170 0 0 1 481 0"/>
+    <path stroke-width="12" d="M380 418a60 60 0 0 1 120 0"/>
+    <path stroke-width="9" d="M440 358V248"/>
+    <path stroke-width="9" d="M410 366 349 261"/>
+    <path stroke-width="9" d="M383 382 273 296"/>
+    <path stroke-width="9" d="M365 406 215 358"/>
+    <path stroke-width="9" d="M470 366 531 261"/>
+    <path stroke-width="9" d="M497 382 607 296"/>
+    <path stroke-width="9" d="M515 406 665 358"/>
+
+    <!-- Entablature. -->
+    <path stroke-width="22" d="M86 424H793"/>
+    <path stroke-width="12" d="M102 452H777"/>
+    <path stroke-width="16" d="M111 478H768"/>
+    <path stroke-width="7" d="M127 501H752"/>
+
+    <!-- Outer frame and fluted pilasters. -->
+    <path stroke-width="14" d="M118 502v1117M761 502v1117"/>
+    <path stroke-width="10" d="M154 529v1062M725 529v1062"/>
+    <path stroke-width="7" d="M174 558v1005M705 558v1005"/>
+    <path stroke-width="6" d="M190 558v1005M689 558v1005"/>
+    <path stroke-width="6" d="M206 558v1005M673 558v1005"/>
+    <path stroke-width="10" d="M145 529h70v64h-70M664 529h70v64h-70"/>
+    <path stroke-width="10" d="M145 1557h70v62h-70M664 1557h70v62h-70"/>
+
+    <!-- Door surround and central meeting stile. -->
+    <path stroke-width="16" d="M228 526H651V1619H228Z"/>
+    <path stroke-width="8" d="M246 548H633V1597H246Z"/>
+    <path stroke-width="12" d="M440 551V1594"/>
+
+    <!-- Four-panel double doors. -->
+    <path stroke-width="9" d="M272 595H409V1041H272ZM470 595H607V1041H470Z"/>
+    <path stroke-width="6" d="M288 614H393V1022H288ZM486 614H591V1022H486Z"/>
+    <path stroke-width="9" d="M272 1121H409V1520H272ZM470 1121H607V1520H470Z"/>
+    <path stroke-width="6" d="M288 1140H393V1501H288ZM486 1140H591V1501H486Z"/>
+    <path stroke-width="13" d="M254 1067H625M254 1094H625"/>
+
+    <!-- Knocker and handle. -->
+    <ellipse stroke-width="10" cx="440" cy="814" rx="25" ry="31"/>
+    <path stroke-width="9" d="M440 781v-26M421 841q19 26 38 0"/>
+    <circle stroke-width="11" cx="579" cy="1068" r="18"/>
+
+    <!-- Threshold and plinth. -->
+    <path stroke-width="14" d="M111 1619H768"/>
+    <path stroke-width="18" d="M91 1653H788"/>
+    <path stroke-width="12" d="M72 1691H807"/>
+    <path stroke-width="20" d="M66 1724H813"/>
+  </g>
+</svg>

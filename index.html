@@ -259,9 +259,9 @@ main {
     justify-content: center;
 
     padding:
-        clamp(56px, 8vh, 96px)
+        32px
         24px
-        clamp(72px, 10vh, 120px);
+        120px;
 
     position: relative;
     z-index: 2;
@@ -275,8 +275,7 @@ main {
     flex-direction: column;
     align-items: center;
 
-    margin-top: 0;
-    transform: translateY(-18px);
+    margin-top: -52px;
 }
 
 /* SMALL KICKER */
@@ -299,7 +298,7 @@ main {
 
 .quote {
 
-    max-width: 590px;
+    max-width: 640px;
 
     font-size: 1.54rem;
 
@@ -319,10 +318,6 @@ main {
     font-style: italic;
 }
 
-.nowrap {
-    white-space: nowrap;
-}
-
 /* SUBTLE FADE */
 
 .hero,
@@ -336,10 +331,12 @@ main {
 
     from {
         opacity: 0;
+        transform: translateY(8px);
     }
 
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -569,15 +566,6 @@ a:focus-visible {
     .quote {
         font-size: 1.34rem;
     }
-
-    main {
-        padding-top: clamp(52px, 7vh, 80px);
-        padding-bottom: clamp(64px, 9vh, 96px);
-    }
-
-    .hero {
-        transform: translateY(-10px);
-    }
 }
 
 /* MOBILE */
@@ -637,7 +625,7 @@ a:focus-visible {
 
         line-height: 1.82;
 
-        max-width: min(92%, 590px);
+        max-width: 92%;
     }
 
     .line {
@@ -647,13 +635,13 @@ a:focus-visible {
     main {
 
         padding:
-            44px
             20px
-            64px;
+            20px
+            90px;
     }
 
     .hero {
-        transform: none;
+        margin-top: -18px;
     }
 
     .mobile-menu nav {
@@ -717,6 +705,8 @@ a:focus-visible {
 
 </nav>
 
+    </nav>
+
     <div
         class="hamburger"
         onclick="toggleMenu()"
@@ -741,7 +731,7 @@ a:focus-visible {
 
         <div class="quote">
             Walkden House Press is the publishing house behind
-            <span class="nowrap"><em>The Parlour</em></span> and <em>Common Room</em>, developing literary
+            <em>The Parlour</em> and <em>Common Room</em>, developing literary
             and educational projects grounded in attention,
             voice, and lived writing.
         </div>
@@ -775,6 +765,8 @@ a:focus-visible {
 
         <nav>
 
+          <nav>
+
     <a href="about.html">
         About
     </a>
@@ -792,6 +784,10 @@ a:focus-visible {
     </a>
 
 </nav>
+
+</nav>
+
+        </nav>
 
     </div>
 

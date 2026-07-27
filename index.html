@@ -259,9 +259,9 @@ main {
     justify-content: center;
 
     padding:
-        32px
+        clamp(56px, 8vh, 96px)
         24px
-        120px;
+        clamp(72px, 10vh, 120px);
 
     position: relative;
     z-index: 2;
@@ -275,7 +275,8 @@ main {
     flex-direction: column;
     align-items: center;
 
-    margin-top: -52px;
+    margin-top: 0;
+    transform: translateY(-18px);
 }
 
 /* SMALL KICKER */
@@ -316,6 +317,10 @@ main {
 .quote em {
 
     font-style: italic;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 /* SUBTLE FADE */
@@ -566,6 +571,15 @@ a:focus-visible {
     .quote {
         font-size: 1.34rem;
     }
+
+    main {
+        padding-top: clamp(52px, 7vh, 80px);
+        padding-bottom: clamp(64px, 9vh, 96px);
+    }
+
+    .hero {
+        transform: translateY(-10px);
+    }
 }
 
 /* MOBILE */
@@ -635,13 +649,13 @@ a:focus-visible {
     main {
 
         padding:
+            44px
             20px
-            20px
-            90px;
+            64px;
     }
 
     .hero {
-        margin-top: -18px;
+        transform: none;
     }
 
     .mobile-menu nav {
@@ -705,8 +719,6 @@ a:focus-visible {
 
 </nav>
 
-    </nav>
-
     <div
         class="hamburger"
         onclick="toggleMenu()"
@@ -731,7 +743,7 @@ a:focus-visible {
 
         <div class="quote">
             Walkden House Press is the publishing house behind
-            <em>The Parlour</em> and <em>Common Room</em>, developing literary
+            <span class="nowrap"><em>The Parlour</em></span> and <em>Common Room</em>, developing literary
             and educational projects grounded in attention,
             voice, and lived writing.
         </div>
@@ -765,8 +777,6 @@ a:focus-visible {
 
         <nav>
 
-          <nav>
-
     <a href="about.html">
         About
     </a>
@@ -784,10 +794,6 @@ a:focus-visible {
     </a>
 
 </nav>
-
-</nav>
-
-        </nav>
 
     </div>
 

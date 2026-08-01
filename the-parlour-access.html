@@ -187,6 +187,28 @@
             border-color: rgba(36, 26, 24, 0.34);
         }
 
+        .access-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .download-link {
+            color: var(--text-soft);
+            font-size: 0.94rem;
+            text-underline-offset: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .download-link:hover {
+            color: var(--text);
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
         .test-note {
             margin: 32px auto 0;
             color: var(--text-soft);
@@ -288,22 +310,32 @@
         <section class="content" aria-labelledby="access-title">
             <div class="kicker">Digital Edition</div>
 
-            <h1 id="access-title">PURCHASE RECEIVED</h1>
+            <h1 id="access-title">CONFIRMING PURCHASE</h1>
 
             <p class="message" id="accessMessage">
-                Thank you. Your copy of <em>The Parlour</em> — Issue One
-                is ready.
+                Please wait while we prepare your copy of
+                <em>The Parlour</em> — Issue One.
             </p>
 
-            <a
-                class="reader-link"
-                id="readerLink"
-                href="pdfjs/web/viewer.html?file=%2Fdigital%2Fissue-one%2FThe%20Parlour%20-%20Issue%20One%20-%20Reader.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Begin Reading
-            </a>
+            <div class="access-actions" id="accessActions" hidden>
+                <a
+                    class="reader-link"
+                    id="readerLink"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Begin Reading
+                </a>
+
+                <a
+                    class="download-link"
+                    id="downloadLink"
+                    href="#"
+                >
+                    Download PDF
+                </a>
+            </div>
 
             <p class="test-note" id="testNote">
                 Sandbox test only — no real payment has been taken.
@@ -312,19 +344,61 @@
     </main>
 
     <script>
+        const WORKER_URL =
+            "https://walkden-parlour-checkout.director-1d7.workers.dev";
+
+        const title = document.getElementById("access-title");
+        const message = document.getElementById("accessMessage");
+        const actions = document.getElementById("accessActions");
+        const readerLink = document.getElementById("readerLink");
+        const downloadLink = document.getElementById("downloadLink");
+        const testNote = document.getElementById("testNote");
+
         const sessionId = new URLSearchParams(window.location.search)
             .get("session_id");
 
-        if (!sessionId || !sessionId.startsWith("cs_")) {
-            document.getElementById("access-title").textContent =
-                "ACCESS LINK INCOMPLETE";
-
-            document.getElementById("accessMessage").textContent =
-                "Please return to the Issue One page and complete checkout.";
-
-            document.getElementById("readerLink").hidden = true;
-            document.getElementById("testNote").hidden = true;
+        function showAccessError(text) {
+            title.textContent = "ACCESS COULD NOT BE CONFIRMED";
+            message.textContent = text;
+            actions.hidden = true;
+            testNote.hidden = true;
         }
+
+        async function confirmPurchase() {
+            if (!sessionId || !sessionId.startsWith("cs_")) {
+                showAccessError(
+                    "Please return to the Issue One page and complete checkout."
+                );
+                return;
+            }
+
+            try {
+                const response = await fetch(
+                    `${WORKER_URL}/verify-session?session_id=${encodeURIComponent(sessionId)}`
+                );
+
+                const data = await response.json();
+
+                if (!response.ok || !data.paid || !data.reader_url) {
+                    throw new Error("Purchase verification failed");
+                }
+
+                readerLink.href =
+                    `pdfjs/web/viewer.html?file=${encodeURIComponent(data.reader_url)}`;
+                downloadLink.href = data.download_url;
+
+                title.textContent = "PURCHASE RECEIVED";
+                message.innerHTML =
+                    "Thank you. Your copy of <em>The Parlour</em> — Issue One is ready.";
+                actions.hidden = false;
+            } catch (error) {
+                showAccessError(
+                    "We could not confirm this purchase. Please try opening the link again or contact Walkden House Press."
+                );
+            }
+        }
+
+        confirmPurchase();
     </script>
 </body>
 </html>

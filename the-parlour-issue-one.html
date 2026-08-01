@@ -1,389 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<link rel="icon" type="image/svg" href="images/favicon.svg">
-
-<title>The Parlour — Issue One</title>
-
-<style>
-
-:root {
-    --bg: #f2e9df;
-    --text: #241a18;
-    --text-soft: rgba(36,26,24,0.72);
-    --accent: #7a564a;
-    --line: rgba(36,26,24,0.055);
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    min-height:100%;
-    margin:0;
-}
-
-body {
-
-    background:var(--bg);
-    color:var(--text);
-
-    font-family:
-    "Baskerville",
-    "Times New Roman",
-    serif;
-
-    display:flex;
-    flex-direction:column;
-
-    -webkit-font-smoothing:antialiased;
-}
-
-
-/* paper texture */
-
-body::before {
-
-    content:"";
-
-    position:fixed;
-    inset:0;
-
-    pointer-events:none;
-
-    opacity:0.016;
-
-    background-image:
-    url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-}
-
-
-/* header */
-
-.header {
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:34px 64px 26px;
-
-}
-
-
-.title-wrapper {
-
-    display:flex;
-    align-items:flex-start;
-
-    gap:12px;
-
-    color:inherit;
-    text-decoration:none;
-}
-
-
-.title-wrapper img {
-
-    height:2.7rem;
-
-}
-
-
-.title-group {
-
-    display:flex;
-    flex-direction:column;
-
-}
-
-
-.title {
-
-    font-size:1.72rem;
-
-}
-
-
-.subtitle {
-
-    margin-top:2px;
-
-    font-size:0.66rem;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-
-    color:var(--text-soft);
-
-}
-
-
-.nav {
-
-    display:flex;
-
-    gap:32px;
-
-}
-
-
-.nav a {
-
-    color:var(--text-soft);
-
-    text-decoration:none;
-
-}
-
-
-.nav a:hover {
-
-    color:var(--text);
-
-}
-
-
-
-.line {
-
-    height:1px;
-
-    width:calc(100% - 120px);
-
-    margin:auto;
-
-    background:
-    linear-gradient(
-    to right,
-    transparent,
-    var(--line),
-    transparent
-    );
-
-}
-
-
-
-/* main */
-
-main {
-
-    flex:1;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:100px 24px;
-
-}
-
-
-.issue {
-
-    text-align:center;
-
-    max-width:600px;
-
-}
-
-
-.kicker {
-
-    font-size:0.72rem;
-
-    letter-spacing:2.2px;
-
-    text-transform:uppercase;
-
-    color:var(--text-soft);
-
-    margin-bottom:28px;
-
-}
-
-
-
-h1 {
-
-    font-size:2.6rem;
-
-    font-weight:normal;
-
-    margin:0 0 18px;
-
-}
-
-
-
-.issue p {
-
-    font-size:1.15rem;
-
-    line-height:1.8;
-
-    color:var(--text-soft);
-
-}
-
-
-
-.button {
-
-    display:inline-block;
-
-    margin-top:45px;
-
-    padding:14px 32px;
-
-    border:1px solid rgba(36,26,24,0.25);
-
-    color:var(--text);
-
-    text-decoration:none;
-
-    transition:0.3s ease;
-
-}
-
-
-.button:hover {
-
-    background:rgba(36,26,24,0.05);
-
-}
-
-
-
-@media(max-width:760px){
-
-.header {
-
-padding:24px;
-
-}
-
-.nav {
-
-display:none;
-
-}
-
-
-main {
-
-padding:70px 20px;
-
-}
-
-
-h1 {
-
-font-size:2rem;
-
-}
-
-}
-
-</style>
-
-</head>
-
-
-<body>
-
-
-<header class="header">
-
-<a href="index.html" class="title-wrapper">
-
-<img src="images/colophon.svg">
-
-<div class="title-group">
-
-<div class="title">
-Walkden House Press
-</div>
-
-<div class="subtitle">
-Independent Publisher · Est. 2026
-</div>
-
-</div>
-
-</a>
-
-
-<nav class="nav">
-
-<a href="about.html">About</a>
-
-<a href="the-parlour.html">The Parlour</a>
-
-<a href="common-room.html">Common Room</a>
-
-<a href="contact.html">Contact</a>
-
-</nav>
-
-
-</header>
-
-
-<div class="line"></div>
-
-
-
-<main>
-
-
-<section class="issue">
-
-
-<div class="kicker">
-Digital Edition
-</div>
-
-
-<h1>
-THE PARLOUR
-</h1>
-
-
-<p>
-Issue One<br>
-Summer 2026
-</p>
-
-
-<p>
-A place to meet and be met.
-</p>
-
-
-<a
-class="button"
-href="digital/issue-one/The%20Parlour%20-%20Issue%20One.pdf"
-target="_blank"
->
-Begin Reading
-</a>
-
-
-</section>
-
-
-</main>
-
-
-</body>
-</html>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+
+    <title>The Parlour — Issue One | Walkden House Press</title>
+    <meta
+        name="description"
+        content="Read the digital edition of The Parlour — Issue One, Summer 2026, published by Walkden House Press."
+    />
+
+    <style>
+        :root {
+            --bg: #f2e9df;
+            --text: #241a18;
+            --text-soft: rgba(36, 26, 24, 0.74);
+            --accent: #7a564a;
+            --line: rgba(36, 26, 24, 0.055);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+            margin: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--text);
+            background: var(--bg);
+
+            font-family:
+                "Baskerville",
+                "Times New Roman",
+                serif;
+
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Paper grain */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.016;
+
+            background-image:
+                url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+        }
+
+        /* Header */
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 34px 64px 26px;
+            gap: 32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Brand */
+
+        .title-wrapper {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            min-width: 0;
+            color: inherit;
+            text-decoration: none;
+
+            transition:
+                transform 0.28s ease,
+                opacity 0.28s ease;
+        }
+
+        .title-wrapper img {
+            width: auto;
+            height: 2.7rem;
+            display: block;
+            flex-shrink: 0;
+            transform: translateY(0.12rem);
+        }
+
+        .title-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            color: var(--text);
+            font-size: 1.72rem;
+            letter-spacing: 0.15px;
+            white-space: nowrap;
+        }
+
+        .subtitle {
+            margin-top: 2px;
+            color: var(--text-soft);
+            opacity: 0.82;
+            font-size: 0.66rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Navigation */
+
+        .nav {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            gap: 32px;
+            font-size: 1.02rem;
+            letter-spacing: 0.18px;
+            white-space: nowrap;
+        }
+
+        .nav a {
+            position: relative;
+            color: var(--text-soft);
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease;
+        }
+
+        .nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0;
+            transform: scaleX(0.7);
+
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .nav a:hover {
+            color: var(--text);
+        }
+
+        .nav a:hover::after {
+            opacity: 0.42;
+            transform: scaleX(1);
+        }
+
+        .nav a.active {
+            color: var(--text);
+        }
+
+        .nav a.active::after {
+            opacity: 0.34;
+            transform: scaleX(1);
+        }
+
+        /* Divider */
+
+        .line {
+            width: calc(100% - 120px);
+            height: 1px;
+            margin: 0 auto;
+            opacity: 0.34;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--line),
+                    transparent
+                );
+        }
+
+        /* Main */
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 76px 24px 120px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Issue */
+
+        .content {
+            width: 100%;
+            max-width: 760px;
+            text-align: center;
+            animation: fadeIn 1.6s ease;
+        }
+
+        .kicker {
+            margin-bottom: 26px;
+            color: var(--text-soft);
+            opacity: 0.68;
+            font-size: 0.72rem;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+        }
+
+        .page-title {
+            margin: 0 0 18px;
+            font-size: 2.4rem;
+            font-weight: normal;
+            letter-spacing: 0.2px;
+        }
+
+        .issue-details {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 1.04rem;
+            line-height: 1.7;
+        }
+
+        .epigraph {
+            margin: 42px auto 0;
+            color: var(--text);
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .introduction {
+            max-width: 610px;
+            margin: 31px auto 0;
+            color: var(--text-soft);
+            font-size: 1.08rem;
+            line-height: 1.85;
+        }
+
+        .read-link {
+            display: inline-block;
+            margin-top: 43px;
+            padding: 13px 30px 12px;
+            border: 1px solid rgba(36, 26, 24, 0.24);
+            color: var(--text);
+            background: transparent;
+            text-decoration: none;
+            font-size: 1.02rem;
+            letter-spacing: 0.2px;
+
+            transition:
+                color 0.3s ease,
+                background-color 0.3s ease,
+                border-color 0.3s ease,
+                transform 0.3s

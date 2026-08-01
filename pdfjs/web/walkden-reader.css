@@ -206,6 +206,45 @@ body {
     var(--whp-reader-bg);
 }
 
+#whpReaderLoading {
+  position: absolute;
+  inset: var(--toolbar-height) 0 0;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--whp-text);
+  background: var(--whp-reader-bg);
+
+  transition:
+    opacity 0.55s ease,
+    visibility 0.55s ease;
+}
+
+#whpReaderLoading.ready {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.whp-loading-kicker {
+  color: var(--whp-text-soft);
+
+  font-size: 0.64rem;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+
+.whp-loading-title {
+  margin-top: 17px;
+
+  font-size: 1.22rem;
+  font-style: italic;
+}
+
 .pdfViewer {
   animation: whp-reader-in 1.25s ease both;
 }
@@ -215,6 +254,13 @@ body {
   box-shadow:
     0 18px 42px rgba(53, 37, 32, 0.12),
     0 2px 7px rgba(53, 37, 32, 0.08);
+}
+
+.pdfViewer .spread {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
 }
 
 .doorHanger,
@@ -292,6 +338,10 @@ dialog {
   #viewFindButton,
   #scaleSelectContainer {
     display: none !important;
+  }
+
+  .whp-loading-title {
+    font-size: 1.08rem;
   }
 }
 

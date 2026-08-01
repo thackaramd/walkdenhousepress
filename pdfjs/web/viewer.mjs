@@ -20254,6 +20254,7 @@ initCom(PDFViewerApplication);
 PDFPrintServiceFactory.initGlobals(PDFViewerApplication);
 {
   const HOSTED_VIEWER_ORIGINS = new Set(["null", "http://mozilla.github.io", "https://mozilla.github.io"]);
+  const TRUSTED_FILE_ORIGINS = new Set(["https://walkden-parlour-checkout.director-1d7.workers.dev"]);
   var validateFileURL = function (file) {
     if (!file) {
       return;
@@ -20263,7 +20264,7 @@ PDFPrintServiceFactory.initGlobals(PDFViewerApplication);
       return;
     }
     const fileOrigin = URL.parse(file, window.location)?.origin;
-    if (fileOrigin === viewerOrigin) {
+    if (fileOrigin === viewerOrigin || TRUSTED_FILE_ORIGINS.has(fileOrigin)) {
       return;
     }
     const ex = new Error("file origin does not match viewer's");

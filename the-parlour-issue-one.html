@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Read the digital edition of The Parlour — Issue One, Summer 2026, published by Walkden House Press."
+        content="Purchase the digital edition of The Parlour — Issue One, Summer 2026, published by Walkden House Press."
     />
 
     <style>
@@ -305,8 +305,11 @@
             background: transparent;
             text-decoration: none;
 
+            font-family: inherit;
             font-size: 1.02rem;
             letter-spacing: 0.2px;
+
+            cursor: pointer;
 
             transition:
                 background-color 0.3s ease,
@@ -316,6 +319,11 @@
         .read-link:hover {
             background: rgba(36, 26, 24, 0.05);
             border-color: rgba(36, 26, 24, 0.34);
+        }
+
+        .purchase-form {
+            display: inline;
+            margin: 0;
         }
 
         .read-link:focus-visible,
@@ -685,14 +693,15 @@
                 for attentive writing and unhurried reading.
             </p>
 
-            <a
-                class="read-link"
-                href="pdfjs/web/viewer.html?file=%2Fdigital%2Fissue-one%2FThe%20Parlour%20-%20Issue%20One%20-%20Reader.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+            <form
+                class="purchase-form"
+                action="https://walkden-parlour-checkout.director-1d7.workers.dev/create-checkout-session"
+                method="post"
             >
-                Read Issue One
-            </a>
+                <button class="read-link" type="submit">
+                    Purchase for £5
+                </button>
+            </form>
         </section>
     </main>
 

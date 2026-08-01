@@ -7,6 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
     <title>The Parlour — Issue One | Walkden House Press</title>
+
     <meta
         name="description"
         content="Read the digital edition of The Parlour — Issue One, Summer 2026, published by Walkden House Press."
@@ -33,10 +34,13 @@
 
         body {
             min-height: 100vh;
+
             display: flex;
             flex-direction: column;
+
             position: relative;
             overflow-x: hidden;
+
             color: var(--text);
             background: var(--bg);
 
@@ -57,8 +61,10 @@
 
         body::before {
             content: "";
+
             position: fixed;
             inset: 0;
+
             pointer-events: none;
             opacity: 0.016;
 
@@ -72,8 +78,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             padding: 34px 64px 26px;
             gap: 32px;
+
             position: relative;
             z-index: 2;
         }
@@ -83,8 +91,10 @@
         .title-wrapper {
             display: flex;
             align-items: flex-start;
+
             gap: 12px;
             min-width: 0;
+
             color: inherit;
             text-decoration: none;
 
@@ -96,8 +106,10 @@
         .title-wrapper img {
             width: auto;
             height: 2.7rem;
+
             display: block;
             flex-shrink: 0;
+
             transform: translateY(0.12rem);
         }
 
@@ -108,15 +120,19 @@
 
         .title {
             color: var(--text);
+
             font-size: 1.72rem;
             letter-spacing: 0.15px;
+
             white-space: nowrap;
         }
 
         .subtitle {
             margin-top: 2px;
+
             color: var(--text-soft);
             opacity: 0.82;
+
             font-size: 0.66rem;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -127,15 +143,19 @@
         .nav {
             display: flex;
             align-items: center;
+
             margin-left: auto;
             gap: 32px;
+
             font-size: 1.02rem;
             letter-spacing: 0.18px;
+
             white-space: nowrap;
         }
 
         .nav a {
             position: relative;
+
             color: var(--text-soft);
             text-decoration: none;
 
@@ -146,12 +166,16 @@
 
         .nav a::after {
             content: "";
+
             position: absolute;
             left: 0;
             bottom: -4px;
+
             width: 100%;
             height: 1px;
+
             background: var(--accent);
+
             opacity: 0;
             transform: scaleX(0.7);
 
@@ -183,6 +207,7 @@
         .line {
             width: calc(100% - 120px);
             height: 1px;
+
             margin: 0 auto;
             opacity: 0.34;
 
@@ -199,10 +224,12 @@
 
         main {
             flex: 1;
+
             display: flex;
             justify-content: center;
-            align-items: center;
+
             padding: 76px 24px 120px;
+
             position: relative;
             z-index: 2;
         }
@@ -212,72 +239,83 @@
         .content {
             width: 100%;
             max-width: 760px;
+
             text-align: center;
+
             animation: fadeIn 1.6s ease;
         }
 
         .kicker {
             margin-bottom: 26px;
+
             color: var(--text-soft);
             opacity: 0.68;
+
             font-size: 0.72rem;
             letter-spacing: 2.2px;
             text-transform: uppercase;
         }
 
         .page-title {
-            margin: 0 0 18px;
+            margin: 0 0 54px;
+
             font-size: 2.4rem;
             font-weight: normal;
             letter-spacing: 0.2px;
         }
 
         .issue-details {
-            margin: 0;
-            color: var(--text-soft);
-            font-size: 1.04rem;
-            line-height: 1.7;
+            margin: 0 0 34px;
+
+            color: var(--text);
+
+            font-size: 1.18rem;
+            line-height: 1.85;
         }
 
         .epigraph {
-            margin: 42px auto 0;
+            margin: 0 0 34px;
+
             color: var(--text);
-            font-size: 1.3rem;
+
+            font-size: 1.18rem;
             font-style: italic;
-            line-height: 1.6;
+            line-height: 1.85;
         }
 
         .introduction {
-            max-width: 610px;
-            margin: 31px auto 0;
-            color: var(--text-soft);
-            font-size: 1.08rem;
+            max-width: 680px;
+            margin: 0 auto 34px;
+
+            color: var(--text);
+
+            font-size: 1.18rem;
             line-height: 1.85;
         }
 
         .read-link {
             display: inline-block;
-            margin-top: 43px;
-            padding: 13px 30px 12px;
-            border: 1px solid rgba(36, 26, 24, 0.24);
+
+            margin-top: 11px;
+            padding: 14px 32px;
+
+            border: 1px solid rgba(36, 26, 24, 0.25);
+
             color: var(--text);
             background: transparent;
             text-decoration: none;
+
             font-size: 1.02rem;
             letter-spacing: 0.2px;
 
             transition:
-                color 0.3s ease,
                 background-color 0.3s ease,
-                border-color 0.3s ease,
-                transform 0.3s ease;
+                border-color 0.3s ease;
         }
 
         .read-link:hover {
-            color: var(--bg);
-            background: var(--text);
-            border-color: var(--text);
-            transform: translateY(-1px);
+            background: rgba(36, 26, 24, 0.05);
+            border-color: rgba(36, 26, 24, 0.34);
         }
 
         .read-link:focus-visible,
@@ -308,18 +346,23 @@
             display: none;
             flex-direction: column;
             justify-content: space-between;
+
             width: 22px;
             height: 15px;
             padding: 0;
+
             border: 0;
             background: transparent;
+
             cursor: pointer;
         }
 
         .hamburger span {
             width: 100%;
             height: 1px;
+
             display: block;
+
             background-color: var(--text);
         }
 
@@ -329,11 +372,14 @@
             position: fixed;
             inset: 0;
             z-index: 1000;
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
             background-color: var(--bg);
+
             opacity: 0;
             visibility: hidden;
             pointer-events: none;
@@ -359,20 +405,26 @@
             width: 22px;
             height: 22px;
             padding: 0;
+
             position: relative;
+
             border: 0;
             background: transparent;
+
             cursor: pointer;
         }
 
         .close-icon::before,
         .close-icon::after {
             content: "";
+
             position: absolute;
             top: 50%;
             left: 0;
+
             width: 100%;
             height: 1px;
+
             background-color: var(--text);
         }
 
@@ -392,8 +444,10 @@
 
         .mobile-kicker {
             margin-bottom: 42px;
+
             color: var(--text-soft);
             opacity: 0.68;
+
             font-size: 0.62rem;
             letter-spacing: 2.6px;
             text-transform: uppercase;
@@ -403,14 +457,17 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+
             gap: 30px;
         }
 
         .mobile-menu a {
             color: var(--text);
             text-decoration: none;
+
             font-size: 1.18rem;
             letter-spacing: 0.18px;
+
             opacity: 0;
             transform: translateY(8px);
 
@@ -517,38 +574,27 @@
             }
 
             main {
-                align-items: flex-start;
                 padding: 56px 20px 90px;
             }
 
             .page-title {
+                margin-bottom: 40px;
                 font-size: 1.84rem;
             }
 
+            .issue-details,
             .epigraph {
-                margin-top: 36px;
-                font-size: 1.16rem;
+                font-size: 1.02rem;
+                line-height: 1.82;
             }
 
             .introduction {
-                margin-top: 27px;
                 font-size: 1.02rem;
                 line-height: 1.82;
             }
 
             .read-link {
-                margin-top: 37px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                scroll-behavior: auto !important;
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
+                margin-top: 5px;
             }
         }
     </style>

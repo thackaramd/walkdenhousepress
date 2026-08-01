@@ -1,0 +1,318 @@
+:root {
+  color-scheme: only light;
+
+  --whp-bg: #f2e9df;
+  --whp-reader-bg: #e7dbcf;
+  --whp-text: #241a18;
+  --whp-text-soft: rgba(36, 26, 24, 0.7);
+  --whp-accent: #7a564a;
+  --whp-line: rgba(36, 26, 24, 0.11);
+
+  --toolbar-height: 68px;
+  --toolbar-horizontal-padding: 18px;
+  --toolbar-vertical-padding: 10px;
+  --icon-size: 17px;
+
+  --main-color: var(--whp-text);
+  --body-bg-color: var(--whp-reader-bg);
+  --progressBar-color: var(--whp-accent);
+  --progressBar-bg-color: rgba(36, 26, 24, 0.08);
+  --progressBar-blend-color: rgba(122, 86, 74, 0.3);
+  --scrollbar-color: rgba(36, 26, 24, 0.28) transparent;
+  --scrollbar-bg-color: transparent;
+  --toolbar-icon-bg-color: var(--whp-text);
+  --toolbar-icon-hover-bg-color: var(--whp-text);
+  --toolbar-bg-color: var(--whp-bg);
+  --toolbar-border-color: var(--whp-line);
+  --toolbar-box-shadow: 0 1px 0 var(--whp-line);
+  --sidebar-narrow-bg-color: rgba(242, 233, 223, 0.96);
+  --sidebar-toolbar-bg-color: var(--whp-bg);
+  --button-hover-color: rgba(36, 26, 24, 0.065);
+  --toggled-btn-color: var(--whp-text);
+  --toggled-btn-bg-color: rgba(36, 26, 24, 0.09);
+  --toggled-hover-active-btn-color: rgba(36, 26, 24, 0.13);
+  --dropdown-btn-bg-color: rgba(36, 26, 24, 0.045);
+  --separator-color: rgba(36, 26, 24, 0.15);
+  --field-color: var(--whp-text);
+  --field-bg-color: rgba(255, 255, 255, 0.34);
+  --field-border-color: rgba(36, 26, 24, 0.16);
+  --doorhanger-bg-color: #f6eee6;
+  --doorhanger-border-color: rgba(36, 26, 24, 0.15);
+  --doorhanger-hover-color: var(--whp-text);
+  --doorhanger-separator-color: rgba(36, 26, 24, 0.11);
+  --focus-ring-color: var(--whp-accent);
+
+  --pdfViewer-padding-bottom: 48px;
+  --page-margin: 34px auto 0;
+  --page-border: 1px solid rgba(36, 26, 24, 0.08);
+  --spreadHorizontalWrapped-margin-LR: 12px;
+}
+
+html,
+body {
+  background: var(--whp-reader-bg);
+}
+
+body {
+  font-family: "Baskerville", "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#toolbarContainer {
+  font-family: "Baskerville", "Times New Roman", serif;
+  animation: whp-toolbar-in 0.8s ease both;
+}
+
+#toolbarContainer #toolbarViewer {
+  gap: 14px;
+}
+
+.whp-reader-brand {
+  min-width: 218px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: var(--whp-text);
+  text-decoration: none;
+
+  transition: opacity 0.25s ease;
+}
+
+.whp-reader-brand:hover {
+  opacity: 0.7;
+}
+
+.whp-reader-brand:focus-visible {
+  outline: 1px solid var(--whp-accent);
+  outline-offset: 4px;
+}
+
+.whp-reader-brand img {
+  width: auto;
+  height: 34px;
+  display: block;
+  flex: none;
+}
+
+.whp-reader-brand-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.whp-reader-title {
+  font-size: 1.03rem;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+.whp-reader-issue {
+  margin-top: 3px;
+
+  color: var(--whp-text-soft);
+
+  font-size: 0.58rem;
+  line-height: 1;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+#toolbarViewerLeft {
+  margin-inline-start: 0 !important;
+}
+
+#toolbarViewerMiddle {
+  margin-inline: auto;
+}
+
+#toolbarViewerRight {
+  margin-inline-start: 0;
+}
+
+#editorModeButtons,
+#editorModeSeparator,
+#secondaryOpenFile {
+  display: none !important;
+}
+
+.toolbarButton,
+.toolbarButtonWithContainer,
+.dropdownToolbarButton,
+.toolbarField {
+  border-radius: 0;
+}
+
+.toolbarButton {
+  cursor: pointer;
+}
+
+.toolbarButton::before {
+  transition: opacity 0.25s ease;
+}
+
+.toolbarButton:is(:hover, :focus-visible)::before {
+  opacity: 0.92;
+}
+
+.toolbarField,
+.toolbarLabel,
+.dropdownToolbarButton,
+.dropdownToolbarButton > select {
+  font-family: "Baskerville", "Times New Roman", serif;
+}
+
+.toolbarField {
+  border-width: 0 0 1px;
+  background: transparent;
+}
+
+.toolbarField:focus {
+  border-color: var(--whp-accent);
+}
+
+.dropdownToolbarButton,
+.dropdownToolbarButton > select {
+  background: transparent;
+}
+
+.dropdownToolbarButton {
+  min-width: 124px;
+  border-bottom: 1px solid rgba(36, 26, 24, 0.14);
+}
+
+.dropdownToolbarButton > select {
+  min-width: 124px;
+}
+
+.verticalToolbarSeparator,
+.splitToolbarButtonSeparator {
+  opacity: 0.55;
+}
+
+#loadingBar {
+  height: 2px !important;
+  border: 0 !important;
+}
+
+#viewerContainer {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.18), transparent 32%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent 42%),
+    var(--whp-reader-bg);
+}
+
+.pdfViewer {
+  animation: whp-reader-in 1.25s ease both;
+}
+
+.pdfViewer .page {
+  overflow: hidden;
+  box-shadow:
+    0 18px 42px rgba(53, 37, 32, 0.12),
+    0 2px 7px rgba(53, 37, 32, 0.08);
+}
+
+.doorHanger,
+.doorHangerRight,
+dialog {
+  border-radius: 0;
+  box-shadow:
+    0 12px 30px rgba(36, 26, 24, 0.1),
+    0 0 0 1px rgba(36, 26, 24, 0.1);
+}
+
+.menuContainer,
+dialog {
+  font-family: "Baskerville", "Times New Roman", serif;
+}
+
+@keyframes whp-toolbar-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes whp-reader-in {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1120px) {
+  .whp-reader-brand {
+    min-width: 40px;
+  }
+
+  .whp-reader-brand-copy {
+    display: none;
+  }
+
+  .whp-reader-brand img {
+    height: 31px;
+  }
+}
+
+@media (max-width: 750px) {
+  :root {
+    --toolbar-height: 56px;
+    --toolbar-horizontal-padding: 9px;
+    --toolbar-vertical-padding: 8px;
+    --page-margin: 20px auto 0;
+    --pdfViewer-padding-bottom: 28px;
+  }
+
+  #toolbarContainer #toolbarViewer {
+    gap: 5px;
+  }
+
+  .whp-reader-brand {
+    min-width: 31px;
+    width: 31px;
+  }
+
+  .whp-reader-brand img {
+    height: 27px;
+  }
+
+  #viewFindButton,
+  #scaleSelectContainer {
+    display: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --toolbar-horizontal-padding: 7px;
+  }
+
+  #toolbarViewerMiddle {
+    margin-inline: 0;
+  }
+
+  #toolbarViewerLeft .splitToolbarButtonSeparator,
+  #toolbarViewerRight > .verticalToolbarSeparator {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #toolbarContainer,
+  .pdfViewer {
+    animation: none;
+  }
+}

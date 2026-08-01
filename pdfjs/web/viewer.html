@@ -25,7 +25,8 @@ See https://github.com/adobe-type-tools/cmap-resources
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="google" content="notranslate" />
-    <title>PDF.js viewer</title>
+    <link rel="icon" type="image/svg+xml" href="../../images/favicon.svg" />
+    <title>The Parlour — Issue One | Walkden House Press</title>
 
   <meta
       http-equiv="Content-Security-Policy"
@@ -37,6 +38,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 <script src="../build/pdf.mjs" type="module"></script>
 
     <link rel="stylesheet" href="viewer.css" />
+    <link rel="stylesheet" href="walkden-reader.css" />
 
   <script src="viewer.mjs" type="module"></script>
   </head>
@@ -49,6 +51,20 @@ See https://github.com/adobe-type-tools/cmap-resources
         <div class="toolbar">
           <div id="toolbarContainer">
             <div id="toolbarViewer" class="toolbarHorizontalGroup">
+              <a
+                class="whp-reader-brand"
+                href="../../the-parlour-issue-one.html"
+                aria-label="Return to The Parlour — Issue One"
+              >
+                <img
+                  src="../../images/colophon.svg"
+                  alt=""
+                />
+                <span class="whp-reader-brand-copy">
+                  <span class="whp-reader-title">The Parlour</span>
+                  <span class="whp-reader-issue">Issue One · Summer 2026</span>
+                </span>
+              </a>
               <div id="toolbarViewerLeft" class="toolbarHorizontalGroup">
                 <button
                   id="viewsManagerToggleButton"

@@ -264,29 +264,30 @@ main {
     z-index: 2;
 }
 
-/* HERO BLOCK */
+/* HERO */
 
 .hero {
+
+    width: 100%;
+    max-width: 760px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    width: 100%;
-    max-width: 760px;
-
-    margin-top: -52px;
+    /* Slightly lower than before */
+    margin-top: -30px;
 
     text-align: center;
 }
 
-/* SMALL KICKER */
+/* KICKER */
 
 .kicker {
 
-    margin-bottom: 28px;
+    margin-bottom: 26px;
 
-    font-size: 0.72rem;
+    font-size: 0.7rem;
 
     letter-spacing: 2.2px;
     text-transform: uppercase;
@@ -296,114 +297,23 @@ main {
     opacity: 0.68;
 }
 
-/* HERO TEXT */
+/* CENTRAL TEXT */
 
 .quote {
 
-    max-width: 640px;
+    max-width: 660px;
 
-    font-size: 1.54rem;
+    font-size: 1.38rem;
 
-    line-height: 1.92;
+    line-height: 1.82;
 
     text-align: center;
 
-    letter-spacing: 0.08px;
+    letter-spacing: 0.05px;
 
     color: var(--text);
 
     text-wrap: balance;
-}
-
-.quote em {
-
-    font-style: italic;
-    white-space: nowrap;
-}
-
-/* CURRENT PUBLICATION */
-
-.current-publication {
-
-    margin-top: 46px;
-
-    text-align: center;
-}
-
-.publication-title {
-
-    font-size: 1rem;
-
-    line-height: 1.7;
-
-    color: var(--text);
-}
-
-.publication-title em {
-
-    font-style: italic;
-}
-
-.publication-meta {
-
-    margin-top: 4px;
-
-    font-size: 0.86rem;
-
-    color: var(--text-soft);
-
-    opacity: 0.72;
-}
-
-/*
-WHEN ISSUE ONE GOES LIVE:
-
-Replace:
-
-<div class="publication-meta">
-    Summer 2026 · Coming soon
-</div>
-
-with:
-
-<div class="publication-meta">
-    Summer 2026 ·
-    <a href="the-parlour-issue-one.html">
-        View issue
-    </a>
-</div>
-*/
-
-.publication-meta a {
-
-    position: relative;
-
-    color: inherit;
-    text-decoration: none;
-}
-
-.publication-meta a::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: -3px;
-
-    width: 100%;
-    height: 1px;
-
-    background: var(--accent);
-
-    opacity: 0.28;
-
-    transition: opacity 0.25s ease;
-}
-
-.publication-meta a:hover::after {
-
-    opacity: 0.62;
 }
 
 /* SUBTLE FADE */
@@ -591,8 +501,6 @@ with:
     transform: translateY(0);
 }
 
-/* STAGGER */
-
 .mobile-menu.show a:nth-child(1) {
 
     transition-delay: 0.08s;
@@ -670,7 +578,7 @@ a:focus-visible {
 
     .quote {
 
-        font-size: 1.34rem;
+        font-size: 1.24rem;
     }
 }
 
@@ -680,7 +588,7 @@ a:focus-visible {
 
     .header {
 
-        padding: 18px 22px 18px;
+        padding: 18px 22px;
 
         align-items: center;
     }
@@ -720,24 +628,6 @@ a:focus-visible {
         transform: translateY(0.03rem);
     }
 
-    .kicker {
-
-        font-size: 0.62rem;
-
-        margin-bottom: 20px;
-
-        letter-spacing: 1.7px;
-    }
-
-    .quote {
-
-        font-size: 1.14rem;
-
-        line-height: 1.82;
-
-        max-width: 92%;
-    }
-
     .line {
 
         width: calc(100% - 44px);
@@ -746,31 +636,33 @@ a:focus-visible {
     main {
 
         padding:
-            20px
+            42px
             20px
             90px;
     }
 
     .hero {
 
-        margin-top: -18px;
+        /* Very slight downward adjustment on mobile too */
+        margin-top: 8px;
     }
 
-    .current-publication {
+    .kicker {
 
-        margin-top: 38px;
+        margin-bottom: 22px;
+
+        font-size: 0.61rem;
+
+        letter-spacing: 1.8px;
     }
 
-    .publication-title {
+    .quote {
 
-        font-size: 0.96rem;
-    }
+        max-width: 94%;
 
-    .publication-meta {
+        font-size: 1.06rem;
 
-        margin-top: 3px;
-
-        font-size: 0.82rem;
+        line-height: 1.78;
     }
 
     .mobile-menu nav {
@@ -855,25 +747,12 @@ a:focus-visible {
     <section class="hero">
 
         <div class="kicker">
-            Independent Publishing
+            Literary &amp; Educational Projects
         </div>
 
         <div class="quote">
-            Walkden House Press is an independent publisher
-            and the home of <em>The Parlour</em> and
-            <em>Common Room</em>.
-        </div>
-
-        <div class="current-publication">
-
-            <div class="publication-title">
-                <em>The Parlour</em> — Issue One
-            </div>
-
-            <div class="publication-meta">
-                Summer 2026 · Coming soon
-            </div>
-
+            Publishing and collaborative work shaped by a belief
+            in literature as something lived as well as written.
         </div>
 
     </section>

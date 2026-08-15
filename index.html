@@ -268,12 +268,12 @@ main {
 
 .hero {
 
-    width: 100%;
-    max-width: 760px;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    width: 100%;
+    max-width: 760px;
 
     margin-top: -52px;
 
@@ -319,63 +319,34 @@ main {
 
 .current-publication {
 
-    width: 100%;
-    max-width: 500px;
-
-    margin-top: 78px;
-    padding-top: 34px;
-
-    border-top: 1px solid rgba(36, 26, 24, 0.12);
+    margin-top: 48px;
 
     text-align: center;
 }
 
-.publication-kicker {
-
-    margin-bottom: 15px;
-
-    font-size: 0.67rem;
-
-    letter-spacing: 2.2px;
-    text-transform: uppercase;
-
-    color: var(--text-soft);
-
-    opacity: 0.68;
-}
-
 .publication-title {
 
-    margin-bottom: 7px;
+    font-size: 1rem;
 
-    font-size: 1.18rem;
-
-    letter-spacing: 0.05px;
+    line-height: 1.7;
 
     color: var(--text);
 }
 
-.publication-date {
+.publication-title em {
 
-    margin-bottom: 18px;
-
-    font-size: 0.92rem;
     font-style: italic;
-
-    color: var(--text-soft);
 }
 
-.publication-status {
+.publication-meta {
 
-    display: inline-block;
+    margin-top: 4px;
 
     font-size: 0.86rem;
 
-    letter-spacing: 0.15px;
-
     color: var(--text-soft);
 
-    opacity: 0.7;
+    opacity: 0.72;
 }
 
 /*
@@ -383,36 +354,29 @@ WHEN ISSUE ONE GOES LIVE:
 
 Replace:
 
-<span class="publication-status">
-    Coming soon
-</span>
+<div class="publication-meta">
+    Summer 2026 · Coming soon
+</div>
 
 with:
 
-<a
-    class="publication-link"
-    href="the-parlour-issue-one.html"
->
-    View issue
-</a>
+<div class="publication-meta">
+    Summer 2026 ·
+    <a href="the-parlour-issue-one.html">
+        View issue
+    </a>
+</div>
 */
 
-.publication-link {
-
-    display: inline-block;
+.publication-meta a {
 
     position: relative;
 
-    font-size: 0.86rem;
-
-    letter-spacing: 0.15px;
-
-    color: var(--text-soft);
-
+    color: inherit;
     text-decoration: none;
 }
 
-.publication-link::after {
+.publication-meta a::after {
 
     content: "";
 
@@ -431,12 +395,7 @@ with:
     transition: opacity 0.25s ease;
 }
 
-.publication-link:hover {
-
-    color: var(--text);
-}
-
-.publication-link:hover::after {
+.publication-meta a:hover::after {
 
     opacity: 0.62;
 }
@@ -781,47 +740,29 @@ a:focus-visible {
     main {
 
         padding:
-            42px
+            20px
             20px
             90px;
     }
 
     .hero {
 
-        margin-top: 0;
+        margin-top: -18px;
     }
 
     .current-publication {
 
-        max-width: 300px;
-
-        margin-top: 58px;
-        padding-top: 28px;
-    }
-
-    .publication-kicker {
-
-        margin-bottom: 13px;
-
-        font-size: 0.61rem;
-
-        letter-spacing: 1.8px;
+        margin-top: 38px;
     }
 
     .publication-title {
 
-        font-size: 1.08rem;
+        font-size: 0.96rem;
     }
 
-    .publication-date {
+    .publication-meta {
 
-        margin-bottom: 16px;
-
-        font-size: 0.88rem;
-    }
-
-    .publication-status,
-    .publication-link {
+        margin-top: 3px;
 
         font-size: 0.82rem;
     }
@@ -912,27 +853,19 @@ a:focus-visible {
         </div>
 
         <div class="quote">
-            Walkden House Press makes space for literature to be
-            written, shared, and encountered in different ways.
+            Making space for literature to be written,
+            shared, and encountered in different ways.
         </div>
 
         <div class="current-publication">
 
-            <div class="publication-kicker">
-                The Parlour
-            </div>
-
             <div class="publication-title">
-                Issue One
+                <em>The Parlour</em> — Issue One
             </div>
 
-            <div class="publication-date">
-                Summer 2026
+            <div class="publication-meta">
+                Summer 2026 · Coming soon
             </div>
-
-            <span class="publication-status">
-                Coming soon
-            </span>
 
         </div>
 

@@ -224,6 +224,11 @@ body::before {
     transform: scaleX(1);
 }
 
+.nav a.italic {
+
+    font-style: italic;
+}
+
 /* DIVIDER */
 
 .line {
@@ -264,30 +269,24 @@ main {
     z-index: 2;
 }
 
-/* HERO */
+/* HERO BLOCK */
 
 .hero {
-
-    width: 100%;
-    max-width: 760px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    /* Slightly lower than before */
-    margin-top: -30px;
-
-    text-align: center;
+    margin-top: -52px;
 }
 
-/* KICKER */
+/* SMALL KICKER */
 
 .kicker {
 
-    margin-bottom: 26px;
+    margin-bottom: 28px;
 
-    font-size: 0.7rem;
+    font-size: 0.72rem;
 
     letter-spacing: 2.2px;
     text-transform: uppercase;
@@ -297,23 +296,32 @@ main {
     opacity: 0.68;
 }
 
-/* CENTRAL TEXT */
+/* HERO TEXT */
 
 .quote {
 
-    max-width: 660px;
+    max-width: 640px;
 
-    font-size: 1.38rem;
+    font-size: 1.54rem;
 
-    line-height: 1.82;
+    line-height: 1.92;
 
     text-align: center;
 
-    letter-spacing: 0.05px;
+    letter-spacing: 0.08px;
 
     color: var(--text);
 
     text-wrap: balance;
+}
+
+/* KEEP PROJECT NAMES TOGETHER */
+
+.quote em {
+
+    font-style: italic;
+
+    white-space: nowrap;
 }
 
 /* SUBTLE FADE */
@@ -501,6 +509,8 @@ main {
     transform: translateY(0);
 }
 
+/* STAGGER */
+
 .mobile-menu.show a:nth-child(1) {
 
     transition-delay: 0.08s;
@@ -578,7 +588,7 @@ a:focus-visible {
 
     .quote {
 
-        font-size: 1.24rem;
+        font-size: 1.34rem;
     }
 }
 
@@ -588,7 +598,7 @@ a:focus-visible {
 
     .header {
 
-        padding: 18px 22px;
+        padding: 18px 22px 18px;
 
         align-items: center;
     }
@@ -628,6 +638,24 @@ a:focus-visible {
         transform: translateY(0.03rem);
     }
 
+    .kicker {
+
+        font-size: 0.62rem;
+
+        margin-bottom: 20px;
+
+        letter-spacing: 1.7px;
+    }
+
+    .quote {
+
+        font-size: 1.14rem;
+
+        line-height: 1.82;
+
+        max-width: 92%;
+    }
+
     .line {
 
         width: calc(100% - 44px);
@@ -636,33 +664,14 @@ a:focus-visible {
     main {
 
         padding:
-            42px
+            20px
             20px
             90px;
     }
 
     .hero {
 
-        /* Very slight downward adjustment on mobile too */
-        margin-top: 8px;
-    }
-
-    .kicker {
-
-        margin-bottom: 22px;
-
-        font-size: 0.61rem;
-
-        letter-spacing: 1.8px;
-    }
-
-    .quote {
-
-        max-width: 94%;
-
-        font-size: 1.06rem;
-
-        line-height: 1.78;
+        margin-top: -18px;
     }
 
     .mobile-menu nav {
@@ -751,8 +760,10 @@ a:focus-visible {
         </div>
 
         <div class="quote">
-            Publishing and collaborative work shaped by a belief
-            in literature as something lived as well as written.
+            Walkden House Press is the publishing house behind
+            <em>The Parlour</em> and <em>Common Room</em>, developing literary
+            and educational projects that bring writing into conversation
+            with everyday life.
         </div>
 
     </section>

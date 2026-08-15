@@ -252,16 +252,24 @@ body::before {
 
 /* MAIN */
 
+/*
+    The homepage hero is deliberately anchored from the top
+    rather than vertically centred in the remaining viewport.
+
+    This means shortening the browser window no longer causes
+    the hero text to move upwards.
+*/
+
 main {
 
     flex: 1;
 
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     padding:
-        32px
+        154px
         24px
         120px;
 
@@ -277,7 +285,7 @@ main {
     flex-direction: column;
     align-items: center;
 
-    margin-top: -52px;
+    margin-top: 0;
 }
 
 /* SMALL KICKER */
@@ -661,12 +669,19 @@ a:focus-visible {
         width: calc(100% - 44px);
     }
 
+    /*
+        Restore the original mobile spacing.
+        Mobile doesn't need the fixed desktop top anchor.
+    */
+
     main {
 
         padding:
             20px
             20px
             90px;
+
+        align-items: center;
     }
 
     .hero {

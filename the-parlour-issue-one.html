@@ -1143,31 +1143,49 @@
 
                     <div class="carousel-track">
 
+                        <!-- IMAGE 1 -->
+
                         <div class="carousel-slide">
 
                             <img
                                 src="images/parlour-issue-one.png"
-                                alt="The Parlour, Issue One on a wooden table"
+                                alt="The Parlour, Issue One"
                                 class="carousel-image"
                             />
 
                         </div>
+
+                        <!-- IMAGE 2 -->
 
                         <div class="carousel-slide">
 
                             <img
                                 src="images/parlour-issue-one-2.png"
-                                alt="The Parlour, Issue One interior"
+                                alt="The Parlour, Issue One"
                                 class="carousel-image"
                             />
 
                         </div>
 
+                        <!-- IMAGE 3 -->
+
                         <div class="carousel-slide">
 
                             <img
                                 src="images/parlour-issue-one-3.png"
-                                alt="The Parlour, Issue One detail"
+                                alt="The Parlour, Issue One"
+                                class="carousel-image"
+                            />
+
+                        </div>
+
+                        <!-- IMAGE 4 -->
+
+                        <div class="carousel-slide">
+
+                            <img
+                                src="images/parlour-issue-one-4.png"
+                                alt="The Parlour, Issue One"
                                 class="carousel-image"
                             />
 
@@ -1432,7 +1450,10 @@
             }
         );
 
-        /* Swipe support */
+
+        /* --------------------------------
+           MOBILE SWIPE
+        -------------------------------- */
 
         let touchStartX = 0;
 
@@ -1490,6 +1511,9 @@
                 passive: true
             }
         );
+
+
+        /* INITIAL STATE */
 
         updateCarousel();
 

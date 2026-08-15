@@ -224,11 +224,6 @@ body::before {
     transform: scaleX(1);
 }
 
-.nav a.italic {
-
-    font-style: italic;
-}
-
 /* DIVIDER */
 
 .line {
@@ -273,11 +268,16 @@ main {
 
 .hero {
 
+    width: 100%;
+    max-width: 760px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 
     margin-top: -52px;
+
+    text-align: center;
 }
 
 /* SMALL KICKER */
@@ -315,13 +315,130 @@ main {
     text-wrap: balance;
 }
 
-/* KEEP PROJECT NAMES TOGETHER */
+/* CURRENT PUBLICATION */
 
-.quote em {
+.current-publication {
 
+    width: 100%;
+    max-width: 500px;
+
+    margin-top: 78px;
+    padding-top: 34px;
+
+    border-top: 1px solid rgba(36, 26, 24, 0.12);
+
+    text-align: center;
+}
+
+.publication-kicker {
+
+    margin-bottom: 15px;
+
+    font-size: 0.67rem;
+
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+
+    color: var(--text-soft);
+
+    opacity: 0.68;
+}
+
+.publication-title {
+
+    margin-bottom: 7px;
+
+    font-size: 1.18rem;
+
+    letter-spacing: 0.05px;
+
+    color: var(--text);
+}
+
+.publication-date {
+
+    margin-bottom: 18px;
+
+    font-size: 0.92rem;
     font-style: italic;
 
-    white-space: nowrap;
+    color: var(--text-soft);
+}
+
+.publication-status {
+
+    display: inline-block;
+
+    font-size: 0.86rem;
+
+    letter-spacing: 0.15px;
+
+    color: var(--text-soft);
+
+    opacity: 0.7;
+}
+
+/*
+WHEN ISSUE ONE GOES LIVE:
+
+Replace:
+
+<span class="publication-status">
+    Coming soon
+</span>
+
+with:
+
+<a
+    class="publication-link"
+    href="the-parlour-issue-one.html"
+>
+    View issue
+</a>
+*/
+
+.publication-link {
+
+    display: inline-block;
+
+    position: relative;
+
+    font-size: 0.86rem;
+
+    letter-spacing: 0.15px;
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+}
+
+.publication-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -3px;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--accent);
+
+    opacity: 0.28;
+
+    transition: opacity 0.25s ease;
+}
+
+.publication-link:hover {
+
+    color: var(--text);
+}
+
+.publication-link:hover::after {
+
+    opacity: 0.62;
 }
 
 /* SUBTLE FADE */
@@ -664,14 +781,49 @@ a:focus-visible {
     main {
 
         padding:
-            20px
+            42px
             20px
             90px;
     }
 
     .hero {
 
-        margin-top: -18px;
+        margin-top: 0;
+    }
+
+    .current-publication {
+
+        max-width: 300px;
+
+        margin-top: 58px;
+        padding-top: 28px;
+    }
+
+    .publication-kicker {
+
+        margin-bottom: 13px;
+
+        font-size: 0.61rem;
+
+        letter-spacing: 1.8px;
+    }
+
+    .publication-title {
+
+        font-size: 1.08rem;
+    }
+
+    .publication-date {
+
+        margin-bottom: 16px;
+
+        font-size: 0.88rem;
+    }
+
+    .publication-status,
+    .publication-link {
+
+        font-size: 0.82rem;
     }
 
     .mobile-menu nav {
@@ -756,14 +908,32 @@ a:focus-visible {
     <section class="hero">
 
         <div class="kicker">
-            Literary &amp; Educational Projects
+            Independent Publishing
         </div>
 
         <div class="quote">
-            Walkden House Press is the publishing house behind
-            <em>The Parlour</em> and <em>Common Room</em>, developing literary
-            and educational projects rooted in attention,
-            voice, and lived writing.
+            Walkden House Press makes space for literature to be
+            written, shared, and encountered in different ways.
+        </div>
+
+        <div class="current-publication">
+
+            <div class="publication-kicker">
+                The Parlour
+            </div>
+
+            <div class="publication-title">
+                Issue One
+            </div>
+
+            <div class="publication-date">
+                Summer 2026
+            </div>
+
+            <span class="publication-status">
+                Coming soon
+            </span>
+
         </div>
 
     </section>

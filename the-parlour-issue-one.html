@@ -1,864 +1,1604 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8" />
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
 
-<title>The Parlour — Issue One</title>
+    <link
+        rel="icon"
+        type="image/svg+xml"
+        href="images/favicon.svg"
+    />
 
-<link
-    rel="icon"
-    href="/images/favicon.svg"
-    type="image/svg+xml"
->
+    <title>The Parlour — Issue One | Walkden House Press</title>
 
-<style>
+    <meta
+        name="description"
+        content="The Parlour — Issue One, Summer 2026, published by Walkden House Press."
+    />
 
-:root {
+    <style>
 
-    --bg: #F2E9DF;
+        :root {
 
-    --text: #241A18;
+            --bg: #f2e9df;
 
-    --text-soft: rgba(36, 26, 24, 0.74);
+            --text: #241a18;
 
-    --accent: #7A564A;
+            --text-soft: rgba(36, 26, 24, 0.74);
 
-    --line: rgba(36, 26, 24, 0.10);
-}
+            --accent: #7a564a;
 
+            --line: rgba(36, 26, 24, 0.055);
+        }
 
-/* --------------------------------
-   PAGE
--------------------------------- */
+        * {
+            box-sizing: border-box;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        html,
+        body {
 
-html,
-body {
+            min-height: 100%;
 
-    margin: 0;
+            margin: 0;
+        }
 
-    width: 100%;
-    min-height: 100%;
-}
+        body {
 
-html {
-    background: var(--bg);
-}
+            min-height: 100vh;
 
-body {
+            display: flex;
+            flex-direction: column;
 
-    font-family:
-        "Baskerville",
-        "Times New Roman",
-        serif;
+            position: relative;
 
-    color: var(--text);
+            overflow-x: hidden;
 
-    min-height: 100vh;
-    min-height: 100dvh;
+            color: var(--text);
 
-    background: var(--bg);
+            background: var(--bg);
 
-    overflow-x: hidden;
+            font-family:
+                "Baskerville",
+                "Times New Roman",
+                serif;
 
-    position: relative;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
 
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-}
+        body.menu-open {
 
+            overflow: hidden;
+        }
 
-/* --------------------------------
-   SUBTLE PAPER GRAIN
--------------------------------- */
+        /* --------------------------------
+           PAPER GRAIN
+        -------------------------------- */
 
-body::before {
+        body::before {
 
-    content: "";
+            content: "";
 
-    position: fixed;
+            position: fixed;
+            inset: 0;
 
-    inset: 0;
+            pointer-events: none;
 
-    pointer-events: none;
+            opacity: 0.016;
 
-    opacity: 0.016;
+            background-image:
+                url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+        }
 
-    background-image:
-        url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-}
+        /* --------------------------------
+           HEADER
+        -------------------------------- */
 
+        .header {
 
-/* --------------------------------
-   MAIN
--------------------------------- */
+            display: flex;
 
-main {
+            justify-content: space-between;
+            align-items: center;
 
-    width: 100%;
+            padding:
+                34px
+                64px
+                26px;
 
-    min-height: 100vh;
-    min-height: 100dvh;
+            gap: 32px;
 
-    display: flex;
-    justify-content: center;
+            position: relative;
 
-    padding:
-        76px
-        24px
-        100px;
+            z-index: 2;
+        }
 
-    position: relative;
-    z-index: 2;
-}
+        /* --------------------------------
+           BRAND
+        -------------------------------- */
 
+        .title-wrapper {
 
-/* --------------------------------
-   PAGE CONTENT
--------------------------------- */
+            display: flex;
 
-.issue-page {
+            align-items: flex-start;
 
-    width: 100%;
+            gap: 12px;
 
-    max-width: 720px;
+            min-width: 0;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+            color: inherit;
 
-    text-align: center;
-}
+            text-decoration: none;
 
+            transition:
+                transform 0.28s ease,
+                opacity 0.28s ease;
+        }
 
-/* --------------------------------
-   SMALL HEADING
--------------------------------- */
+        .title-wrapper img {
 
-.kicker {
+            width: auto;
 
-    margin-bottom: 20px;
+            height: 2.7rem;
 
-    font-size: 0.72rem;
+            display: block;
 
-    letter-spacing: 2.2px;
+            flex-shrink: 0;
 
-    text-transform: uppercase;
+            transform:
+                translateY(0.12rem);
+        }
 
-    color: var(--text-soft);
+        .title-group {
 
-    opacity: 0.72;
-}
+            display: flex;
 
+            flex-direction: column;
+        }
 
-/* --------------------------------
-   TITLE
--------------------------------- */
+        .title {
 
-.issue-title {
+            color: var(--text);
 
-    margin: 0;
+            font-size: 1.72rem;
 
-    font-weight: normal;
+            letter-spacing: 0.15px;
 
-    font-size: 2.35rem;
+            white-space: nowrap;
+        }
 
-    letter-spacing: 0.2px;
+        .subtitle {
 
-    color: var(--text);
-}
+            margin-top: 2px;
 
+            color: var(--text-soft);
 
-/* --------------------------------
-   DIVIDER
--------------------------------- */
+            opacity: 0.82;
 
-.divider {
+            font-size: 0.66rem;
 
-    width: 48px;
+            letter-spacing: 1px;
 
-    height: 1px;
+            text-transform: uppercase;
+        }
 
-    margin:
-        24px auto
-        52px;
+        /* --------------------------------
+           NAVIGATION
+        -------------------------------- */
 
-    background: var(--line);
-}
+        .nav {
 
+            display: flex;
 
-/* --------------------------------
-   CAROUSEL
--------------------------------- */
+            align-items: center;
 
-.carousel {
+            margin-left: auto;
 
-    width: 100%;
+            gap: 32px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+            font-size: 1.02rem;
 
-    position: relative;
+            letter-spacing: 0.18px;
 
-    margin-bottom: 54px;
-}
+            white-space: nowrap;
+        }
 
+        .nav a {
 
-/* FIXED VIEWING WINDOW */
+            position: relative;
 
-.carousel-frame {
+            color: var(--text-soft);
 
-    width: min(100%, 380px);
+            text-decoration: none;
 
-    aspect-ratio: 4 / 5;
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease;
+        }
 
-    position: relative;
+        .nav a::after {
 
-    overflow: hidden;
+            content: "";
 
-    border-radius: 2px;
+            position: absolute;
 
-    box-shadow:
-        0 16px 38px rgba(36, 26, 24, 0.10);
-}
+            left: 0;
+            bottom: -4px;
 
+            width: 100%;
 
-/* SLIDING TRACK */
+            height: 1px;
 
-.carousel-track {
+            background: var(--accent);
 
-    display: flex;
+            opacity: 0;
 
-    width: 100%;
-    height: 100%;
+            transform:
+                scaleX(0.7);
 
-    transition:
-        transform 0.45s ease;
-}
+            transition:
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
 
+        .nav a:hover {
 
-/* INDIVIDUAL SLIDE */
+            color: var(--text);
+        }
 
-.carousel-slide {
+        .nav a:hover::after {
 
-    min-width: 100%;
-    height: 100%;
+            opacity: 0.42;
 
-    display: flex;
+            transform:
+                scaleX(1);
+        }
 
-    align-items: center;
-    justify-content: center;
+        .nav a.active {
 
-    overflow: hidden;
-}
+            color: var(--text);
+        }
 
+        .nav a.active::after {
 
-/* IMAGE */
+            opacity: 0.34;
 
-.carousel-image {
+            transform:
+                scaleX(1);
+        }
 
-    width: 100%;
-    height: 100%;
+        /* --------------------------------
+           DIVIDER
+        -------------------------------- */
 
-    display: block;
+        .line {
 
-    object-fit: cover;
+            width:
+                calc(100% - 120px);
 
-    object-position: center;
-}
+            height: 1px;
 
+            margin: 0 auto;
 
-/* --------------------------------
-   CAROUSEL ARROWS
--------------------------------- */
+            opacity: 0.34;
 
-.carousel-button {
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    var(--line),
+                    transparent
+                );
+        }
 
-    position: absolute;
+        /* --------------------------------
+           MAIN
+        -------------------------------- */
 
-    top: 50%;
+        main {
 
-    transform: translateY(-50%);
+            flex: 1;
 
-    border: 0;
+            display: flex;
 
-    padding: 12px;
+            justify-content: center;
 
-    background: transparent;
+            padding:
+                76px
+                24px
+                120px;
 
-    color: var(--text-soft);
+            position: relative;
 
-    font-family:
-        "Baskerville",
-        "Times New Roman",
-        serif;
+            z-index: 2;
+        }
 
-    font-size: 2.1rem;
+        /* --------------------------------
+           ISSUE
+        -------------------------------- */
 
-    line-height: 1;
+        .content {
 
-    cursor: pointer;
+            width: 100%;
 
-    opacity: 0.48;
+            max-width: 760px;
 
-    transition:
-        opacity 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
+            text-align: center;
 
-    z-index: 3;
-}
+            animation:
+                fadeIn 1.6s ease;
+        }
 
-.carousel-button:hover {
+        .kicker {
 
-    opacity: 0.9;
+            margin-bottom: 22px;
 
-    color: var(--text);
-}
+            color: var(--text-soft);
 
-.carousel-button.prev {
+            opacity: 0.68;
 
-    left: 2px;
-}
+            font-size: 0.72rem;
 
-.carousel-button.next {
+            letter-spacing: 2.2px;
 
-    right: 2px;
-}
+            text-transform: uppercase;
+        }
 
+        .page-title {
 
-/* --------------------------------
-   DESCRIPTION
--------------------------------- */
+            margin:
+                0
+                0
+                42px;
 
-.issue-description {
+            font-size: 2.4rem;
 
-    width: 100%;
+            font-weight: normal;
 
-    max-width: 570px;
+            letter-spacing: 0.2px;
+        }
 
-    margin-bottom: 42px;
+        /* --------------------------------
+           CAROUSEL
+        -------------------------------- */
 
-    color: var(--text-soft);
+        .issue-carousel {
 
-    font-size: 1.05rem;
+            width:
+                min(100%, 470px);
 
-    line-height: 1.9;
-}
+            margin:
+                0 auto
+                44px;
 
-.issue-description p {
+            display: flex;
 
-    margin:
-        0
-        0
-        20px;
-}
+            justify-content: space-between;
+            align-items: center;
 
-.issue-description p:last-child {
-    margin-bottom: 0;
-}
+            position: relative;
+        }
 
+        .carousel-frame {
 
-/* --------------------------------
-   PURCHASE BUTTON
--------------------------------- */
+            width:
+                min(
+                    calc(100% - 80px),
+                    380px
+                );
 
-.purchase-link {
+            aspect-ratio:
+                4 / 5;
 
-    display: inline-block;
+            position: relative;
 
-    padding:
-        15px
-        25px;
+            overflow: hidden;
 
-    border:
-        1px solid
-        rgba(36, 26, 24, 0.24);
+            flex-shrink: 0;
 
-    text-decoration: none;
+            border-radius: 2px;
 
-    color: var(--text);
+            box-shadow:
+                0 16px 38px
+                rgba(36, 26, 24, 0.10);
+        }
 
-    font-size: 1rem;
+        .carousel-track {
 
-    letter-spacing: 0.12px;
+            width: 100%;
+            height: 100%;
 
-    background:
-        rgba(255,255,255,0.10);
+            display: flex;
 
-    transition:
-        background 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
-}
+            transition:
+                transform 0.45s ease;
+        }
 
-.purchase-link:hover {
+        .carousel-slide {
 
-    background:
-        rgba(122, 86, 74, 0.06);
+            min-width: 100%;
+            height: 100%;
 
-    border-color:
-        rgba(122, 86, 74, 0.45);
+            display: flex;
 
-    transform: translateY(-1px);
-}
+            align-items: center;
+            justify-content: center;
 
+            overflow: hidden;
+        }
 
-/* --------------------------------
-   RETURN LINK
--------------------------------- */
+        .carousel-image {
 
-.return-link {
+            width: 100%;
+            height: 100%;
 
-    margin-top: 48px;
+            display: block;
 
-    font-size: 0.88rem;
+            object-fit: cover;
+        }
 
-    color: var(--text-soft);
+        /* Optical centring */
 
-    text-decoration: none;
+        .carousel-slide:nth-child(1)
+        .carousel-image {
 
-    opacity: 0.72;
+            object-position:
+                50% 50%;
+        }
 
-    transition:
-        opacity 0.25s ease,
-        color 0.25s ease;
-}
+        .carousel-slide:nth-child(2)
+        .carousel-image {
 
-.return-link:hover {
+            object-position:
+                49% 50%;
+        }
 
-    opacity: 1;
+        .carousel-slide:nth-child(3)
+        .carousel-image {
 
-    color: var(--text);
-}
+            object-position:
+                50% 50%;
+        }
 
+        .carousel-slide:nth-child(4)
+        .carousel-image {
 
-/* --------------------------------
-   ACCESSIBILITY
--------------------------------- */
+            object-position:
+                51% 50%;
+        }
 
-a:focus-visible,
-button:focus-visible {
+        /* --------------------------------
+           CAROUSEL ARROWS
+        -------------------------------- */
 
-    outline:
-        1px solid
-        var(--accent);
+        .carousel-arrow {
 
-    outline-offset: 4px;
-}
+            width: 32px;
+            height: 44px;
 
+            padding: 0;
 
-/* --------------------------------
-   FADE
--------------------------------- */
+            flex-shrink: 0;
 
-.issue-page {
+            display: flex;
 
-    animation:
-        fadeIn 1.2s ease;
-}
+            align-items: center;
+            justify-content: center;
 
-@keyframes fadeIn {
+            border: 0;
 
-    from {
-        opacity: 0;
-        transform: translateY(6px);
-    }
+            background: transparent;
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+            color: var(--text-soft);
 
+            opacity: 0.42;
 
-/* --------------------------------
-   MOBILE
--------------------------------- */
+            font-family:
+                "Baskerville",
+                "Times New Roman",
+                serif;
 
-@media (max-width: 600px) {
+            font-size: 2rem;
 
-    main {
+            line-height: 1;
 
-        padding:
-            max(54px, env(safe-area-inset-top))
-            20px
-            max(76px, env(safe-area-inset-bottom));
-    }
+            cursor: pointer;
 
-    .kicker {
+            transition:
+                color 0.25s ease,
+                opacity 0.25s ease,
+                transform 0.25s ease;
+        }
 
-        font-size: 0.65rem;
+        .carousel-arrow:hover {
 
-        letter-spacing: 1.9px;
+            color: var(--text);
 
-        margin-bottom: 17px;
-    }
+            opacity: 0.78;
+        }
 
-    .issue-title {
+        .carousel-prev:hover {
 
-        font-size: 2rem;
-    }
+            transform:
+                translateX(-2px);
+        }
 
-    .divider {
+        .carousel-next:hover {
 
-        margin-bottom: 42px;
-    }
+            transform:
+                translateX(2px);
+        }
 
-    .carousel {
+        .carousel-arrow:disabled {
 
-        margin-bottom: 46px;
-    }
+            opacity: 0.16;
 
-    .carousel-frame {
+            cursor: default;
 
-        width: min(100%, 325px);
-    }
+            transform: none;
+        }
 
-    .carousel-button {
+        /* --------------------------------
+           ISSUE TEXT
+        -------------------------------- */
 
-        font-size: 1.8rem;
+        .issue-details {
 
-        padding: 8px;
-    }
+            margin:
+                0
+                0
+                30px;
 
-    .carousel-button.prev {
+            color: var(--text);
 
-        left: -5px;
-    }
+            font-size: 1.18rem;
 
-    .carousel-button.next {
+            line-height: 1.85;
+        }
 
-        right: -5px;
-    }
+        .epigraph {
 
-    .issue-description {
+            margin:
+                0
+                0
+                34px;
 
-        max-width: 340px;
+            color: var(--text);
 
-        font-size: 0.98rem;
+            font-size: 1.18rem;
 
-        line-height: 1.85;
+            font-style: italic;
 
-        margin-bottom: 36px;
-    }
+            line-height: 1.85;
+        }
 
-    .purchase-link {
+        .introduction {
 
-        padding:
-            14px
-            20px;
+            max-width: 680px;
 
-        font-size: 0.94rem;
-    }
+            margin:
+                0 auto
+                38px;
 
-    .return-link {
+            color: var(--text);
 
-        margin-top: 42px;
-    }
-}
+            font-size: 1.18rem;
 
+            line-height: 1.85;
+        }
 
-/* --------------------------------
-   VERY SMALL MOBILE
--------------------------------- */
+        /* --------------------------------
+           PURCHASE
+        -------------------------------- */
 
-@media (max-width: 370px) {
+        .purchase-form {
 
-    .carousel-frame {
+            display: inline;
 
-        width: min(100%, 295px);
-    }
+            margin: 0;
+        }
 
-    .carousel-button.prev {
+        .read-link {
 
-        left: -8px;
-    }
+            display: inline-block;
 
-    .carousel-button.next {
+            margin-top: 8px;
 
-        right: -8px;
-    }
-}
+            padding:
+                15px
+                32px;
 
-</style>
+            border:
+                1px solid
+                rgba(36, 26, 24, 0.25);
+
+            color: var(--text);
+
+            background:
+                transparent;
+
+            text-decoration: none;
+
+            font-family: inherit;
+
+            font-size: 1.02rem;
+
+            letter-spacing: 0.2px;
+
+            cursor: pointer;
+
+            transition:
+                background-color 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .read-link:hover {
+
+            background:
+                rgba(36, 26, 24, 0.05);
+
+            border-color:
+                rgba(36, 26, 24, 0.34);
+        }
+
+        /* --------------------------------
+           ACCESSIBILITY
+        -------------------------------- */
+
+        .read-link:focus-visible,
+        .carousel-arrow:focus-visible,
+        .hamburger:focus-visible,
+        .close-icon:focus-visible,
+        a:focus-visible {
+
+            outline:
+                1px solid
+                var(--accent);
+
+            outline-offset: 5px;
+        }
+
+        /* --------------------------------
+           FADE
+        -------------------------------- */
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(8px);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+            }
+        }
+
+        /* --------------------------------
+           HAMBURGER
+        -------------------------------- */
+
+        .hamburger {
+
+            display: none;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            width: 22px;
+            height: 15px;
+
+            padding: 0;
+
+            border: 0;
+
+            background:
+                transparent;
+
+            cursor: pointer;
+        }
+
+        .hamburger span {
+
+            width: 100%;
+            height: 1px;
+
+            display: block;
+
+            background-color:
+                var(--text);
+        }
+
+        /* --------------------------------
+           MOBILE MENU
+        -------------------------------- */
+
+        .mobile-menu {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            background-color:
+                var(--bg);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.4s ease,
+                visibility 0.4s ease;
+        }
+
+        .mobile-menu.show {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+        }
+
+        .mobile-menu-header {
+
+            position: absolute;
+
+            top: 32px;
+
+            right: 22px;
+        }
+
+        .close-icon {
+
+            width: 22px;
+            height: 22px;
+
+            padding: 0;
+
+            position: relative;
+
+            border: 0;
+
+            background:
+                transparent;
+
+            cursor: pointer;
+        }
+
+        .close-icon::before,
+        .close-icon::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 50%;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 1px;
+
+            background-color:
+                var(--text);
+        }
+
+        .close-icon::before {
+
+            transform:
+                rotate(45deg);
+        }
+
+        .close-icon::after {
+
+            transform:
+                rotate(-45deg);
+        }
+
+        .mobile-menu-inner {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+        }
+
+        .mobile-kicker {
+
+            margin-bottom: 42px;
+
+            color:
+                var(--text-soft);
+
+            opacity: 0.68;
+
+            font-size: 0.62rem;
+
+            letter-spacing: 2.6px;
+
+            text-transform:
+                uppercase;
+        }
+
+        .mobile-menu nav {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        .mobile-menu a {
+
+            color:
+                var(--text);
+
+            text-decoration:
+                none;
+
+            font-size: 1.18rem;
+
+            letter-spacing:
+                0.18px;
+
+            opacity: 0;
+
+            transform:
+                translateY(8px);
+
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease,
+                color 0.25s ease;
+        }
+
+        .mobile-menu.show a {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        .mobile-menu.show a:nth-child(1) {
+
+            transition-delay:
+                0.08s;
+        }
+
+        .mobile-menu.show a:nth-child(2) {
+
+            transition-delay:
+                0.14s;
+        }
+
+        .mobile-menu.show a:nth-child(3) {
+
+            transition-delay:
+                0.2s;
+        }
+
+        .mobile-menu.show a:nth-child(4) {
+
+            transition-delay:
+                0.26s;
+        }
+
+        .mobile-menu a:hover {
+
+            color:
+                var(--accent);
+        }
+
+        /* --------------------------------
+           COMPRESSED DESKTOP / TABLET
+        -------------------------------- */
+
+        @media (max-width: 1100px) {
+
+            .header {
+
+                padding:
+                    24px
+                    36px
+                    20px;
+
+                gap: 20px;
+            }
+
+            .title {
+
+                font-size:
+                    1.42rem;
+            }
+
+            .title-wrapper {
+
+                gap: 11px;
+            }
+
+            .title-wrapper img {
+
+                width: auto;
+
+                height: 2.6rem;
+
+                transform:
+                    translateY(0.04rem);
+            }
+
+            .nav {
+
+                gap: 22px;
+
+                font-size:
+                    0.96rem;
+            }
+
+            .line {
+
+                width:
+                    calc(100% - 64px);
+            }
+        }
+
+        /* --------------------------------
+           MOBILE
+        -------------------------------- */
+
+        @media (max-width: 760px) {
+
+            .header {
+
+                padding:
+                    18px
+                    22px;
+
+                align-items:
+                    center;
+            }
+
+            .nav {
+
+                display: none;
+            }
+
+            .hamburger {
+
+                display: flex;
+            }
+
+            .title-wrapper {
+
+                gap: 8px;
+            }
+
+            .title {
+
+                font-size:
+                    1.12rem;
+            }
+
+            .subtitle {
+
+                font-size:
+                    0.54rem;
+
+                letter-spacing:
+                    0.8px;
+            }
+
+            .title-wrapper img {
+
+                width: auto;
+
+                height: 2.1rem;
+
+                transform:
+                    translateY(0.03rem);
+            }
+
+            .line {
+
+                width:
+                    calc(100% - 44px);
+            }
+
+            main {
+
+                padding:
+                    56px
+                    20px
+                    90px;
+            }
+
+            .kicker {
+
+                margin-bottom:
+                    18px;
+
+                font-size:
+                    0.62rem;
+
+                letter-spacing:
+                    1.8px;
+            }
+
+            .page-title {
+
+                margin-bottom:
+                    34px;
+
+                font-size:
+                    1.84rem;
+            }
+
+            .issue-carousel {
+
+                width:
+                    min(100%, 390px);
+
+                margin-bottom:
+                    38px;
+            }
+
+            .carousel-frame {
+
+                width:
+                    min(
+                        calc(100% - 64px),
+                        325px
+                    );
+            }
+
+            .carousel-arrow {
+
+                width: 26px;
+
+                font-size:
+                    1.72rem;
+
+                opacity: 0.48;
+            }
+
+            .issue-details,
+            .epigraph {
+
+                font-size:
+                    1.02rem;
+
+                line-height:
+                    1.82;
+            }
+
+            .introduction {
+
+                font-size:
+                    1.02rem;
+
+                line-height:
+                    1.82;
+
+                margin-bottom:
+                    34px;
+            }
+
+            .read-link {
+
+                margin-top:
+                    4px;
+
+                padding:
+                    14px
+                    22px;
+
+                font-size:
+                    0.96rem;
+            }
+        }
+
+    </style>
 </head>
-
 
 <body>
 
-<main>
+    <header class="header">
 
-    <div class="issue-page">
-
-        <div class="kicker">
-            The Parlour
-        </div>
-
-        <h1 class="issue-title">
-            Issue One
-        </h1>
-
-        <div class="divider"></div>
-
-
-        <!-- CAROUSEL -->
-
-        <div
-            class="carousel"
-            id="carousel"
+        <a
+            href="index.html"
+            class="title-wrapper"
+            aria-label="Walkden House Press Home"
         >
 
-            <button
-                class="carousel-button prev"
-                type="button"
-                aria-label="Previous photograph"
-                onclick="previousSlide()"
+            <img
+                src="images/colophon.svg"
+                alt="Walkden House Press logo"
+            />
+
+            <div class="title-group">
+
+                <div class="title">
+                    Walkden House Press
+                </div>
+
+                <div class="subtitle">
+                    Independent Publisher · Est. 2026
+                </div>
+
+            </div>
+
+        </a>
+
+        <nav
+            class="nav"
+            aria-label="Primary navigation"
+        >
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a
+                href="the-parlour.html"
+                class="active"
+                aria-current="page"
             >
-                ‹
-            </button>
+                The Parlour
+            </a>
 
+            <a href="common-room.html">
+                Common Room
+            </a>
 
-            <div class="carousel-frame">
+            <a href="contact.html">
+                Contact
+            </a>
 
-                <div
-                    class="carousel-track"
-                    id="carouselTrack"
+        </nav>
+
+        <button
+            class="hamburger"
+            type="button"
+            aria-label="Open menu"
+            aria-controls="mobileMenu"
+            aria-expanded="false"
+        >
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+        </button>
+
+    </header>
+
+    <div class="line"></div>
+
+    <main>
+
+        <section
+            class="content"
+            aria-labelledby="issue-title"
+        >
+
+            <div class="kicker">
+                The Parlour
+            </div>
+
+            <h1
+                class="page-title"
+                id="issue-title"
+            >
+                Issue One
+            </h1>
+
+            <div
+                class="issue-carousel"
+                aria-label="Issue One photographs"
+            >
+
+                <button
+                    class="carousel-arrow carousel-prev"
+                    type="button"
+                    aria-label="Previous photograph"
                 >
+                    &#8249;
+                </button>
 
-                    <div class="carousel-slide">
+                <div class="carousel-frame">
 
-                        <img
-                            src="images/parlour-issue-one.png"
-                            alt="The Parlour Issue One front cover"
-                            class="carousel-image"
-                        >
+                    <div class="carousel-track">
 
-                    </div>
+                        <div class="carousel-slide">
 
+                            <img
+                                src="images/parlour-issue-one.png"
+                                alt="The Parlour Issue One front cover"
+                                class="carousel-image"
+                            />
 
-                    <div class="carousel-slide">
+                        </div>
 
-                        <img
-                            src="images/parlour-issue-one-2.png"
-                            alt="Contents pages of The Parlour Issue One"
-                            class="carousel-image"
-                        >
+                        <div class="carousel-slide">
 
-                    </div>
+                            <img
+                                src="images/parlour-issue-one-2.png"
+                                alt="The Parlour Issue One title page"
+                                class="carousel-image"
+                            />
 
+                        </div>
 
-                    <div class="carousel-slide">
+                        <div class="carousel-slide">
 
-                        <img
-                            src="images/parlour-issue-one-3.png"
-                            alt="Back cover of The Parlour Issue One"
-                            class="carousel-image"
-                        >
+                            <img
+                                src="images/parlour-issue-one-3.png"
+                                alt="The Parlour Issue One contents pages"
+                                class="carousel-image"
+                            />
 
-                    </div>
+                        </div>
 
+                        <div class="carousel-slide">
 
-                    <div class="carousel-slide">
+                            <img
+                                src="images/parlour-issue-one-4.png"
+                                alt="The Parlour Issue One back cover"
+                                class="carousel-image"
+                            />
 
-                        <img
-                            src="images/parlour-issue-one-4.png"
-                            alt="Title page of The Parlour Issue One"
-                            class="carousel-image"
-                        >
+                        </div>
 
                     </div>
 
                 </div>
 
+                <button
+                    class="carousel-arrow carousel-next"
+                    type="button"
+                    aria-label="Next photograph"
+                >
+                    &#8250;
+                </button>
+
             </div>
 
+            <p class="issue-details">
+                Summer 2026
+            </p>
+
+            <p class="epigraph">
+                “A place to meet and be met.”
+            </p>
+
+            <p class="introduction">
+                The first issue of <em>The Parlour</em> gathers poetry,
+                short fiction, and creative nonfiction in a quiet space
+                for attentive writing and unhurried reading.
+            </p>
+
+            <form
+                class="purchase-form"
+                action="https://walkden-parlour-checkout.director-1d7.workers.dev/create-checkout-session"
+                method="post"
+            >
+
+                <button
+                    class="read-link"
+                    type="submit"
+                >
+                    Purchase and Read the Digital Edition for £5
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- MOBILE MENU -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+        aria-hidden="true"
+    >
+
+        <div class="mobile-menu-header">
 
             <button
-                class="carousel-button next"
+                class="close-icon"
                 type="button"
-                aria-label="Next photograph"
-                onclick="nextSlide()"
-            >
-                ›
-            </button>
+                aria-label="Close menu"
+            ></button>
 
         </div>
 
+        <div class="mobile-menu-inner">
 
-        <!-- DESCRIPTION -->
+            <div class="mobile-kicker">
+                Walkden House Press
+            </div>
 
-        <div class="issue-description">
+            <nav aria-label="Mobile navigation">
 
-            <p>
-                The first issue of <em>The Parlour</em>,
-                published in Bedford in Summer 2026.
-            </p>
+                <a href="about.html">
+                    About
+                </a>
 
-            <p>
-                A collection of poetry, fiction, art,
-                and other writing from Bedford and beyond.
-            </p>
+                <a
+                    href="the-parlour.html"
+                    class="active"
+                    aria-current="page"
+                >
+                    The Parlour
+                </a>
+
+                <a href="common-room.html">
+                    Common Room
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </nav>
 
         </div>
-
-
-        <!-- PURCHASE -->
-
-        <a
-            href="#"
-            class="purchase-link"
-        >
-            Purchase and Read the Digital Edition for £5
-        </a>
-
-
-        <!-- RETURN -->
-
-        <a
-            href="the-parlour.html"
-            class="return-link"
-        >
-            Return to The Parlour
-        </a>
 
     </div>
 
-</main>
+    <script>
 
+        /* --------------------------------
+           MOBILE MENU
+        -------------------------------- */
 
-<script>
+        const menu =
+            document.getElementById("mobileMenu");
 
-const track =
-    document.getElementById("carouselTrack");
+        const openButton =
+            document.querySelector(".hamburger");
 
-const slides =
-    document.querySelectorAll(".carousel-slide");
+        const closeButton =
+            document.querySelector(".close-icon");
 
-const carousel =
-    document.getElementById("carousel");
+        function setMenu(open) {
 
-let currentSlide = 0;
+            menu
+                .classList
+                .toggle("show", open);
 
+            menu
+                .setAttribute(
+                    "aria-hidden",
+                    String(!open)
+                );
 
-/* --------------------------------
-   UPDATE CAROUSEL
--------------------------------- */
+            openButton
+                .setAttribute(
+                    "aria-expanded",
+                    String(open)
+                );
 
-function updateCarousel() {
+            openButton
+                .setAttribute(
+                    "aria-label",
+                    open
+                        ? "Close menu"
+                        : "Open menu"
+                );
 
-    track.style.transform =
-        `translateX(-${currentSlide * 100}%)`;
-}
+            document
+                .body
+                .classList
+                .toggle(
+                    "menu-open",
+                    open
+                );
 
+            if (open) {
 
-/* --------------------------------
-   NEXT
--------------------------------- */
+                closeButton.focus();
 
-function nextSlide() {
+            } else {
 
-    currentSlide =
-        (currentSlide + 1) % slides.length;
-
-    updateCarousel();
-}
-
-
-/* --------------------------------
-   PREVIOUS
--------------------------------- */
-
-function previousSlide() {
-
-    currentSlide =
-        (currentSlide - 1 + slides.length)
-        % slides.length;
-
-    updateCarousel();
-}
-
-
-/* --------------------------------
-   SWIPE SUPPORT
--------------------------------- */
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-carousel.addEventListener(
-    "touchstart",
-    function(event) {
-
-        touchStartX =
-            event.changedTouches[0].screenX;
-    },
-    {
-        passive: true
-    }
-);
-
-carousel.addEventListener(
-    "touchend",
-    function(event) {
-
-        touchEndX =
-            event.changedTouches[0].screenX;
-
-        handleSwipe();
-    },
-    {
-        passive: true
-    }
-);
-
-
-function handleSwipe() {
-
-    const distance =
-        touchStartX - touchEndX;
-
-    const threshold = 45;
-
-    if (distance > threshold) {
-
-        nextSlide();
-
-    } else if (distance < -threshold) {
-
-        previousSlide();
-    }
-}
-
-
-/* --------------------------------
-   KEYBOARD SUPPORT
--------------------------------- */
-
-document.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (event.key === "ArrowRight") {
-            nextSlide();
+                openButton.focus();
+            }
         }
 
-        if (event.key === "ArrowLeft") {
-            previousSlide();
-        }
-    }
-);
+        openButton.addEventListener(
+            "click",
+            () => {
 
-</script>
+                setMenu(
+                    !menu.classList.contains("show")
+                );
+            }
+        );
+
+        closeButton.addEventListener(
+            "click",
+            () => setMenu(false)
+        );
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+
+                if (
+                    event.key === "Escape" &&
+                    menu.classList.contains("show")
+                ) {
+
+                    setMenu(false);
+                }
+            }
+        );
+
+
+        /* --------------------------------
+           ISSUE CAROUSEL
+        -------------------------------- */
+
+        const carousel =
+            document.querySelector(".issue-carousel");
+
+        const track =
+            document.querySelector(".carousel-track");
+
+        const slides =
+            Array.from(
+                document.querySelectorAll(".carousel-slide")
+            );
+
+        const prevButton =
+            document.querySelector(".carousel-prev");
+
+        const nextButton =
+            document.querySelector(".carousel-next");
+
+        let currentSlide = 0;
+
+        function updateCarousel() {
+
+            track.style.transform =
+                `translateX(-${currentSlide * 100}%)`;
+
+            prevButton.disabled =
+                currentSlide === 0;
+
+            nextButton.disabled =
+                currentSlide ===
+                slides.length - 1;
+        }
+
+        prevButton.addEventListener(
+            "click",
+            () => {
+
+                if (currentSlide > 0) {
+
+                    currentSlide--;
+
+                    updateCarousel();
+                }
+            }
+        );
+
+        nextButton.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    currentSlide <
+                    slides.length - 1
+                ) {
+
+                    currentSlide++;
+
+                    updateCarousel();
+                }
+            }
+        );
+
+
+        /* --------------------------------
+           MOBILE SWIPE
+        -------------------------------- */
+
+        let touchStartX = 0;
+
+        let touchEndX = 0;
+
+        carousel.addEventListener(
+            "touchstart",
+            (event) => {
+
+                touchStartX =
+                    event
+                        .changedTouches[0]
+                        .screenX;
+            },
+            {
+                passive: true
+            }
+        );
+
+        carousel.addEventListener(
+            "touchend",
+            (event) => {
+
+                touchEndX =
+                    event
+                        .changedTouches[0]
+                        .screenX;
+
+                const difference =
+                    touchStartX -
+                    touchEndX;
+
+                if (
+                    difference > 45 &&
+                    currentSlide <
+                    slides.length - 1
+                ) {
+
+                    currentSlide++;
+
+                    updateCarousel();
+                }
+
+                if (
+                    difference < -45 &&
+                    currentSlide > 0
+                ) {
+
+                    currentSlide--;
+
+                    updateCarousel();
+                }
+            },
+            {
+                passive: true
+            }
+        );
+
+        updateCarousel();
+
+    </script>
 
 </body>
 </html>

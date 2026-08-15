@@ -253,11 +253,11 @@ body::before {
 /* MAIN */
 
 /*
-    The homepage hero is deliberately anchored from the top
-    rather than vertically centred in the remaining viewport.
+    The hero is anchored from the top rather than
+    vertically centred in the viewport.
 
-    This means shortening the browser window no longer causes
-    the hero text to move upwards.
+    This keeps its position stable when the browser
+    window changes height.
 */
 
 main {
@@ -670,23 +670,28 @@ a:focus-visible {
     }
 
     /*
-        Restore the original mobile spacing.
-        Mobile doesn't need the fixed desktop top anchor.
+        MOBILE HERO
+
+        Like desktop, this is now anchored from the top
+        rather than vertically centred.
+
+        The hero therefore stays in the same position
+        when the browser height changes.
     */
 
     main {
 
         padding:
-            20px
+            74px
             20px
             90px;
 
-        align-items: center;
+        align-items: flex-start;
     }
 
     .hero {
 
-        margin-top: -18px;
+        margin-top: 0;
     }
 
     .mobile-menu nav {

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -256,7 +257,7 @@
         }
 
         .page-title {
-            margin: 0 0 54px;
+            margin: 0 0 48px;
 
             font-size: 2.4rem;
             font-weight: normal;
@@ -264,8 +265,10 @@
             text-align: center;
         }
 
-        .body-text {
-            max-width: 680px;
+        /* Introduction */
+
+        .introduction {
+            max-width: 650px;
             margin: 0 auto;
 
             color: var(--text);
@@ -274,23 +277,131 @@
             line-height: 1.85;
         }
 
-        .body-text p {
-            margin: 0 0 34px;
+        .introduction p {
+            margin: 0 0 28px;
         }
 
-        .body-text em {
+        .introduction p:last-child {
+            margin-bottom: 0;
+        }
+
+        .introduction em {
             font-style: italic;
         }
 
-        .body-text a {
-            color: inherit;
-            text-decoration-color: rgba(36, 26, 24, 0.3);
+        /* Issues archive */
 
-            transition: text-decoration-color 0.25s ease;
+        .issues {
+            max-width: 680px;
+
+            margin: 82px auto 0;
+            padding-top: 36px;
+
+            border-top: 1px solid rgba(36, 26, 24, 0.12);
         }
 
-        .body-text a:hover {
-            text-decoration-color: var(--accent);
+        .issues-heading {
+            margin-bottom: 32px;
+
+            color: var(--text-soft);
+            opacity: 0.68;
+
+            font-size: 0.68rem;
+            letter-spacing: 2.2px;
+            text-transform: uppercase;
+        }
+
+        .issue {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: baseline;
+
+            gap: 30px;
+
+            padding: 0 0 25px;
+
+            border-bottom: 1px solid rgba(36, 26, 24, 0.08);
+        }
+
+        .issue-details {
+            display: flex;
+            align-items: baseline;
+
+            gap: 20px;
+        }
+
+        .issue-title {
+            font-size: 1.26rem;
+            letter-spacing: 0.05px;
+        }
+
+        .issue-date {
+            color: var(--text-soft);
+
+            font-size: 0.96rem;
+            font-style: italic;
+        }
+
+        .issue-status {
+            color: var(--text-soft);
+            opacity: 0.7;
+
+            font-size: 0.9rem;
+            letter-spacing: 0.15px;
+        }
+
+        /*
+        NEXT WEEK:
+
+        Replace:
+
+        <span class="issue-status">
+            Coming soon
+        </span>
+
+        with:
+
+        <a
+            class="issue-link"
+            href="the-parlour-issue-one.html"
+        >
+            View issue
+        </a>
+        */
+
+        .issue-link {
+            position: relative;
+
+            color: var(--text-soft);
+            text-decoration: none;
+
+            font-size: 0.9rem;
+            letter-spacing: 0.15px;
+        }
+
+        .issue-link::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+
+            width: 100%;
+            height: 1px;
+
+            background: var(--accent);
+
+            opacity: 0.28;
+
+            transition: opacity 0.25s ease;
+        }
+
+        .issue-link:hover {
+            color: var(--text);
+        }
+
+        .issue-link:hover::after {
+            opacity: 0.62;
         }
 
         /* Fade */
@@ -532,13 +643,55 @@
             }
 
             .page-title {
-                margin-bottom: 40px;
+                margin-bottom: 38px;
                 font-size: 1.84rem;
             }
 
-            .body-text {
+            .introduction {
+                max-width: 520px;
+
                 font-size: 1.02rem;
                 line-height: 1.82;
+            }
+
+            .introduction p {
+                margin-bottom: 24px;
+            }
+
+            .issues {
+                margin-top: 64px;
+                padding-top: 30px;
+            }
+
+            .issues-heading {
+                margin-bottom: 28px;
+            }
+
+            .issue {
+                grid-template-columns: 1fr;
+                gap: 13px;
+
+                padding-bottom: 22px;
+            }
+
+            .issue-details {
+                display: flex;
+                justify-content: space-between;
+
+                gap: 20px;
+            }
+
+            .issue-title {
+                font-size: 1.12rem;
+            }
+
+            .issue-date {
+                font-size: 0.92rem;
+            }
+
+            .issue-status,
+            .issue-link {
+                font-size: 0.86rem;
             }
         }
     </style>
@@ -611,63 +764,49 @@
                 THE PARLOUR
             </h1>
 
-            <div class="body-text">
+            <div class="introduction">
                 <p>
-                    <em>The Parlour</em> is the literary magazine
-                    published by Walkden House Press, dedicated to
-                    writing that feels alive, attentive, and grounded
-                    in lived experience.
+                    <em>The Parlour</em> is the literary magazine published by
+                    Walkden House Press: a place for writing that feels alive,
+                    attentive, and grounded in lived experience.
                 </p>
 
                 <p>
-                    The magazine is interested in work that values
-                    presence as much as craft: writing attentive to
-                    thought, feeling, memory, conversation, and the
-                    overlooked textures of everyday life.
-                </p>
-
-                <p>
-                    We publish poetry, short fiction, and creative
-                    nonfiction from writers of all ages, welcoming
-                    work that is quiet or bold, polished or exploratory.
-                </p>
-
-                <p>
-                    Alongside publication itself, <em>The Parlour</em>
-                    aims to create a literary culture rooted in
-                    attentiveness, sincerity, and openness to emerging
-                    voices.
-                </p>
-
-                <p>
-                    Contributors may request anonymity, though where
-                    possible we present each piece with the writer’s
-                    name, age, and town — placing the work within the
-                    world it comes from.
-                </p>
-
-                <p>
-                    Submissions are read carefully and conversationally,
-                    with attention not only to technique, but to the
-                    feeling held within the writing and the space it
-                    leaves for the reader to enter.
-                </p>
-
-                <p>
-                    The first issue is now closed to submissions.
-                </p>
-
-                <p>
-                    For enquiries, visit
-                    <a
-                        href="https://theparlour.org.uk"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        theparlour.org.uk
-                    </a>.
+                    It brings together work by writers of different ages and
+                    backgrounds, with an interest in the particular — in thought,
+                    feeling, memory, conversation, and the overlooked textures of
+                    everyday life. At its heart is a simple idea: that literature
+                    can be a place to meet and be met.
                 </p>
             </div>
+
+            <section
+                class="issues"
+                aria-labelledby="issues-heading"
+            >
+                <div
+                    class="issues-heading"
+                    id="issues-heading"
+                >
+                    Issues
+                </div>
+
+                <article class="issue">
+                    <div class="issue-details">
+                        <span class="issue-title">
+                            Issue One
+                        </span>
+
+                        <span class="issue-date">
+                            Summer 2026
+                        </span>
+                    </div>
+
+                    <span class="issue-status">
+                        Coming soon
+                    </span>
+                </article>
+            </section>
         </section>
     </main>
 

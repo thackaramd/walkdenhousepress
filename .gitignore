@@ -1,1 +1,4 @@
 .DS_Store
+
+# Paid digital editions are served privately through Cloudflare/R2.
+digital/issue-one/*.pdf

@@ -598,9 +598,78 @@
            PURCHASE
         -------------------------------- */
 
-        .purchase-form {
+        .purchase-options {
 
-            display: inline;
+            width: 100%;
+
+            max-width: 680px;
+
+            margin:
+                0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 16px;
+        }
+
+        .purchase-option {
+
+            padding:
+                28px
+                24px;
+
+            border:
+                1px solid
+                rgba(36, 26, 24, 0.16);
+
+            background:
+                rgba(255, 255, 255, 0.12);
+        }
+
+        .purchase-option-title {
+
+            margin:
+                0
+                0
+                10px;
+
+            font-size: 1.16rem;
+
+            font-weight: normal;
+        }
+
+        .purchase-price {
+
+            margin:
+                0
+                0
+                8px;
+
+            font-size: 1.34rem;
+        }
+
+        .purchase-note,
+        .availability {
+
+            margin:
+                0;
+
+            color: var(--text-soft);
+
+            font-size: 0.9rem;
+
+            line-height: 1.6;
+        }
+
+        .availability {
+
+            margin-top: 3px;
+        }
+
+        .purchase-form {
 
             margin: 0;
         }
@@ -665,6 +734,15 @@
 
             border-color:
                 rgba(36, 26, 24, 0.34);
+        }
+
+        .read-link.sold-out {
+
+            opacity: 0.48;
+
+            cursor: default;
+
+            pointer-events: none;
         }
 
         /* --------------------------------
@@ -1146,6 +1224,20 @@
                 font-size:
                     0.96rem;
             }
+
+            .purchase-options {
+
+                max-width: 390px;
+
+                grid-template-columns: 1fr;
+            }
+
+            .purchase-option {
+
+                padding:
+                    24px
+                    20px;
+            }
         }
 
     </style>
@@ -1328,20 +1420,76 @@
                 for attentive writing and unhurried reading.
             </p>
 
-            <form
-                class="purchase-form"
-                action="https://walkden-parlour-checkout.director-1d7.workers.dev/create-checkout-session"
-                method="post"
+            <div
+                class="purchase-options"
+                aria-label="Purchase options"
             >
 
-                <button
-                    class="read-link"
-                    type="submit"
-                >
-                    Read Issue One — £5
-                </button>
+                <section class="purchase-option">
 
-            </form>
+                    <h2 class="purchase-option-title">
+                        Digital edition
+                    </h2>
+
+                    <p class="purchase-price">
+                        £5
+                    </p>
+
+                    <p class="purchase-note">
+                        Read online immediately after purchase.
+                    </p>
+
+                    <form
+                        class="purchase-form"
+                        action="https://walkden-parlour-checkout.director-1d7.workers.dev/create-checkout-session"
+                        method="post"
+                    >
+
+                        <button
+                            class="read-link"
+                            type="submit"
+                        >
+                            Read digital edition
+                        </button>
+
+                    </form>
+
+                </section>
+
+                <section class="purchase-option">
+
+                    <h2 class="purchase-option-title">
+                        Print edition
+                    </h2>
+
+                    <p class="purchase-price">
+                        £10
+                    </p>
+
+                    <p class="purchase-note">
+                        Free UK postage included.
+                    </p>
+
+                    <p
+                        class="availability"
+                        id="physicalAvailability"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        Available copies: checking…
+                    </p>
+
+                    <a
+                        class="read-link"
+                        id="physicalPurchaseLink"
+                        href="https://buy.stripe.com/3cIdR8bkxbREdfq1d363K00"
+                    >
+                        Buy print edition
+                    </a>
+
+                </section>
+
+            </div>
 
             <p class="contributor-access">
                 Contributor or invited submitter?
@@ -1623,6 +1771,83 @@
         );
 
         updateCarousel();
+
+
+        /* --------------------------------
+           PHYSICAL EDITION STOCK
+        -------------------------------- */
+
+        const physicalAvailability =
+            document.getElementById(
+                "physicalAvailability"
+            );
+
+        const physicalPurchaseLink =
+            document.getElementById(
+                "physicalPurchaseLink"
+            );
+
+        fetch(
+            "https://walkden-parlour-checkout.director-1d7.workers.dev/physical-stock",
+            {
+                headers: {
+                    "Accept": "application/json"
+                }
+            }
+        )
+            .then((response) => {
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        "Stock check failed"
+                    );
+                }
+
+                return response.json();
+            })
+            .then((stock) => {
+
+                const available =
+                    Number(stock.available);
+
+                if (
+                    !Number.isInteger(available) ||
+                    available < 0
+                ) {
+
+                    throw new Error(
+                        "Invalid stock response"
+                    );
+                }
+
+                physicalAvailability.textContent =
+                    `Available copies: ${available}`;
+
+                if (available === 0) {
+
+                    physicalPurchaseLink.textContent =
+                        "Sold out";
+
+                    physicalPurchaseLink
+                        .classList
+                        .add("sold-out");
+
+                    physicalPurchaseLink
+                        .setAttribute(
+                            "aria-disabled",
+                            "true"
+                        );
+
+                    physicalPurchaseLink
+                        .removeAttribute("href");
+                }
+            })
+            .catch(() => {
+
+                physicalAvailability.textContent =
+                    "Limited copies available";
+            });
 
     </script>
 

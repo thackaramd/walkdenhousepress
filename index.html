@@ -332,6 +332,38 @@ main {
     white-space: nowrap;
 }
 
+/* ISSUE LINK */
+
+.issue-link {
+
+    margin-top: 24px;
+
+    font-size: 0.76rem;
+    font-style: italic;
+    letter-spacing: 0.18px;
+
+    color: var(--text-soft);
+
+    text-decoration-color: rgba(122, 86, 74, 0.34);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+
+    opacity: 0.72;
+
+    transition:
+        color 0.25s ease,
+        opacity 0.25s ease,
+        text-decoration-color 0.25s ease;
+}
+
+.issue-link:hover,
+.issue-link:focus-visible {
+
+    color: var(--text);
+    opacity: 0.92;
+    text-decoration-color: var(--accent);
+}
+
 /* SUBTLE FADE */
 
 .hero,
@@ -785,6 +817,11 @@ a:focus-visible {
             and educational projects that bring writing into conversation
             with everyday life.
         </div>
+
+        <a
+            class="issue-link"
+            href="https://walkdenhousepress.co.uk/the-parlour-issue-one.html"
+        >view issue one of the parlour</a>
 
     </section>
 

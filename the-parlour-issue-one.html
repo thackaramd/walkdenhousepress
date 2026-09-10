@@ -1814,18 +1814,22 @@
             })
             .then((stock) => {
 
-                const available =
+                const reportedAvailable =
                     Number(stock.available);
 
                 if (
-                    !Number.isInteger(available) ||
-                    available < 0
+                    !Number.isInteger(reportedAvailable) ||
+                    reportedAvailable < 0
                 ) {
 
                     throw new Error(
                         "Invalid stock response"
                     );
                 }
+
+                // One additional copy removed from availability on 10 September 2026.
+                // Retain the live online-sales count; do not duplicate this in the stock service.
+                const available = Math.max(0, reportedAvailable - 1);
 
                 physicalAvailability.textContent =
                     `Available copies: ${available}`;

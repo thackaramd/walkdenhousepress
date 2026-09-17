@@ -542,6 +542,21 @@
                 font-size: 0.96rem;
             }
         }
+
+        /* Keep mobile navigation visible without covering the page's opening content. */
+        @media (max-width: 760px) {
+            body:not(.menu-open) {
+                overflow-x: clip;
+            }
+
+            .header {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                flex-shrink: 0;
+                background: var(--bg);
+            }
+        }
     </style>
 </head>
 

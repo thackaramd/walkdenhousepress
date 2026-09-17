@@ -273,18 +273,22 @@
             }
         }
 
-        /* Keep mobile navigation visible without covering the page's opening content. */
-        @media (max-width: 760px) {
-            body:not(.menu-open) {
-                overflow-x: clip;
-            }
-
-            .header {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                flex-shrink: 0;
-                background: var(--bg);
+        /* The masthead remains while the content moves beneath it. */
+        body:not(.menu-open) { overflow-x: clip; }
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            flex-shrink: 0;
+            background: var(--bg);
+        }
+        @media (min-width: 761px) {
+            .header { animation: none; }
+            .header.is-compact {
+                padding-top: 16px;
+                padding-bottom: 16px;
+                /* Preserve the original footprint so content does not jump. */
+                margin-bottom: 28px;
             }
         }
     </style>
@@ -415,5 +419,19 @@
 
         confirmPurchase();
     </script>
+
+<script>
+(() => {
+    const header = document.querySelector('.header');
+    const desktop = window.matchMedia('(min-width: 761px)');
+    const updateMasthead = () => {
+        header.classList.toggle('is-compact', desktop.matches && window.scrollY > 32);
+    };
+    window.addEventListener('scroll', updateMasthead, { passive: true });
+    desktop.addEventListener('change', updateMasthead);
+    window.addEventListener('pageshow', updateMasthead);
+    updateMasthead();
+})();
+</script>
 </body>
 </html>

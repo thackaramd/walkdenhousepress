@@ -1847,9 +1847,9 @@
                     );
                 }
 
-                // One additional copy removed from availability on 10 September 2026.
+                // Two additional copies removed from availability as of 25 October 2026.
                 // Retain the live online-sales count; do not duplicate this in the stock service.
-                const available = Math.max(0, reportedAvailable - 1);
+                const available = Math.max(0, reportedAvailable - 2);
 
                 physicalAvailability.textContent =
                     `Available copies: ${available}`;

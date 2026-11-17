@@ -489,6 +489,7 @@
         }
 
         .mobile-menu-header {
+    display: flex;
             position: absolute;
             top: 32px;
             right: 22px;
@@ -517,11 +518,11 @@
         }
 
         .close-icon::before {
-            transform: rotate(45deg);
+            transform: translateY(-50%) rotate(45deg);
         }
 
         .close-icon::after {
-            transform: rotate(-45deg);
+            transform: translateY(-50%) rotate(-45deg);
         }
 
         .mobile-menu-inner {
@@ -1148,6 +1149,19 @@
 
     </script>
 
+
+
+<script>
+// Centre the close control on the menu trigger before the overlay appears.
+document.querySelector(".hamburger").addEventListener("click", function () {
+    const trigger = this.getBoundingClientRect();
+    const menuHeader = document.querySelector(".mobile-menu-header");
+    menuHeader.style.left = (trigger.left + trigger.width / 2) + "px";
+    menuHeader.style.top = (trigger.top + trigger.height / 2) + "px";
+    menuHeader.style.right = "auto";
+    menuHeader.style.transform = "translate(-50%, -50%)";
+}, true);
+</script>
 
 </body>
 </html>

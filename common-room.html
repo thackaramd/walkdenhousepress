@@ -628,7 +628,27 @@
                 animation: none;
             }
         }
-    </style>
+    
+/* Stack the press name within the mobile masthead. */
+@media (max-width: 760px) {
+    .title {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        font-size: 1rem;
+        line-height: 1.1;
+        letter-spacing: 0.06em;
+        text-align: center;
+    }
+
+    .title-press {
+        font-size: 0.75em;
+        letter-spacing: 0.32em;
+        padding-left: 0.32em;
+    }
+}
+</style>
 </head>
 
 <body>
@@ -639,9 +659,7 @@
             aria-label="Walkden House Press Home"
         >
             <div class="title-group">
-                <div class="title">
-                    Walkden House Press
-                </div>
+                <div class="title"><span class="title-name">Walkden House</span> <span class="title-press">Press</span></div>
 
             </div>
         </a>

@@ -332,7 +332,7 @@
             visibility: hidden;
             pointer-events: none;
 
-            transition: background-color 340ms ease, visibility 0s 220ms;
+            transition: background-color 340ms ease, visibility 0s 340ms;
         }
 
         .mobile-menu.show {
@@ -359,12 +359,11 @@
 
         /* Keep the icon independent of the fading menu backdrop. */
         .hamburger {
-            transition: opacity 0s 220ms;
+            transition: opacity 180ms ease;
         }
 
         body:has(.mobile-menu.show) .hamburger {
             opacity: 0;
-            transition-delay: 0s;
         }
 
         .mobile-menu-inner {
@@ -376,9 +375,17 @@
             opacity: 1;
         }
 
+        .close-icon {
+            opacity: 0;
+            transition: opacity 180ms ease;
+        }
+
+        .mobile-menu.show .close-icon {
+            opacity: 1;
+        }
+
         .close-icon::before,
-        .close-icon::after,
-        .close-icon-line {
+        .close-icon::after {
             content: "";
             position: absolute;
             top: 50%;
@@ -386,30 +393,17 @@
             width: 100%;
             height: 1px;
             background-color: var(--text);
-            transition: transform 220ms ease-in-out;
         }
 
-        .close-icon::before { transform: translateY(calc(-50% - 7px)) rotate(0deg); }
-        .close-icon::after { transform: translateY(calc(-50% + 7px)) rotate(0deg); }
-        .close-icon-line {
-            transform: translateY(-50%);
-            transition: opacity 140ms ease;
-        }
-
-        .mobile-menu.show .close-icon::before { transform: translateY(-50%) rotate(45deg); }
-        .mobile-menu.show .close-icon::after { transform: translateY(-50%) rotate(-45deg); }
-        .mobile-menu.show .close-icon-line {
-            opacity: 0;
-        }
+        .close-icon::before { transform: translateY(-50%) rotate(45deg); }
+        .close-icon::after { transform: translateY(-50%) rotate(-45deg); }
 
         @media (prefers-reduced-motion: reduce) {
             .hamburger,
             .mobile-menu,
             .mobile-menu-inner,
             .mobile-menu a,
-            .close-icon::before,
-            .close-icon::after,
-            .close-icon-line {
+            .close-icon {
                 transition: none;
             }
         }
@@ -694,7 +688,7 @@
                 class="close-icon"
                 onclick="toggleMenu()"
                 aria-label="Close menu"
-            ><span class="close-icon-line" aria-hidden="true"></span></div>
+            ></div>
         </div>
 
         <div class="mobile-menu-inner">

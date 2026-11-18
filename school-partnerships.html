@@ -476,7 +476,7 @@
             visibility: hidden;
             pointer-events: none;
 
-            transition: background-color 340ms ease, visibility 0s 340ms;
+            transition: background-color 340ms ease, visibility 0s 220ms;
         }
 
         .mobile-menu.show {
@@ -503,7 +503,7 @@
 
         /* Keep the icon independent of the fading menu backdrop. */
         .hamburger {
-            transition: opacity 0s 340ms;
+            transition: opacity 0s 220ms;
         }
 
         body:has(.mobile-menu.show) .hamburger {
@@ -530,21 +530,20 @@
             width: 100%;
             height: 1px;
             background-color: var(--text);
-            transition: transform 340ms cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 220ms ease-in-out;
         }
 
         .close-icon::before { transform: translateY(calc(-50% - 7px)) rotate(0deg); }
         .close-icon::after { transform: translateY(calc(-50% + 7px)) rotate(0deg); }
         .close-icon-line {
-            transform: translateY(-50%) scaleX(1);
-            transition: transform 220ms ease, opacity 180ms ease;
+            transform: translateY(-50%);
+            transition: opacity 140ms ease;
         }
 
         .mobile-menu.show .close-icon::before { transform: translateY(-50%) rotate(45deg); }
         .mobile-menu.show .close-icon::after { transform: translateY(-50%) rotate(-45deg); }
         .mobile-menu.show .close-icon-line {
             opacity: 0;
-            transform: translateY(-50%) scaleX(0);
         }
 
         @media (prefers-reduced-motion: reduce) {

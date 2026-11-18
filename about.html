@@ -361,6 +361,26 @@
             cursor: pointer;
         }
 
+        /* Let the cross settle in as the menu overlay fades in. */
+        .mobile-menu .close-icon {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 180ms ease, transform 180ms ease;
+        }
+
+        .mobile-menu.show .close-icon {
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 360ms ease-in-out 80ms, transform 360ms ease-out 80ms;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .mobile-menu .close-icon,
+            .mobile-menu.show .close-icon {
+                transition: none;
+            }
+        }
+
         .close-icon::before,
         .close-icon::after {
             content: "";

@@ -91,7 +91,7 @@
 
         .title {
             color: var(--text);
-            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 0.6875rem + 1.18vw, 1.5rem);
             letter-spacing: 0.15px;
             white-space: nowrap;
         }
@@ -492,9 +492,7 @@
                 gap: 20px;
             }
 
-            .title {
-                font-size: 1.25rem;
-            }
+
 
             .title-wrapper {
                 min-height: 2.6rem;
@@ -580,7 +578,7 @@
                 animation: none;
             }
         }
-    
+
 /* Keep the two masthead lines proportionate on desktop. */
 @media (min-width: 761px) {
     .subtitle {

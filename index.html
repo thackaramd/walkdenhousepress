@@ -127,7 +127,7 @@ body::before {
 
 .title {
 
-    font-size: 1.64rem;
+    font-size: 1.5rem;
 
     letter-spacing: 0.15px;
 
@@ -551,7 +551,7 @@ a:focus-visible {
 
     .title {
 
-        font-size: 1.36rem;
+        font-size: 1.25rem;
     }
 
     .nav {
@@ -642,6 +642,14 @@ a:focus-visible {
             }
         }
     
+/* Keep the two masthead lines proportionate on desktop. */
+@media (min-width: 761px) {
+    .subtitle {
+        margin-top: 1px;
+        font-size: 0.60rem;
+        letter-spacing: 0.9px;
+    }
+}
 </style>
 </head>
 

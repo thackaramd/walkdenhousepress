@@ -257,10 +257,14 @@ main {
     gap: 12px;
 }
 
-.printer-mark {
-    display: block;
-    width: clamp(44px, 6vw, 58px);
-    height: auto;
+.issue-heading {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: normal;
+    letter-spacing: 2.2px;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-soft);
 }
 
 .issue-link {
@@ -712,10 +716,9 @@ a:focus-visible {
 
 <main>
     <div class="issue-feature">
-        <img class="printer-mark" src="images/printer-door.svg" width="879" height="1790" alt="Walkden House Press printer’s mark">
+        <h1 class="issue-heading">Literary &amp; Educational Projects</h1>
         <a class="issue-link" href="https://walkdenhousepress.co.uk/the-parlour-issue-one.html">
-            <em>The Parlour</em>
-            <span class="issue-link-action">View Issue One</span>
+            <span class="issue-link-action">View Issue One of <em>The Parlour</em></span>
         </a>
     </div>
 </main>

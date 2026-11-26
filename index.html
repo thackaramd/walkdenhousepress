@@ -257,21 +257,13 @@ main {
     gap: 12px;
 }
 
-.issue-heading {
+.issue-intro {
+    max-width: 38ch;
     margin: 0;
-    font-size: 0.72rem;
-    font-weight: normal;
-    letter-spacing: 2.2px;
+    font-size: clamp(1.125rem, 2.2vw, 1.375rem);
+    line-height: 1.55;
     text-align: center;
-    text-transform: uppercase;
-    color: var(--text-soft);
-}
-
-.issue-cover {
-    display: block;
-    width: clamp(8rem, 18vw, 9.5rem);
-    height: auto;
-    margin-block-start: 0.5rem;
+    text-wrap: pretty;
 }
 
 .issue-link {
@@ -751,14 +743,11 @@ a:focus-visible {
 
 <main>
     <div class="issue-feature">
-        <h1 class="issue-heading">Literary &amp; Educational Projects</h1>
-        <img
-            class="issue-cover"
-            src="images/parlour-issue-one.jpg"
-            width="1049"
-            height="1312"
-            alt="The Parlour Issue One front cover"
-        >
+        <p class="issue-intro">
+            Walkden House Press is the publishing house behind <em>The Parlour</em>
+            and <em>Common Room</em>, developing literary and educational projects
+            that bring writing into conversation with everyday life.
+        </p>
         <a class="issue-link" href="https://walkdenhousepress.co.uk/the-parlour-issue-one.html">
             <span class="issue-link-action">View Issue One of <em>The Parlour</em></span>
         </a>

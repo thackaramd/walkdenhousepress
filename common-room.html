@@ -236,6 +236,7 @@
             width: 100%;
             max-width: 760px;
 
+            animation: fadeIn 1.6s ease;
         }
 
         .kicker {
@@ -349,6 +350,20 @@
         .partnership-note a:hover::after {
             opacity: 0.42;
             transform: scaleX(1);
+        }
+
+        /* Fade */
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Hamburger */
@@ -636,6 +651,7 @@
                 min-height: 80px;
                 padding-top: 16px;
                 padding-bottom: 16px;
+                animation: none;
             }
         }
 

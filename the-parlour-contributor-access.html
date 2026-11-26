@@ -179,6 +179,7 @@
             width: 100%;
             max-width: 760px;
             text-align: center;
+            animation: fadeIn 1.6s ease;
         }
 
         .kicker {
@@ -312,6 +313,18 @@
             color: var(--text-soft);
             font-size: 0.82rem;
             line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hamburger {
@@ -561,6 +574,7 @@
                 min-height: 80px;
                 padding-top: 16px;
                 padding-bottom: 16px;
+                animation: none;
             }
         }
 

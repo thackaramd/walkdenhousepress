@@ -292,6 +292,27 @@ main {
     color: var(--text);
 }
 
+/* SUBTLE FADE */
+
+.header,
+.line {
+
+    animation: fadeIn 1.6s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* HAMBURGER */
 
 .hamburger {
@@ -617,6 +638,7 @@ a:focus-visible {
                 min-height: 80px;
                 padding-top: 16px;
                 padding-bottom: 16px;
+                animation: none;
             }
         }
 

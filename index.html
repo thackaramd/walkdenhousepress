@@ -246,7 +246,7 @@ main {
     flex: 1;
     display: grid;
     place-items: center;
-    padding: 32px clamp(16px, 4vw, 32px) 96px;
+    padding: 32px clamp(17px, 4vw, 32px) 96px;
     position: relative;
     z-index: 2;
 }
@@ -268,18 +268,12 @@ main {
 }
 
 .issue-intro {
-    max-width: 42ch;
+    max-width: 39ch;
     margin: 0;
     font-size: clamp(1rem, 0.8rem + 0.7vw, 1.35rem);
     line-height: 1.5;
     text-align: center;
     text-wrap: balance;
-}
-
-@media (min-width: 761px) {
-    .issue-intro {
-        max-width: 40ch;
-    }
 }
 
 .issue-link {

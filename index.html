@@ -268,9 +268,9 @@ main {
 }
 
 .issue-intro {
-    max-width: 34ch;
-    margin: 0;
-    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    max-width: 33ch;
+    margin: 0 8px;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
     line-height: 1.5;
     text-align: center;
     text-wrap: pretty;
@@ -304,7 +304,8 @@ main {
 /* SUBTLE FADE */
 
 .header,
-.line {
+.line,
+.issue-feature {
 
     animation: fadeIn 1.6s ease;
 }
@@ -436,6 +437,10 @@ body:has(.mobile-menu.show) .hamburger {
 .close-icon::after { transform: translateY(-50%) rotate(-45deg); }
 
 @media (prefers-reduced-motion: reduce) {
+    .issue-feature {
+        animation: none;
+    }
+
     .hamburger,
     .mobile-menu,
     .mobile-menu-inner,
